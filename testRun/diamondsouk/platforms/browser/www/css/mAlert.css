@@ -1,0 +1,126 @@
+﻿.mAlertDialog {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.80);
+    width: 100%;
+    user-select: none;
+        z-index: 999999;
+}
+
+.mAlertDialogBody {
+    font-family: Verdana,sans-serif;
+    min-height: 100px;
+    width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 5px;
+    border: solid 1px #d4d3d3;
+}
+
+.mAlertHeading {
+    color:white;
+    border-radius:5px;
+    border-bottom-left-radius:0px;
+    border-bottom-right-radius:0px;
+    min-height: 40px;
+    width: 100%;
+    font-size: 120%;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: solid 1px #d4d3d3;
+}
+
+.mAlertGradient {
+    background-image: -ms-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+    background-image: -moz-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+    background-image: -o-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(47, #F6F6F6), color-stop(100, #ededed));
+    background-image: -webkit-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+    background-image: linear-gradient(to bottom, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+}
+
+.mAlertClose {
+    min-height: 20px;
+    min-width: 20px;
+    float: right;
+    font-size:100%;
+    margin-right: 5px;
+    cursor: pointer;
+    border-bottom: solid 2px gray;
+    border-radius: 50%;
+}
+    .mAlertClose:after {
+        content:'X';
+    }
+
+.mAlertMessage {
+    width: 100%;
+    min-height: 50px;
+    color:black !important;
+}
+
+.mAlertMessageBody {
+    padding: 5px;
+    text-align: center;
+}
+
+.mAlertFooter {
+    margin-top: auto;
+    /*border-top: solid 1px #d4d3d3;*/
+    min-height: 40px;
+    border-radius:0px 0px 5px 5px;
+    color:black !important;
+    width:100%;
+}
+
+.mAlertFooterButton {
+    color:black !important;
+    min-height: 40px;
+    text-align: center;
+    border: none;
+    border-top: solid 1px #d4d3d3;
+    background-image: -ms-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+    background-image: -moz-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+    background-image: -o-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(47, #F6F6F6), color-stop(100, #ededed));
+    background-image: -webkit-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+    background-image: linear-gradient(to bottom, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+}
+
+.mAlertFooterOk {
+    height: 100%;
+}
+
+.mAlertFooterOkOnly {
+    padding: 5px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.mAlertFooterYes {
+    width: 50%;
+    float: left;
+    border-radius:0px 0px 0px 5px;
+}
+
+.mAlertFooterNo {
+    width: calc(50% - 1px);
+    float: right;
+    border-left: solid 1px #d4d3d3;
+    border-radius:0px 0px 5px 0px;
+}
+.mAlertINFO {
+        background-color: #4CAF50
+}
+.mAlertWARNING {
+        background-color: #ff9800
+}
+.mAlertERROR {
+        background-color: #f44336;
+}
+.mAlertYESNO {
+        background-color: #4CAF50;
+}

@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Chorus</title>
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/mAlert.css" rel="stylesheet" />
+    <style type="text/css">
+        .descitption {
+            padding: 5px 0px 5px 2px;
+        }
+
+            .descitption span {
+                font-size: 110%;
+            }
+
+                .descitption span b {
+                    font-size: 111%;
+                }
+    </style>
+</head>
+<body>
+    <div id="container" class="container app bg">
+        <div id="dataas"></div>
+        <div id="cartMain">
+            <div style="width:100%; margin: 0 auto; height:400px;" class="old">
+                <img style="width:100%; margin: 0 auto;" />
+            </div>
+            <div style="width:100%; margin: 0 auto; height:100px;">
+                <button onclick="ShowImageLoader()" style="font-size:90%; width:120px;height:40px; color:black; padding:5px;" class="button">Select</button>
+                <button onclick="UploadImage()" style="font-size:90%; width:120px;height:40px; color:black; padding:5px;" class="button">Save</button>
+            </div>
+        </div>
+    </div>
+    <div id="profileModal" style="width:100%" class="modalDialog">
+
+    </div>
+    <div id="openModalProgress" class="modalDialog">
+        <div style="width:90%; margin:0 auto; margin-top:120px; color:white; border:solid 1px white; border-radius:5px; padding:10px; text-align:center; background-color:rgba(0, 0, 0, 0.53)">
+            <p class="title-hero">Your request is being processing...</p>
+            <div style="width:140px; margin:0 auto">
+                <img src="./img/loader-light.gif" />
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/cropist.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/site.js"></script>
+    <script src="js/mAlert.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+
+    <script type="text/javascript">
+        function ShowImageLoader() {
+            imageBase = null;
+            $("#file").click();
+        }
+        Common.GetCustomer();
+        Common.LoadPage("imageCropper.html", function (s, r) {
+            $("#profileModal").html(r);
+        }, false);
+        Common.LoadPage("header.html", function (s, r) {
+            //Commom.showError(s);
+            $("#dataas").html(r);
+
+            var mDocument = document.getElementsByClassName('bg')[0];
+            document.getElementById('headerTop').style.width = mDocument.clientWidth + 'px';
+            document.getElementById('headerTop').style.left = mDocument.offsetLeft + 'px';
+            document.getElementById('MenumodalDialog').style.width = mDocument.clientWidth + 'px';
+            document.getElementById('MenumodalDialog').style.left = mDocument.offsetLeft + 'px';
+
+            Common.Get("customers/get_user_image?id=" + login.logData.Id + "&thumbOnly=true", function (s, r) {
+                $('.hexagon').find('img').attr('src', 'data:image/png;base64,' + r.replace(/"/g, ""));
+                $('.old').find('img').attr('src', 'data:image/png;base64,' + r.replace(/"/g, ""));
+                Common.Get("customers/get_user_image?id=" + login.logData.Id + "&thumbOnly=false", function (s, r) {
+                    if (s == true) {
+                        $('.old').find('img').attr('src', 'data:image/png;base64,' + r.replace(/"/g, ""));
+                    }
+                }, true);
+
+            }, false);
+
+            $("#topTitle").html("CHANGE PROFILE");
+
+
+
+        });
+        ////////////////////////////////////////////////////
+        function SetImageSrc(src) {
+            $('.old').find('img').attr('src', src);
+            imageBase = src;
+            $("#profileModal").removeClass("showModal");
+        }
+        var imageBase = null;
+       
+        function UploadImage() {
+            if (imageBase == null) {
+                Common.showError("Please select image first");
+            }
+            else {
+                var imageData = { userImage: { id: login.logData.Id, base64String: imageBase.split("data:image/png;base64,")[1] } }
+                Common.Post(imageData, "/customers/upload_user_image", function (s, r) {
+                    if (s)
+                    {
+                        Common.Get("customers/get_user_image?id=" + login.logData.Id + "&thumbOnly=true", function (s, r) {
+                            $('.hexagon').find('img').attr('src', 'data:image/png;base64,' + r.replace(/"/g, ""));
+                            }, false)
+                    }
+                }, true);
+            }
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,455 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Chorus</title>
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/mAlert.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container" class="container app bg">
+        <div class="clearfix" style="height:5px;"></div>
+        <div id="dataas"></div>
+        <div id="cartMain">
+            <div style="margin:10px; color:white; font-size:110%;font-weight:500;">
+                <b>Shape: </b> <span>Round Diamond</span>
+            </div>
+            <div class="clearfix"></div>
+            <div class="linearLayout colorSelection">
+                <div class="RadioGroup">
+                    <div class="marb10"><b>Color</b> </div>
+                    <div onclick="LoadProduct('Round White',236)" class="radioColor">
+                        <img src="img/radio_unchkecked.png" /><span>White</span>
+                    </div>
+                    <div onclick="LoadProduct('Round',117)" class="radioColor">
+                        <img src="img/radio_unchkecked.png" /><span>Brown</span>
+                    </div>
+                    <div onclick="LoadProduct('Round',118)" class="radioColor">
+                        <img src="img/radio_unchkecked.png" /><span>Yellow</span>
+                    </div>
+                    <div id="colorNote" style="display:none" class="marb10">
+                        <span style="font-size:12px; font-weight:400" class="colordarkgray">Note: Our parcels for the white color will have an average grading of FGH color</span>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="linearLayout">
+                <div class="RadioGroup sizeSelection">
+                    <div class="marb10"><b>Size</b> </div>
+                    <div onclick="sizeSelected(this)" class="radioColor">
+                        <img src="img/radio_unchkecked.png" /><span>-2</span>
+                    </div>
+                    <div onclick="sizeSelected(this)" class="radioColor">
+                        <img src="img/radio_unchkecked.png" /><span>+2-6.5</span>
+                    </div>
+                    <div onclick="sizeSelected(this)" class="radioColor">
+                        <img src="img/radio_unchkecked.png" /><span>+6.5-11</span>
+                    </div>
+
+
+
+                    <div onclick="sizeSelected(this)" class="radioColor sizeWhiteOnly">
+                        <img src="img/radio_unchkecked.png" /><span>+11-14</span>
+                    </div>
+                    <div onclick="sizeSelected(this)" class="radioColor sizeWhiteOnly">
+                        <img src="img/radio_unchkecked.png" /><span>+14</span>
+                    </div>
+                    <div onclick="sizeSelected(this)" class="radioColor sizeWhiteOnly">
+                        <img src="img/radio_unchkecked.png" /><span>20 Pts</span>
+                    </div>
+                    <div onclick="sizeSelected(this)" class="radioColor sizeWhiteOnly">
+                        <img src="img/radio_unchkecked.png" /><span>25 Pts</span>
+                    </div>
+
+                    <div id="sizeNote" style="display:none; width:100%;display:table" class="marb10">
+                        <span style="font-size:12px; font-weight:400" class="colordarkgray"></span>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="linearLayout">
+                <div class="RadioGroup claritySelection">
+                    <div class="marb10"><b>Clarity</b> </div>
+                    <div onclick="claritySelected(228)" class="radioclearity cls236">
+                        <img src="img/radio_unchkecked.png" /><span>vvs</span>
+                    </div>
+                    <div onclick="claritySelected(229)" class="radioclearity cls236">
+                        <img src="img/radio_unchkecked.png" /><span>vs</span>
+                    </div>
+                    <div onclick="claritySelected(230)" class="radioclearity cls236">
+                        <img src="img/radio_unchkecked.png" /><span>si1</span>
+                    </div>
+                    <div onclick="claritySelected(231)" class="radioclearity cls236">
+                        <img src="img/radio_unchkecked.png" /><span>si2</span>
+                    </div>
+                    <div onclick="claritySelected(232)" class="radioclearity cls236">
+                        <img src="img/radio_unchkecked.png" /><span>si3</span>
+                    </div>
+                    <div onclick="claritySelected(233)" class="radioclearity cls236">
+                        <img src="img/radio_unchkecked.png" /><span>i1</span>
+                    </div>
+                    <div onclick="claritySelected(234)" class="radioclearity cls236">
+                        <img src="img/radio_unchkecked.png" /><span>I1</span>
+                    </div>
+                    <div onclick="claritySelected(235)" class="radioclearity cls236">
+                        <img src="img/radio_unchkecked.png" /><span>I2</span>
+                    </div>
+
+
+                    <div style="width:33.33%" onclick="claritySelected(114)" class="radioclearity cls237">
+                        <img src="img/radio_unchkecked.png" /><span>vvs/vs</span>
+                    </div>
+                    <div style="width:33.33%" onclick="claritySelected(115)" class="radioclearity cls237">
+                        <img src="img/radio_unchkecked.png" /><span>si1/2</span>
+                    </div>
+                    <div style="width:33.33%" onclick="claritySelected(116)" class="radioclearity cls237">
+                        <img src="img/radio_unchkecked.png" /><span>si3/i1</span>
+                    </div>
+                    <div id="clarityNote" style="display:none; width:100%;display:table" class="marb10">
+                        <span style="font-size:12px; font-weight:400" class="colordarkgray">Note: We assort our diamonds as per international standard. Maximum 10% of variation.</span>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="linearLayout">
+                <div class="RadioGroup">
+                    <div class=""><b>Carat</b> </div>
+                </div>
+                <div style="margin-top:5px;" class="editText normal">
+                    <input class="carat" type="number" maxlength="10" style="width:100%;font-size: 102%;font-weight: 600;" />
+                </div>
+            </div>
+            <div class="linearLayout" id="pricePercarat" style="display:none;padding:5px;">
+                <div id="pricePercarat" style="width:100%;display:table" class="marb10">
+                    <span style="font-size:12px; font-weight:400" class="colordarkgray">Note: We assort our diamonds as per international standard. Maximum 10% of variation.</span>
+                </div>
+            </div>
+            <div class="linearLayout" style="min-height:135px;padding:0px;">
+                <div id="disCalc" style="height:20px;padding:0px;text-align:center;display:none; margin-top:5px;">
+                    <img style="width:15px; height:15px; margin-right:5px;" src="img/prog.gif" /><span>CALCULATING DISCOUNT</span> 
+                </div>
+                <div id="disPercent" style="height:20px;padding:0px;text-align:center;display:none;" class="grdHeader">
+                    <span style="font-size:90%"></span>
+                </div>
+                <div class="priceTab" style="margin-top:5px;">
+                    <div class="text-center">
+                        <strong><b style="font-weight: bolder; font-size:170%">PRICE</b></strong>
+                    </div>
+                    <div style="margin-top:10px;" class="text-center">
+                        <span style="font-weight: bolder;font-size:140%;" class="total">$0.00</span>
+                    </div>
+                </div>
+            </div>
+            <div onclick="AddToCart()" style="margin-top: -34px; height:50px; margin-left:5px; margin-right:5px;" class="button buttonBlue">
+                <button style="color: white;">ADD TO CART</button>
+            </div>
+            <div style="height:20px;" class="clearfix"></div>
+        </div>
+    </div>
+
+    <div id="openModalProgress" class="modalDialog">
+        <div style="width:90%; margin:0 auto; margin-top:120px; color:white; border:solid 1px white; border-radius:5px; padding:10px; text-align:center; background-color:rgba(0, 0, 0, 0.53)">
+            <p class="title-hero">Your request is being processing...</p>
+            <div style="width:140px; margin:0 auto">
+                <img src="./img/loader-light.gif" />
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/site.js"></script>
+    <script src="js/mAlert.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+
+    <script type="text/javascript">
+        Common.GetSieves();
+        Common.GetCustomer();
+        Common.LoadPage("header.html", function (s, r) {
+            //Commom.showError(s);
+            $("#dataas").html(r);
+
+            var mDocument = document.getElementsByClassName('bg')[0];
+            document.getElementById('headerTop').style.width = mDocument.clientWidth + 'px';
+            document.getElementById('headerTop').style.left = mDocument.offsetLeft + 'px';
+            document.getElementById('MenumodalDialog').style.width = mDocument.clientWidth + 'px';
+            document.getElementById('MenumodalDialog').style.left = mDocument.offsetLeft + 'px';
+
+            Common.Get("customers/get_user_image?id=" + login.logData.Id + "&thumbOnly=true", function (s, r) {
+                $('.hexagon').find('img').attr('src', 'data:image/png;base64,' + r.replace(/"/g, ""));
+            }, false);
+
+            $("#topTitle").html("NEW ORDER");
+
+            $('.cls237').hide();
+            $('.sizeWhiteOnly').hide();
+            $("#colorNote").hide();
+            $("#clarityNote").hide();
+            
+        });
+        ////////////////////////////////////////////////////
+
+        var currentProduct = null;
+        var color = 0;
+        function LoadProduct(product, clr) {
+            currentProduct = null;
+            color = clr;
+            $("#colorNote").hide();
+            $("#sizeNote").hide();
+            $("#clarityNote").hide()
+            if (color == 236) {
+                $('.cls236').show();
+                $('.cls237').hide();
+                $('.sizeWhiteOnly').show();
+                $("#colorNote").show();
+            }
+            else {
+
+                $('.cls237').show();
+                $('.cls236').hide();
+                $('.sizeWhiteOnly').hide();
+            }
+            Common.Get("products?name=" + product, function (s, r) {
+                rdbSelecteted($('.sizeSelection'), null, '.radioColor');
+                rdbSelecteted($('.claritySelection'), null, '.radioclearity');
+                size = 0;
+                clarity = 0;
+                if (s == true) {
+                    currentProduct = r.products[0];
+
+                    GetPrice();
+                }
+                else {
+                    color = 0;
+                    rdbSelecteted($('.colorSelection'), null, '.radioColor');
+                    Common.showError(r);
+                }
+            });
+        }
+
+        $('.radioColor').click(function () {
+            rdbSelecteted($(this).parent(), $(this), '.radioColor');
+        });
+        $('.radioclearity').click(function () {
+            rdbSelecteted($(this).parent(), $(this), '.radioclearity');
+        });
+
+        function rdbSelecteted(parent, ch, seletor) {
+            if ($(parent).find(seletor).length > 1) {
+                $(parent).find(seletor).each(function () {
+                    $(this).children('img').attr('src', "img/radio_unchkecked.png");
+                });
+                $(ch).children('img').attr('src', "img/radio_chkecked.png");
+
+                $(parent).find(seletor).each(function () {
+                    $(this).children('span').attr('style', "color:#464646");
+                });
+                $(ch).children('img').attr('src', "img/radio_chkecked.png");
+                $(ch).children('span').attr('style', "color:#016e8d");
+            }
+            else {
+                if ($(ch).children('img').attr('src').indexOf('radio_unchkecked') > -1) {
+                    $(ch).children('img').attr('src', "img/radio_chkecked.png");
+                    $(ch).children('span').attr('style', "color:#016e8d");
+                }
+                else {
+                    $(ch).children('img').attr('src', "img/radio_unchkecked.png");
+                    $(ch).children('span').attr('style', "color:#464646");
+                }
+            }
+        }
+
+
+        var size = 0;
+        function sizeSelected(s) {
+            size = GetAttrVal($(s).text().trim());
+            var s1 = Common.GetSieves();
+            for (i in s1) {
+                if (s1[i].size == $(s).text().trim()) {
+                    $("#sizeNote").find('span').html("Approx Sieves Ratio: " + s1[i].ratio);
+                    $("#sizeNote").show();
+                }
+            }
+            GetPrice();
+        }
+        clarity = 0;
+        function claritySelected(c) {
+
+            clarity = c;
+            GetPrice();
+
+            $("#clarityNote").show();
+        }
+        function GetAttrVal(nm) {
+            var rtn = 0;
+            var selectedAttrr = [];
+            var attrs = currentProduct.attributes;
+            for (i in attrs) {
+                var vals = attrs[i].attribute_values;
+                for (j in vals) {
+                    if (nm.toLowerCase() == vals[j].name.toLowerCase()) {
+                        rtn = vals[j].id;
+                    }
+                }
+            }
+            return rtn;
+        }
+        var isReadyAddCart = false;
+        var dataCart;
+        var carat = 0;
+        function GetPrice() {
+
+            $("#disPercent").hide();
+            $("#pricePercarat").hide();
+            isReadyAddCart = true;
+            dataCart = addTocart;
+            var carat = 0;
+            total = 0;
+            try {
+
+                carat = parseFloat($('.carat').val());
+                if (isNaN(carat)) {
+                    carat = 0;
+                }
+
+            } catch (e) { }
+            if (color == 0 || size == 0 || clarity == 0) {
+                $('.total').html("$" + total);
+                isReadyAddCart = false;
+                return;
+            }
+            var price = 0.0;
+            for (i in currentProduct.product_attribute_combination) {
+                cmb = currentProduct.product_attribute_combination[i];
+                var temp = "" + color + "" + clarity + "" + size + "";
+                for (j in cmb.attributes) {
+                    var a = cmb.attributes[j];
+                    temp = temp.replace(a.value, "");
+                }
+                if (temp == "") {
+
+                    dataCart.shopping_cart_item.product_attributes = currentProduct.product_attribute_combination[i].attributes;
+                    price = currentProduct.product_attribute_combination[i].OverriddenPrice;
+                }
+            }
+            if (price == 0) {
+                price = currentProduct.price;
+            }
+            $("#pricePercarat").find('span').html('Price per carat is $' + parseFloat(price).toFixed(2) + ' as per above selection');
+            $("#pricePercarat").show();
+            total = parseFloat(carat * price).toFixed(2);
+           
+            if (carat > 0) {
+                var dataToPost = { productdiscount: { productId: dataCart.shopping_cart_item.product_id, qty: carat, customerId: login.logData.Id, attributes: dataCart.shopping_cart_item.product_attributes } };
+                $("#disCalc").show();
+                $("#pricePercarat").hide();
+                Common.Post(dataToPost, "products/get_product_discount_by_customerId", function (s, resul) {
+                    if (s == true) {
+                        if (resul != 0) {
+                            var dis = total - (total * (resul / 100))
+                            $('.total').html("$" + parseFloat(dis).toFixed(2));
+                            $("#disPercent").show();
+                            $("#disPercent").find("span").html(parseFloat(resul).toFixed(2) + "% dicount has been applied");
+                            if (carat <= 0)
+                            {
+                                $("#disPercent").hide();
+                            }
+                        }
+                    }
+                    $("#disCalc").hide();
+                }, false);
+
+            }
+            else {
+                isReadyAddCart = false;
+            }
+            $('.total').html("$" + total);
+            if (currentProduct.product_attribute_combination.length == 0) {
+                var selectedAttrr = [];
+                var attrs = currentProduct.attributes;
+                for (i in attrs) {
+                    var vals = attrs[i].attribute_values;
+                    for (j in vals) {
+                        if (color == vals[j].id || clarity == vals[j].id || vals[j].id == size) {
+                            selectedAttrr.push({ id: attrs[i].id, value: vals[j].id });
+                            dataCart.shopping_cart_item.product_attributes = selectedAttrr;
+                        }
+                    }
+                }
+            }
+
+            dataCart.shopping_cart_item.product_id = currentProduct.id;
+            dataCart.shopping_cart_item.quantity = carat;
+        }
+
+        $('.carat').keyup(function (event) {
+            var phoneno = /^(?=.?\d)\d*(\.\d{0,9})?$/;
+            var text = $(this).val().replace(/-/g, "");
+
+            if (text.match(phoneno) && text.length <= 10) {
+                if (text.indexOf(".") > -1 && (text.substr(text.indexOf(".") + 1)).length > 2) {
+                    $(this).val(text.substr(0,text.indexOf(".") + 3));
+                    console.log($(this).val());
+                }
+                GetPrice();
+                return true;
+            }
+            else {
+                var str = $(this).val();
+                var pos = str.lastIndexOf(event.key);
+                str = str.substring(0, pos) + '' + str.substring(pos + 1)
+                $(this).val(str);
+                GetPrice();
+                return false;
+            }
+        });
+
+        function AddToCart() {
+            if (isReadyAddCart) {
+                dataCart.shopping_cart_item.customer_id = login.logData.Id
+                var dataTopost = { json: JSON.stringify(dataCart) };
+
+                Common.Post(dataCart, "shopping_cart_items", function (s, r) {
+                    if (s == true) {
+                        login.logData.CartCount = r.cartCount;
+                        Common.SetJsonToLocal('ChorusUserDetail', JSON.stringify(login.logData));
+                        Common.PrintInnerHtml($('#cartCount'), '' + login.logData.CartCount + "")
+                        Common.showConfirmDialog("Diamond purchase added to cart.<br/>Do you want to go to cart?", function () {
+                            window.location.href = 'cart.html';
+                        });
+                    }
+                })
+
+            }
+            else {
+                if (color == 0)
+                {
+                    Common.showError("Please select color");
+                }
+                else if (size == 0)
+                {
+                    Common.showError("Please select size");
+                }
+                else if (clarity == 0) {
+                    Common.showError("Please select clarity");
+                }
+                else if (carat == 0) {
+                    Common.showError("Please enter carat");
+                }
+            }
+        }
+
+        ////////////////////////////
+
+        var addTocart = {
+            shopping_cart_item:
+            { quantity: 0, id: 0, product_attributes: null, created_on_utc: new Date(), product_id: 0, shopping_cart_type: 1, customer_id: '@customer_id' }
+        };
+
+    </script>
+
+</body>
+</html>

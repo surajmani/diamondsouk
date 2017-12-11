@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Chorus</title>
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/mAlert.css" rel="stylesheet" />
+    <style type="text/css">
+        .template {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" class="container app bg">
+        <div id="dataas"></div>
+        <div id="cartMain">
+            <div style="height:20px;" class="clearfix"></div>
+
+            <div class="linearLayout" style="min-height:400px; padding-left: 0px; padding-right: 0px;">
+                <div class="template" style="border-bottom:solid 1px gray">
+                    <div style="padding:10px;">
+                        <div class="colorPrimary" style="font-size:105%; font-weight:bold">~date</div>
+                        <div style="margin-top:3px;font-size:95%;" class="colorgray">~text</div>
+                    </div>
+                </div>
+                <div id="dataToRender"></div>
+                <div style="padding:5px;" id="noNotifications">
+                    <b style="font-size: 120%;" class="colordarkgray">No notifications yet</b><br />
+                    <b style="font-size: 120%;" class="colordarkgray">Your las 20 notifications will appear here</b>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="openModalProgress" class="modalDialog">
+        <div style="width:90%; margin:0 auto; margin-top:120px; color:white; border:solid 1px white; border-radius:5px; padding:10px; text-align:center; background-color:rgba(0, 0, 0, 0.53)">
+            <p class="title-hero">Your request is being processing...</p>
+            <div style="width:140px; margin:0 auto">
+                <img src="./img/loader-light.gif" />
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/site.js"></script>
+    <script src="js/mAlert.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+
+    <script type="text/javascript">
+
+        Common.GetCustomer();
+        Common.LoadPage("header.html", function (s, r) {
+            //Commom.showError(s);
+            $("#dataas").html(r);
+
+            var mDocument = document.getElementsByClassName('bg')[0];
+            document.getElementById('headerTop').style.width = mDocument.clientWidth + 'px';
+            document.getElementById('headerTop').style.left = mDocument.offsetLeft + 'px';
+            document.getElementById('MenumodalDialog').style.width = mDocument.clientWidth + 'px';
+            document.getElementById('MenumodalDialog').style.left = mDocument.offsetLeft + 'px';
+
+            Common.Get("customers/get_user_image?id=" + login.logData.Id + "&thumbOnly=true", function (s, r) {
+                $('.hexagon').find('img').attr('src', 'data:image/png;base64,' + r.replace(/"/g, ""));
+            }, false);
+
+            $("#topTitle").html("NOTIFICATIONS");
+            Common.Get("customers/GetUserNotications/" + login.logData.Id, function (s, data) {
+                if (s == true)
+                {
+                    $('#noNotifications').hide();
+                    for (var i = 0; i < data.notification.length; i++) {
+                        var template = $('.template').clone();
+                        $(template).removeClass('template');
+                        var html = $(template).html();
+                        html = html.replace('~date', data.notification[i].date);
+                        html = html.replace('~text', data.notification[i].message);
+                        $(template).html(html);
+                        $('#dataToRender').append(template);
+                    }
+                }
+            }, true);
+
+        });
+        ////////////////////////////////////////////////////
+
+
+    </script>
+
+</body>
+</html>

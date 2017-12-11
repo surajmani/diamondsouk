@@ -1,0 +1,11 @@
+{
+    "AVFoundation.framework": 1,
+    "CoreMedia.framework": 1,
+    "CoreVideo.framework": 1,
+    "QuartzCore.framework": 1,
+    "SystemConfiguration.framework": 1,
+    "libz.tbd": 2,
+    "AudioToolbox.framework": 1,
+    "AddressBook.framework": 1,
+    "libsqlite3.tbd": 1
+}

@@ -243,3 +243,18 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/testRun/Web.Release.config
+/testRun/Web.Debug.config
+/testRun/Web.config
+/testRun/testRun.csproj
+/testRun/Properties
+/testRun/packages.config
+/testRun/package.json
+/testRun/package-lock.json
+/testRun/index.html
+/testRun/fun.html
+/testRun/diamondsouk.zip
+/testRun/config.xml
+/testRun/Chorus.zip
+/testRun/.npmignore
+/testRun/.bithoundrc

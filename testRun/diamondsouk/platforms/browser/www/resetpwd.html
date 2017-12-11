@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Chorus</title>
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/mAlert.css" rel="stylesheet" />
+</head>
+<body onload="Common.initializeSite()">
+    <div id="container" class="container app bg">
+        <div class="clearfix" style="height:15px;"></div>
+        <div class="row" style="margin:0px;">
+            <div class="logo"></div>
+        </div>
+        <div class="row">
+            <div style="margin-top:30px; font-weight:bold; text-align:center;font-size: 120%;color:white">FORGOT PASSWORD</div>
+        </div>
+        <div style="margin-top:40px;">
+            <div class="editText">
+                <input id="reset" type="text" value="" placeholder="email ID" />
+            </div>
+        </div>
+        <div style="margin-top:10px;">
+            <div class="button">
+                <button onclick="resetPwd()" id="btnReset">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="openModalProgress" class="modalDialog">
+        <div style="width:90%; margin:0 auto; margin-top:120px; color:white; border:solid 1px white; border-radius:5px; padding:10px; text-align:center; background-color:rgba(0, 0, 0, 0.53)">
+            <p class="title-hero">Your request is being processing...</p>
+            <div style="width:140px; margin:0 auto">
+                <img src="./img/loader-light.gif" />
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/site.js"></script>
+    <script src="js/mAlert.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript">
+        function resetPwd() {
+            Common.Get("customers/PasswordRecoverySend?emal=" + $('#reset').val(), function (s, r) {
+                
+                if(s==true)
+                {
+                    Common.showInfo(r);
+                }
+            }, true);
+        }
+    </script>
+</body>
+</html>

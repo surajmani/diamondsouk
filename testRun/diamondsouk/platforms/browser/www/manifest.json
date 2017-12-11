@@ -1,0 +1,12 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "diamondsouk",
+  "short_name": "diamondsouk",
+  "version": "com.diamondsouk",
+  "description": "Diamond Souk.",
+  "author": "Diamond Souk Team",
+  "icons": [],
+  "start_url": "index.html",
+  "theme_color": "#ee6e73"
+}
