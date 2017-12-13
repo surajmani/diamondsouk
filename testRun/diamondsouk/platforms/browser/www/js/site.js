@@ -1,4 +1,4 @@
-var baseUrl = 'http://192.168.43.73/api/';
+var baseUrl = 'https://www.diamondsouk.ae/api/';
 var Common = {
     beforeSend: function () {
         var header = {};
