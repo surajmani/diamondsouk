@@ -17,13 +17,13 @@
     <feature name="PushNotification">
         <param name="android-package" value="com.adobe.phonegap.push.PushPlugin" />
     </feature>
-    <name>diamondsouk</name>
+    <name>Diamondsouk</name>
     <description>
-        Diamond Souk.
-    </description>
+    Diamond Souk.
+  </description>
     <author email="support@diamondsouk.ae" href="">
-        Diamond Souk Team
-    </author>
+    Diamond Souk Team
+  </author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -32,6 +32,18 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <icon density="ldpi" src="res/icons/android/ldpi.png" />
+    <icon density="mdpi" src="res/icons/android/mdpi.png" />
+    <icon density="hdpi" src="res/icons/android/hdpi.png" />
+    <icon density="xhdpi" src="res/icons/android/xhdpi.png" />
+    <icon density="xxhdpi" src="res/icons/android/xxhdpi.png" />
+    <icon density="xxxhdpi" src="res/icons/android/xxxhdpi.png" />
+    <splash density="port-ldpi" src="res/screens/android/splash-port-ldpi.png" />
+    <splash density="port-mdpi" src="res/screens/android/splash-port-mdpi.png" />
+    <splash density="port-hdpi" src="res/screens/android/splash-port-hdpi.png" />
+    <splash density="port-xhdpi" src="res/screens/android/splash-port-xhdpi.png" />
+    <splash density="port-xxhdpi" src="res/screens/android/splash-port-xxhdpi.png" />
+    <splash density="port-xxxhdpi" src="res/screens/android/splash-port-xxxhdpi.png" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
     <preference name="DisallowOverscroll" value="true" />
