@@ -143,7 +143,7 @@
                     </div>
                 </div>
             </div>
-            <div onclick="AddToCart()" style="margin-top: -34px; height:50px; margin-left:5px; margin-right:5px;" class="button buttonBlue">
+            <div onclick="AddToCart()" style="margin-top: -37px; height:50px; margin-left:5px; margin-right:5px;" class="button buttonBlue">
                 <button style="color: white;">ADD TO CART</button>
             </div>
             <div style="height:20px;" class="clearfix"></div>
@@ -179,7 +179,7 @@
             document.getElementById('MenumodalDialog').style.left = mDocument.offsetLeft + 'px';
 
             Common.Get("customers/get_user_image?id=" + login.logData.Id + "&thumbOnly=true", function (s, r) {
-                $('.hexagon').find('img').attr('src', 'data:image/png;base64,' + r.replace(/"/g, ""));
+                $('.hexagon').attr('style', 'background-image:url(data:image/png;base64,' + r.replace(/"/g, "")+')');
             }, false);
 
             $("#topTitle").html("NEW ORDER");
@@ -266,13 +266,13 @@
         var size = 0;
         function sizeSelected(s) {
             size = GetAttrVal($(s).text().trim());
-            var s1 = Common.GetSieves();
-            for (i in s1) {
-                if (s1[i].size == $(s).text().trim()) {
-                    $("#sizeNote").find('span').html("Approx Sieves Ratio: " + s1[i].ratio);
-                    $("#sizeNote").show();
-                }
-            }
+            //var s1 = Common.GetSieves();
+            //for (i in s1) {
+            //    if (s1[i].size == $(s).text().trim()) {
+            //        $("#sizeNote").find('span').html("Approx Sieves Ratio: " + s1[i].ratio);
+            //        $("#sizeNote").show();
+            //    }
+            //}
             GetPrice();
         }
         clarity = 0;
@@ -283,6 +283,7 @@
 
             $("#clarityNote").show();
         }
+        var customVariationPriceIncrement=0;
         function GetAttrVal(nm) {
             var rtn = 0;
             var selectedAttrr = [];
@@ -292,6 +293,9 @@
                 for (j in vals) {
                     if (nm.toLowerCase() == vals[j].name.toLowerCase()) {
                         rtn = vals[j].id;
+                        $("#sizeNote").find('span').html("Approx Sieves Ratio: " + vals[j].default_value);
+                        $("#sizeNote").show();
+                        customVariationPriceIncrement = parseFloat(vals[j].price_adjust_on_default_value);
                     }
                 }
             }

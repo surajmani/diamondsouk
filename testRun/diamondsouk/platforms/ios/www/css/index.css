@@ -228,7 +228,7 @@ textarea {
     color: #464646;
     background: white;
     height: 100vh;
-    width: 75% !important;
+    width: 90% !important;
     float: left;
 }
 
@@ -253,7 +253,13 @@ textarea {
     padding: 10px;
     padding-left: 20px;
     margin: 0px;
+    font-weight: bold;
 }
+
+    .MenumodalDialogInner li a {
+        font-size: 105%;
+        font-weight: 200;
+    }
 
 .modalDialog {
     position: fixed;
@@ -360,12 +366,12 @@ button {
     background-image: url(../img/btnsign.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    height:40px;
+    height: 40px;
 }
 
     .buttonCrop button {
-    padding: 5px 0 5px 0;
-        height:30px;
+        padding: 5px 0 5px 0;
+        height: 30px;
         width: 30%;
         background-image: url(../img/btntab.png);
         background-repeat: no-repeat;
@@ -395,17 +401,22 @@ button {
     min-width: 40px;
 }
 
-.button button {
-    color: black;
-    font-weight: bold;
-    width: 100% !important;
-    background: none !important;
-    outline: none !important;
-    border: none !important;
-    max-width: 100% !important;
-    padding: 10px;
-    height: 50px !important;
+.button {
+    min-height: 55px;
 }
+
+    .button button {
+        color: black;
+        font-weight: bolder;
+        width: 100% !important;
+        background: none !important;
+        outline: none !important;
+        border: none !important;
+        max-width: 100% !important;
+        padding: 10px;
+        height: 55px !important;
+        font-size: 120%;
+    }
 
 .buttonBlue {
     background-image: url(../img/btnsignup.png) !important;
@@ -414,14 +425,74 @@ button {
 .hexagonOuter {
     width: 78px;
     margin: 0 auto;
-    margin-top: -32px;
+    margin-top: -46px;
 }
 
 .hexagon {
-    width: 64px;
-    height: 64px;
-    -webkit-clip-path: polygon( 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25% );
-    clip-path: polygon( 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25% );
+    position: relative;
+    width: 80px;
+    height: 46.19px;
+    margin: 23.09px 0;
+    background-image: url(../img/default-avatar.jpg);
+    background-size: auto 92.3760px;
+    background-position: center;
+}
+
+.hexTop,
+.hexBottom {
+    position: absolute;
+    z-index: 1;
+    width: 56.57px;
+    height: 56.57px;
+    overflow: hidden;
+    -webkit-transform: scaleY(0.5774) rotate(-45deg);
+    -ms-transform: scaleY(0.5774) rotate(-45deg);
+    transform: scaleY(0.5774) rotate(-45deg);
+    background: inherit;
+    left: 11.72px;
+}
+
+    /*counter transform the bg image on the caps*/
+    .hexTop:after,
+    .hexBottom:after {
+        content: "";
+        position: absolute;
+        width: 80.0000px;
+        height: 46.188021535170066px;
+        -webkit-transform: rotate(45deg) scaleY(1.7321) translateY(-23.0940px);
+        -ms-transform: rotate(45deg) scaleY(1.7321) translateY(-23.0940px);
+        transform: rotate(45deg) scaleY(1.7321) translateY(-23.0940px);
+        -webkit-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        transform-origin: 0 0;
+        background: inherit;
+    }
+
+.hexTop {
+    top: -28.2843px;
+}
+
+    .hexTop:after {
+        background-position: center top;
+    }
+
+.hexBottom {
+    bottom: -28.2843px;
+}
+
+    .hexBottom:after {
+        background-position: center bottom;
+    }
+
+.hexagon:after {
+    content: "";
+    position: absolute;
+    top: 0.0000px;
+    left: 0;
+    width: 80.0000px;
+    height: 46.1880px;
+    z-index: 2;
+    background: inherit;
 }
 
 .marb10 {

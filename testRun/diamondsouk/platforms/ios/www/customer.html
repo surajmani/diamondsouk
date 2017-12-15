@@ -17,9 +17,9 @@
         <div id="dataas"></div>
         <div id="cartMain">
             <div class="linearLayout" style="padding:0px;">
-                <iframe style="height:70vh; width:100%; border:none" src="http://www.chorusdiamonds.com/api/Map"></iframe>
+                <iframe id="mapFrame" style="height:70vh; width:100%; border:none"></iframe>
             </div>
-            <div style="margin-top: -34px; height:50px;position:relative" class="button button">
+            <div style="margin-top: -37px; height:50px;position:relative" class="button button">
                 <button id="proceed" style="color: black;">
                     <img class="icon icons8-Call" width="24" height="24" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABKElEQVRIS7WVgU0CQRBFHxVAB0gHdoBWgHSAFWgHQgVKBWgF0AFQgdqBLViB5pPhMtnswexebhJyyWXmv9k/c8uAnmPQsz5dASNgCtwBt/bTuzmwU/O1AAk+AQ8tDqyAZQ1Awi/W8SV3qwBv1nVkbEUAebo3fyPiygkDNDiJC3KOow3w9QItBLgBPhPxNfBswhrwOzBM4F/2Xs/WLcrZ8miFvnGdUCCt5EkwjbY1VcHMJefEQ/PIAdTR1lV7W0KiPikH+AHGlvRduD1XLVoAG5d1DxyK23YF6Ql890rTlsj/6vAAbYTWMo1OEA/Q5aR7JhfN7Vh6FA+Q17p6czEBZF9xeMBfS3WnTYoAPgBtV1VEAM3FVUO4NoNf+9Cq/FdDtX+Z4cP0DvgHw94xGXzUur8AAAAASUVORK5CYII=">
                     <strong><a style="text-decoration:none; color:black; font-size:150%" href="tel:+919765770000">+919765770000</a></strong>
@@ -45,7 +45,7 @@
     <script type="text/javascript" src="js/login.js"></script>
 
     <script type="text/javascript">
-
+        document.getElementById('mapFrame').setAttribute('src', baseUrl + '/Map')
         Common.GetCustomer();
         Common.LoadPage("header.html", function (s, r) {
             //Commom.showError(s);
@@ -58,7 +58,7 @@
             document.getElementById('MenumodalDialog').style.left = mDocument.offsetLeft + 'px';
 
             Common.Get("customers/get_user_image?id=" + login.logData.Id + "&thumbOnly=true", function (s, r) {
-                $('.hexagon').find('img').attr('src', 'data:image/png;base64,' + r.replace(/"/g, ""));
+                $('.hexagon').attr('style', 'background-image:url(data:image/png;base64,' + r.replace(/"/g, "") + ')');
             }, false);
 
             $("#topTitle").html("CUSTOMER SERVICE");

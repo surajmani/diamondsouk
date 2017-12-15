@@ -299,8 +299,8 @@
             document.getElementById('MenumodalDialog').style.left = mDocument.offsetLeft + 'px';
 
             Common.Get("customers/get_user_image?id=" + login.logData.Id + "&thumbOnly=true", function (s, r) {
-                $('.hexagon').find('img').attr('src', 'data:image/png;base64,' + r.replace(/"/g, ""));
-            },false);
+                $('.hexagon').attr('style', 'background-image:url(data:image/png;base64,' + r.replace(/"/g, "") + ')');
+            }, false);
 
             $("#topTitle").html("ORDER DETAIL");
             Common.Get("orders/" + getParameterByName("id", window.location.href), function (s, data) {
