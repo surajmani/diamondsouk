@@ -186,7 +186,8 @@ var Common = {
         div.style.display = "none";
         elem.setAttribute("autoPopID", id);
         div.className = "autoPop";
-        div.style.top = elem.top + elem.offsetHeight + "px";
+        div.style.top = elem.top  + "px";
+       
         div.style.width = elem.offsetWidth + "px";
         elem.parentNode.appendChild(div);
         elem.onkeyup = (function () {
@@ -207,6 +208,8 @@ var Common = {
                 }
             }
             document.getElementById(autoPopID).style.display = "block";
+
+            //div.style.top = elem.top + elem.offsetHeight + "px";
         });
 
     }

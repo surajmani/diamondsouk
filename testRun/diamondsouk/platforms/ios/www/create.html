@@ -6,8 +6,23 @@
     <title>Chorus</title>
     <link href="css/index.css" rel="stylesheet" />
     <link href="css/mAlert.css" rel="stylesheet" />
+    <style type="text/css">
+        .colordarkgray {
+            font-size: 120%;
+            font-weight: 600;
+        }
+
+        .editText {
+            margin-top: 5px;
+        }
+
+        #dialCode {
+             margin-top: 0px !important; 
+            font-size: 120%;
+        }
+    </style>
 </head>
-<body onload="Common.initializeSite()">
+<body id="ids" onload="Common.initializeSite()">
     <div id="container" class="container app bg">
         <div class="clearfix" style="height:15px;"></div>
 
@@ -112,7 +127,7 @@
 
                     <div class="clearfix" style="height:15px;"></div>
                     <div id="sendVerifiaction">
-                        <div class="marb20" style="width:80%;">
+                        <div class="marb20" style="width:100%; text-align:justify">
                             <span class="colordarkgray">
                                 Chorusdiamond will send an SMS message to verify your number
                             </span>
@@ -138,7 +153,7 @@
 
                     <div id="enterCode" style="display:none;min-width:100%;">
                         <div class="clearfix" style="height:15px; width:100%"></div>
-                        <div class="marb20" style="width:80%;">
+                        <div class="marb20" style="width:100%; text-align:justify">
                             <span class="colordarkgray">
                                 Waiting to automatically detect an SMS
                             </span>
@@ -226,7 +241,11 @@
 
     <script>
         $(document).ready(function () {
-            //SendCode();
+            window.onscroll = function () {
+                //console.log();
+                //var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                //$('.autoPop').attr('style','top:'+screenTop+'px');
+            };
         });
         var mobileVerifie = false;
         var mo;
@@ -239,13 +258,13 @@
             $("#enterCode").show();
             mo = $("#modialCode").html() + "" + $("#moring").val();
             console.log(mo);
-            var data = { };
+            var data = {};
             res = null;
             Common.ShwoprogressModal();
             $.ajax({
                 type: "POST",
                 crossDomain: true,
-                url: "https://api.ringcaptcha.com/" + app_key + "/code/sms?phone="+mo+"&api_key=" + api_key,
+                url: "https://api.ringcaptcha.com/" + app_key + "/code/sms?phone=" + mo + "&api_key=" + api_key,
                 contentType: 'application/x-www-url-encoded; charset=utf-8',
                 data: JSON.stringify(data),
                 success: function (result) {
@@ -263,15 +282,14 @@
                 }
             });
         }
-        function VerifyCode()
-        {
+        function VerifyCode() {
             var moCode = $("#moCode").val();
             var data = {};
             Common.ShwoprogressModal();
             $.ajax({
                 type: "POST",
                 crossDomain: true,
-                url: "https://api.ringcaptcha.com/" + app_key + "/verify?code=" + moCode + "&phone=" + mo+ "&api_key=" + api_key,
+                url: "https://api.ringcaptcha.com/" + app_key + "/verify?code=" + moCode + "&phone=" + mo + "&api_key=" + api_key,
                 contentType: 'application/x-www-url-encoded; charset=utf-8',
                 data: JSON.stringify(data),
                 success: function (result) {
@@ -376,8 +394,7 @@
                 }
                 if (stp == 3) {
                     var data = { customer: Customer };
-                    if (data.customer.addresses[0].phone_number.toString() != mo.toString())
-                    {
+                    if (data.customer.addresses[0].phone_number.toString() != mo.toString()) {
                         Common.showError("Please verify mobile no");
                         return;
                     }
