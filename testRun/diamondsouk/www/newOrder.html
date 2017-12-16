@@ -166,6 +166,7 @@
     <script type="text/javascript" src="js/login.js"></script>
 
     <script type="text/javascript">
+        var custom_seives_ratio;
         Common.GetSieves();
         Common.GetCustomer();
         Common.LoadPage("header.html", function (s, r) {
@@ -296,6 +297,7 @@
                         $("#sizeNote").find('span').html("Approx Sieves Ratio: " + vals[j].default_value);
                         $("#sizeNote").show();
                         customVariationPriceIncrement = parseFloat(vals[j].price_adjust_on_default_value);
+                        custom_seives_ratio = vals[j].default_value;
                     }
                 }
             }
@@ -414,6 +416,7 @@
         function AddToCart() {
             if (isReadyAddCart) {
                 dataCart.shopping_cart_item.customer_id = login.logData.Id
+                dataCart.shopping_cart_item.custom_seives_ratio = custom_seives_ratio;
                 var dataTopost = { json: JSON.stringify(dataCart) };
 
                 Common.Post(dataCart, "shopping_cart_items", function (s, r) {

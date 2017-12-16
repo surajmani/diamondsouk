@@ -621,8 +621,9 @@ button {
 
 .descitption span {
     margin-left: 5px;
-    font-size: 95%;
+    font-size: 90%;
     color: #6d6d6d;
+    font-weight: 600;
 }
 
     .descitption span b {

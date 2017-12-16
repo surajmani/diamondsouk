@@ -13,16 +13,17 @@
 
         <div class="row" style="margin:0px;">
             <div class="">
-                <p><div style="margin-top:30px; font-weight:bold; text-align:center;font-size: 120%;color:white">Create an Account</div></p>
+                <p><div style="margin-top:30px; font-weight:bold; text-align:center;font-size: 140%;color:white;text-transform:uppercase;">Create an Account</div></p>
             </div>
         </div>
         <div class="clearfix" style="height:50px;"></div>
         <div style="margin:10px !important;">
             <input onchange="Common.LoadUserImage(this)" id="PostFile" accept="image/*" type="file" style="display:none;" />
             <div class="linearLayout" style="width:100%; margin:0; padding:0; display:table; background:white;min-height: 255px">
-                <div onclick="LoadImage()" class="hexagonOuter" style="margin-top: -40px;">
+                <div onclick="LoadImage()" class="hexagonOuter" style="margin-top: -48px;">
                     <div class="hexagon">
-                        <img style="width:64px; margin-left:-2px;height: 64px;" src="img/default-avatar.jpg" />
+                        <div class="hexTop"></div>
+                        <div class="hexBottom"></div>
                     </div>
                 </div>
                 <div style="margin-top:20px; display:block; padding:10px" id="addr1">
@@ -225,7 +226,7 @@
 
     <script>
         $(document).ready(function () {
-            SendCode();
+            //SendCode();
         });
         var mobileVerifie = false;
         var mo;

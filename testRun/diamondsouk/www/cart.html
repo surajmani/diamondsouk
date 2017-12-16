@@ -337,8 +337,6 @@
                     Common.SetJsonToLocal('ChorusUserDetail', JSON.stringify(login.logData));
                     Common.PrintInnerHtml($('#cartCount'), '' + login.logData.CartCount + "")
                     customer = rs.shopping_carts[0].customer;
-                    //billing_address = customer.billing_address;
-                    //shipping_address = customer.shipping_address;
                     for (i in rs.shopping_carts) {
                         var temp = $('#carttemp').clone();
                         $(temp).show();
@@ -364,7 +362,7 @@
                                     for (v in attribute_values) {
                                         if (attribute_values[v].id.toString() == value) {
 
-                                            csAttributes.push({ name: attributes[a].product_attribute_name.replace("White", "").replace("Code", "").trim(), val: attribute_values[v].name, id: id });
+                                            csAttributes.push({ name: attributes[a].product_attribute_name.replace("White", "").replace("Code", "").trim(), val: attribute_values[v].name, id: id, defaultVal: attribute_values[v].default_value });
                                         }
                                     }
                                 }
@@ -376,16 +374,17 @@
                         })
                         var des = '';
                         var size = '';
-                        for (i in props) {
-                            des += "<div class='descitption'><span><b>" + props[i].name + ": </b></span><span>" + props[i].val + "</span></div>";
-                            if (props[i].name.toLowerCase() == "size") {
-                                size = props[i].val
-                            }
-                        }
-                        var sives = Common.GetSieves();
-                        for (s in sives) {
-                            if (sives[s].size == size) {
-                                des += "<div class='descitption'><span><b>Sieves: </b></span><span>" + sives[s].ratio + "</span></div>";
+                        for (ii in props) {
+                            des += "<div class='descitption'><span><b>" + props[ii].name + ": </b></span><span>" + props[ii].val + "</span></div>";
+                            if (props[ii].name.toLowerCase() == "size") {
+                                size = props[ii].val;
+                                if ((rs.shopping_carts[i].custom_seives_ratio == null)) {
+                                    des += "<div class='descitption'><span><b>Sieves: </b></span><span>" + props[ii].defaultVal + "</span></div>"
+                                }
+                                else {
+                                    des += "<div class='descitption'><span><b>Sieves: </b></span><span>" + rs.shopping_carts[i].custom_seives_ratio + "</span></div>"
+
+                                }
                             }
                         }
                         var tr = document.createElement('tr');
@@ -394,7 +393,6 @@
                         $(td).html(des);
                         $(td).appendTo(tr);
                         $(tr).appendTo($('#cartItems'));
-                        //$(temp).appendTo($(tr));
                     }
 
                     var trs = $('#cartTotal').find('tr');
