@@ -8,28 +8,30 @@
     <link href="css/mAlert.css" rel="stylesheet" />
     <style type="text/css">
         .hiddenTr td {
-            border:none !important;
+            border: none !important;
         }
-       thead td {
-            font-weight:bold;
-            font-size:85% !important;
+
+        thead td {
+            font-weight: bold;
+            font-size: 85% !important;
         }
+
         tbody tr td:last-child {
-            padding-right:5px;
+            padding-right: 5px;
         }
-        .newTr td,.newTr button {
-            font-weight:600;
-            color:gray;
-            font-size:88% !important;
+
+        .newTr td, .newTr button {
+            font-weight: 600;
+            color: gray;
+            font-size: 88% !important;
         }
-        
     </style>
 </head>
 <body>
     <div id="container" class="container app bg">
         <div id="dataas"></div>
         <div id="cartMain">
-            <div class="linearLayout marb20 borderBottom" style="margin: 0;margin-left: 10px;margin-right: 10px; padding:0; min-height:80vh">
+            <div class="linearLayout marb20 borderBottom" style="margin: 0;margin-left: 10px;margin-right: 10px; padding:0;">
                 <div class="clearfix" style="height:10px;"></div>
                 <div style="width:100%;    height: 45px;">
                     <div style="width:25%; float:left">
@@ -94,32 +96,27 @@
                 </table>
 
                 <div class="clearfix" style="height:15px;"></div>
-                <div id="pageList" style="height:30px;">
-                    <button class="png" style="background-image:url(img/press.png);background-repeat: no-repeat;
-    background-size: 100% 100%; width:100%; width:40px; float:left;margin-left:1%;height:22px;">
-                        1
-                    </button>
-                    <button class="png" style="background-image:url(img/press.png);background-repeat: no-repeat;
-    background-size: 100% 100%; width:100%; width:40px; float:left;margin-left:1%;height:22px;">
-                        2
-                    </button>
-                    <button class="png" style="background-image:url(img/press.png);background-repeat: no-repeat;
-    background-size: 100% 100%; width:100%; width:40px; float:left;margin-left:1%;height:22px;">
-                        3
-                    </button>
-                    <div id="btntabdots" style="width:9%; text-align:center; float:left;display:none">...</div>
-                    <button class="png" style="background-image:url(img/press.png);background-repeat: no-repeat;
-    background-size: 100% 100%; width:100%; width:40px; float:left;margin-left:1%;height:22px;">
-                        4
-                    </button>
-                    <button class="png" style="background-image:url(img/press.png);background-repeat: no-repeat;
-    background-size: 100% 100%; width:100%; width:40px; float:left;margin-left:1%;height:22px;">
-                        5
-                    </button>
-                    <button class="png" style="background-image:url(img/press.png);background-repeat: no-repeat;
-    background-size: 100% 100%; width:100%; width:40px; float:left;margin-left:1%;margin-right:1%;height:22px;">
-                        6
-                    </button>
+                <div id="pageList" style="height:auto;display:none;">
+                    <div style="width:95%;display:table; margin:0 auto;">
+                        <div style="width:92px; float:right; border-radius:5px;display:table;margin-left: 15px;">
+                            <div id="prevPage" data-nav="true" onclick="NextPage(-1,this)" style="height: 30px; padding: 5px; background: #016583; width:35px;float:left; border-radius:5px 0px 0px 5px;">
+                                <div style="float:left;margin-left: 2px;" class="aprev"></div>
+                            </div>
+                            <div id="nextPage" data-nav="true" onclick="NextPage(1,this)" style="height: 30px; padding: 5px; background: #016583; width:35px; float:left; border-radius:0px 5px 5px 0px;border-left: solid 2px #034d63;">
+                                <div style="margin-left: 12px;" class="anext"></div>
+                            </div>
+                        </div>
+                        <span id="showing" class="colordarkgray" style="float:right;margin-top: 14px;font-weight:600;"></span>
+                        <div style="width:auto;margin-top:12px;margin-right:15px; float:right">
+                            <span class="colordarkgray" style="font-weight:600;">Page size </span>
+                            <select id="pageSize" onchange="PageSizeChange(this)" class="colordarkgray" style="font-weight: 600; text-align:center;">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="clearfix" style="height:15px;"></div>
             </div>
@@ -142,17 +139,25 @@
     <script type="text/javascript" src="js/login.js"></script>
 
     <script type="text/javascript">
-
-        var pageSize = 10;
+        var savepageSize = Common.GetJsonFromLocal("pageSize");
+        var pageSize = savepageSize == null ? 5 : parseInt(savepageSize);
+        $('#pageSize').val(pageSize);
         var pageIndex = 0;
-        $(document).ready(function () {
-            $('.png').click(function () {
-                pageIndex = parseInt($(this).attr('data-pageIndex'));
+        function NextPage(val, elm) {
+            console.log($(elm).attr('data-nav'));
+            if ($(elm).attr('data-nav') == "true") {
+                pageIndex += val;
                 LoadStates();
-            });
-            $('.ViewOrder').click(function () {
-            });
-        });
+            }
+        }
+        function PageSizeChange(elm)
+        {
+            console.log($(elm).val());
+            Common.SetJsonToLocal("pageSize", $(elm).val());
+            pageSize = parseInt($(elm).val());
+            pageIndex = 0;
+            LoadStates();
+        }
         Common.GetCustomer();
         Common.LoadPage("header.html", function (s, r) {
             //Commom.showError(s);
@@ -173,8 +178,7 @@
             LoadStates();
 
         });
-        function LoadStates()
-        {
+        function LoadStates() {
 
             Common.Get("orders/customerStats/" + login.logData.Id + "?pageIndex=" + pageIndex + "&pageSize=" + pageSize, function (s, rs) {
                 if (s == true) {
@@ -186,7 +190,7 @@
                         var tds = $(orderColone).find('td');
                         $($(tds)[0]).html(rs.orders[i].id);
                         var d = new Date(rs.orders[i].created_on_utc);
-                        $($(tds)[1]).html(d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getYear().toString().substr(1, 2));
+                        $($(tds)[1]).html(d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getYear().toString().substr(1, 2));
                         $($(tds)[2]).html('$' + parseFloat(rs.orders[i].order_total).toFixed(2));
 
                         var src = $($(tds)[3]).find('img').attr('src');
@@ -212,7 +216,7 @@
 
                         $('#orderList').append(orderColone);
                     }
-                    if (rs.orders.length < 10) {
+                    if (rs.orders.length < 5) {
                         for (var i = 0; i < 10 - rs.orders.length; i++) {
 
                             var orderColone = $('#orderColone').clone();
@@ -223,9 +227,6 @@
                             $($(tds)[1]).html(" ");
                             $($(tds)[2]).html(" ");
                             $($(tds)[3]).html(" ");
-
-
-
                             $($(tds)[4]).html(" ");
                             $('#orderList').append(orderColone);
                         }
@@ -238,71 +239,34 @@
         ////////////////////////////////////////////////////
 
         function RenderPaginationTab(pageIndex, pageSize, count) {
-            if (count <= pageSize==true)
-            {
+            $('#nextPage').attr('data-nav', 'true');
+            $('#prevPage').attr('data-nav', 'true');
+            if (count <= pageSize == true) {
                 $('#pageList').hide();
                 return;
             }
             if (pageSize > count) {
                 pageSize = count;
             }
-            var buttonList = $('.png');
-
-
-            for (var i = 0; i < buttonList.length; i++) {
-                $(buttonList[i]).show();
-            }
             var numOfpages = count / pageSize;
             numOfpages = ~~numOfpages;
-            //console.log(pageIndex + '  ' + pageSize + ' ' + count + ' ' + numOfpages);
-            //console.log((pageIndex * pageSize));
             if (count % pageSize > 0) {
                 numOfpages++;
             }
-
-
-            if (numOfpages > 6) {
-
-                if (pageIndex > 0) {
-                    $(buttonList[0]).attr('data-pageIndex', pageIndex - 1);
-                    $(buttonList[0]).html("<<");
-                }
-                else if (pageIndex == 0) {
-                    $(buttonList[0]).attr('data-pageIndex', 0);
-                    $(buttonList[0]).html("First");
-                }
-
-                $(buttonList[5]).attr('data-pageIndex', numOfpages - 1);
-                $(buttonList[5]).html(numOfpages);
-
-                if ((numOfpages - (pageIndex) > 5)) {
-                    $(buttonList[1]).attr('data-pageIndex', pageIndex + 1);
-                    $(buttonList[2]).attr('data-pageIndex', pageIndex + 2);
-                    $(buttonList[1]).attr('data-pageIndex', pageIndex + 2);
-                    $(buttonList[2]).attr('data-pageIndex', pageIndex + 3);
-                }
-                $(buttonList[3]).html(numOfpages - 2);
-                $(buttonList[4]).html(numOfpages - 1);
-                $(buttonList[3]).attr('data-pageIndex', numOfpages - 3);
-                $(buttonList[4]).attr('data-pageIndex', numOfpages - 2);
-
-
-
+            console.log(pageIndex + '  ' + pageSize + ' ' + count + ' ' + numOfpages);
+            if (pageIndex == 0) {
+                $('#prevPage').attr('data-nav', 'false');
+                $("#showing").html(((pageIndex * pageSize) + 1) + ' - ' + (pageIndex + 1) * pageSize + ' of ' + count);
             }
-            else {
-                //$('#btntabdots').show();
-                for (var i = 0; i < buttonList.length; i++) {
-                    if (i > 0 && i < 5) {
-                        $(buttonList[i]).val(i + 1);
-                    }
-                    $(buttonList[i]).attr('data-pageIndex', i);
-
+            else
+                if (pageIndex + 1 == numOfpages) {
+                    $("#showing").html(((pageIndex * pageSize) + 1) + ' - ' + count + ' of ' + count);
+                    $('#nextPage').attr('data-nav', 'false');
                 }
-                for (var i = numOfpages; i <= 5; i++) {
-                    $(buttonList[i]).hide();
-                }
-            }
+                else {
 
+                    $("#showing").html(((pageIndex * pageSize) + 1) + ' - ' + (pageIndex + 1) * pageSize + ' of ' + count);
+                }
             $('#pageList').show();
         }
     </script>

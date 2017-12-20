@@ -661,3 +661,48 @@ button {
     text-transform: uppercase;
     font-weight: 800;
 }
+
+.aprev, .anext {
+    cursor: pointer;
+    height: 22px;
+    overflow: hidden;
+    position: relative;
+    width: 20px;
+    top: 4px;
+}
+
+.anext {
+    right: 0;
+}
+
+    .aprev:before, .anext:before {
+       background-color:white;
+        content: "";
+        height: 22px;
+        left: 5px;
+        position: absolute;
+        top: 0;
+        transform: rotate(45deg);
+        width: 22px;
+    }
+
+    .anext:before {
+        left: auto;
+        right: 5px;
+    }
+
+    .aprev:after, .anext:after {
+        background-color:#016583;
+        content: "";
+        height: 22px;
+        left: 8px;
+        position: absolute;
+        top: 0;
+        transform: rotate(45deg);
+        width: 22px;
+    }
+
+    .anext:after {
+        left: auto;
+        right: 8px;
+    }
