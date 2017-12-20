@@ -342,7 +342,6 @@
                         $(temp).show();
                         $(temp).find('.cartNm').html(rs.shopping_carts[i].product.name.replace("white", ""));
                         $(temp).find('.del').attr('data-id', rs.shopping_carts[i].id);
-                        console.log(rs.shopping_carts[i].product.price);
                         $(temp).find('.cartPrice').html('$' + parseFloat(rs.shopping_carts[i].product.price).toFixed(2));
                         $(temp).find('.cartCarat').html(parseFloat(rs.shopping_carts[i].quantity).toFixed(2));
                         $(temp).find('.cartTotal').html('$' + parseFloat(rs.shopping_carts[i].quantity * rs.shopping_carts[i].product.price).toFixed(2));
@@ -510,7 +509,6 @@
                         $('#proceed').parent().hide();
                         $("#preStep").hide();
                     }
-                    console.log(r);
                 });
                 return;
             }
@@ -612,7 +610,6 @@
             $(listAddressDiv).show();
             $("#address1" + step).html("");
             $("#address1" + step).append($(listAddressDiv));
-            console.log(step);
             printAddress(a, step);
 
         }

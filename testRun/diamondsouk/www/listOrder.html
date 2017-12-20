@@ -238,6 +238,11 @@
         ////////////////////////////////////////////////////
 
         function RenderPaginationTab(pageIndex, pageSize, count) {
+            if (count <= pageSize==true)
+            {
+                $('#pageList').hide();
+                return;
+            }
             if (pageSize > count) {
                 pageSize = count;
             }
@@ -249,8 +254,8 @@
             }
             var numOfpages = count / pageSize;
             numOfpages = ~~numOfpages;
-            console.log(pageIndex + '  ' + pageSize + ' ' + count + ' ' + numOfpages);
-            console.log((pageIndex * pageSize));
+            //console.log(pageIndex + '  ' + pageSize + ' ' + count + ' ' + numOfpages);
+            //console.log((pageIndex * pageSize));
             if (count % pageSize > 0) {
                 numOfpages++;
             }
@@ -297,6 +302,8 @@
                     $(buttonList[i]).hide();
                 }
             }
+
+            $('#pageList').show();
         }
     </script>
 
