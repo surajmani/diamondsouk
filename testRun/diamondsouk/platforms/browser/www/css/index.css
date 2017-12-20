@@ -175,7 +175,7 @@ body {
 input,
 select,
 textarea {
-    max-width: 280px;
+    /*max-width: 480px;*/
 }
 
 .bg {
@@ -322,8 +322,6 @@ textarea {
     .editText input {
         text-align: center;
         color: white;
-        padding-left: 40px;
-        padding-right: 40px;
         width: 100% !important;
         background: none;
         height: 50px;
@@ -635,7 +633,7 @@ button {
     background: white;
     border-collapse: collapse;
     border: solid 1px gray;
-    position: fixed;
+    position: absolute;
 }
 
     .autoPop div {

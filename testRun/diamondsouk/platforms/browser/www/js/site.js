@@ -186,7 +186,7 @@ var Common = {
         div.style.display = "none";
         elem.setAttribute("autoPopID", id);
         div.className = "autoPop";
-        div.style.top = elem.top  + "px";
+        //div.style.top = elem.top  + "px";
        
         div.style.width = elem.offsetWidth + "px";
         elem.parentNode.appendChild(div);
@@ -291,7 +291,11 @@ var app = {
 };
 
 
-
+$(document).ready(function () {
+    $('input').on('focus', function () {
+        document.body.scrollTop = $(this).offset().top-30;
+    });
+});
 
 
 

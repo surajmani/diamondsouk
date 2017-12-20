@@ -10,6 +10,11 @@
         td {
             padding: 0 0 5px 0;
         }
+
+        .colordarkgray {
+            font-weight: 600;
+            color: gray;
+        }
     </style>
 </head>
 <body>
@@ -63,7 +68,7 @@
                                 Carat
                             </div>
                             <div style="width:50%; float:left" class="colordarkgray">
-                                ~Carat
+                                <sapn style="font-size:90%"> ~Carat</sapn>
                             </div>
                         </div>
                         <div style="width:33%; float:left">
@@ -71,7 +76,7 @@
                                 Price
                             </div>
                             <div style="width:60%; float:left" class="colordarkgray">
-                                ~Price
+                                <sapn style="font-size:90%">  ~Price </sapn>
                             </div>
                         </div>
                         <div style="width:42%; float:left;">
@@ -79,22 +84,22 @@
                                 Total
                             </div>
                             <div style="width:60%; float:left;" class="colordarkgray">
-                                ~Total
+                                <sapn style="font-size:90%">  ~Total </sapn>
                             </div>
                         </div>
                     </div>
                     <div style="margin-top:10px;font-size: 90%;margin-left:10px" class="colordarkgray">
-                        ~attribute_description
+                        <sapn style="font-size:90%">  ~attribute_description </sapn>
                     </div>
                     <div style="margin-top:2px;font-size: 90%;margin-left:10px" class="colordarkgray">
-                        ~sieve
+                        <sapn style="font-size:90%">  ~sieve </sapn>
                     </div>
                 </div>
 
 
                 <div class="clearfix" style="height:10px;"></div>
                 <div class="marb10">
-                    <div class="grdHeader" style="color:white; text-align:center"><p  style="margin:0;"> <strong>BILLING ADDRESS</strong></p></div>
+                    <div class="grdHeader" style="color:white; text-align:center"><p style="margin:0;"> <strong>BILLING ADDRESS</strong></p></div>
                     <table id="confitmAddr1" style="width:100%; margin:10px">
                         <tr>
                             <td style="width:40%; font-weight:600" class="colorPrimary">
@@ -304,69 +309,67 @@
 
             $("#topTitle").html("ORDER DETAIL");
             Common.Get("orders/" + getParameterByName("id", window.location.href), function (s, data) {
-                console.log(data);
-                sieve = Common.GetSieves();
+                //console.log(data);
+                //sieve = Common.GetSieves();
                 var td = $('.stats').find('td');
                 var d = new Date(data.orders[0].created_on_utc);
                 $(td[1]).html(data.orders[0].id);
-                $(td[3]).html(d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear().toString());
+                $(td[3]).html(d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear().toString());
                 $(td[5]).html(data.orders[0].order_status);
                 $(td[7]).html(data.orders[0].shipping_status == 'NotYetShipped' ? 'Pending' : data.orders[0].shipping_status);
                 $(td[9]).html(data.orders[0].payment_status);
-                $(td[11]).html('$'+parseFloat(data.orders[0].order_subtotal_incl_tax).toFixed(2));
-                $(td[15]).html('$'+parseFloat(data.orders[0].order_discount).toFixed(2));
+                $(td[11]).html('$' + parseFloat(data.orders[0].order_subtotal_incl_tax).toFixed(2));
+                $(td[15]).html('$' + parseFloat(data.orders[0].order_discount).toFixed(2));
                 $(td[19]).html('$' + parseFloat(data.orders[0].order_total).toFixed(2));
 
-                for(i in data.orders[0].order_items)
-                {
+                for (i in data.orders[0].order_items) {
                     var items = $('.items').clone();
-            
-                    items.html(items.html().replace('~Name',data.orders[0].order_items[i].product.name));
-                    items.html(items.html().replace('~Carat',parseFloat(data.orders[0].order_items[i].quantity).toFixed(2)));
-                    items.html(items.html().replace('~Price',"$"+parseFloat(data.orders[0].order_items[i].unit_price_incl_tax).toFixed(2)));
+
+                    items.html(items.html().replace('~Name', data.orders[0].order_items[i].product.name));
+                    items.html(items.html().replace('~Carat', parseFloat(data.orders[0].order_items[i].quantity).toFixed(2)));
+                    items.html(items.html().replace('~Price', "$" + parseFloat(data.orders[0].order_items[i].unit_price_incl_tax).toFixed(2)));
                     items.html(items.html().replace('~Total', "$" + parseFloat((data.orders[0].order_items[i].quantity * data.orders[0].order_items[i].unit_price_incl_tax).toFixed(2))));
                     var a = data.orders[0].order_items[i].attribute_description.trim()
-                        .replace(/<br/g,' ').replace(/>/g,' ').replace('/','  ').replace('/','  ').replace('/','  ').replace('Code','').replace('Clarity White','Clarity');
-         
+                        .replace(/<br/g, ' ').replace(/>/g, ' ').replace('/', '  ').replace('/', '  ').replace('/', '  ').replace('Code', '').replace('Clarity White', 'Clarity');
+
 
                     var s = data.orders[0].order_items[i].attribute_description.trim().split('Size:')[1].split('<')[0].trim();
-                    console.log(s);
-                    for(j in sieve)
-                    {
-                        if(sieve[j].size==s)
-                        {
-                            items.html(items.html().replace('~sieve', '<span class="colorPrimary">Sieves Ratio: </span>' + sieve[j].ratio));
-                        }
-                    }
-                    items.html(items.html().replace('~attribute_description', a.replace("Size:", "<span class='colorPrimary'>Size: </span>")
-                        .replace("Clarity:", "<span class='colorPrimary'>Clarity: </span>").replace("Color :", "<span class='colorPrimary'>Color: </span>")
+                    //console.log(s);
+                    //for (j in sieve) {
+                    //    if (sieve[j].size == s) {
+                    //        items.html(items.html().replace('~sieve', '<span class="colorPrimary" style="font-size:105%;">Sieves Ratio: </span>' + sieve[j].ratio));
+                    //    }
+                    //}
+                    items.html(items.html().replace('~sieve', '<span class="colorPrimary" style="font-size:105%;">Sieves Ratio: </span>' + data.orders[0].order_items[i].custom_seives_ratio))
+                    items.html(items.html().replace('~attribute_description', a.replace("Size:", "<span class='colorPrimary'  style='font-size:110%;'>Size: </span>")
+                        .replace("Clarity:", "<span class='colorPrimary'  style='font-size:105%;'>Clarity: </span>").replace("Color :", "<span  style='font-size:105%;' class='colorPrimary'>Color: </span>")
                         ));
                     $(items).show();
                     $(items).removeClass('items');
                     $('#itemWr').append(items);
                 }
-                renderAddress(data.orders[0].billing_address,1,1);
-                renderAddress(data.orders[0].shipping_address,2,2);
+                renderAddress(data.orders[0].billing_address, 1, 1);
+                renderAddress(data.orders[0].shipping_address, 2, 2);
 
-            var step=3;
-            function renderAddress(address, stp, id) {
-                var inp = $("#confitmAddr" + stp).find('input');
-                //if (step == 3 && id != "") {
-                //    inp = $('#' + id).find('input');
-                //}
-                var cnt = 0;
-                $(inp[cnt++]).val(address.first_name);
-                $(inp[cnt++]).val(address.last_name);
-                $(inp[cnt++]).val(address.email);
-                $(inp[cnt++]).val(address.company);
-                $(inp[cnt++]).val(address.country);
-        
-                $(inp[cnt++]).val(address.province);
-                $(inp[cnt++]).val(address.city);
-                $(inp[cnt++]).val(address.address1);
-                $(inp[cnt++]).val(address.zip_postal_code);
-                $(inp[cnt++]).val(address.phone_number);
-            }
+                var step = 3;
+                function renderAddress(address, stp, id) {
+                    var inp = $("#confitmAddr" + stp).find('input');
+                    //if (step == 3 && id != "") {
+                    //    inp = $('#' + id).find('input');
+                    //}
+                    var cnt = 0;
+                    $(inp[cnt++]).val(address.first_name + " " + address.last_name);
+                    $(inp[cnt++]).val(address.last_name);
+                    $(inp[cnt++]).val(address.email);
+                    $(inp[cnt++]).val(address.company);
+                    $(inp[cnt++]).val(address.country);
+
+                    $(inp[cnt++]).val(address.province);
+                    $(inp[cnt++]).val(address.city);
+                    $(inp[cnt++]).val(address.address1);
+                    $(inp[cnt++]).val(address.zip_postal_code);
+                    $(inp[cnt++]).val(address.phone_number);
+                }
             }, true);
 
         });

@@ -6,6 +6,61 @@
     <title>Chorus</title>
     <link href="css/index.css" rel="stylesheet" />
     <link href="css/mAlert.css" rel="stylesheet" />
+    <style>
+        #sievesRang div {
+            padding: 2px;
+        }
+
+
+        .sievesRang {
+            width: 100%;
+            height: 30px;
+        }
+
+            .sievesRang span {
+                line-height: 2;
+                font-size: 85%;
+                font-weight: 600;
+                color: gray;
+                padding-right: 2px;
+            }
+
+            .sievesRang input {
+                font-size: 90%;
+                width: 75%;
+                float: right;
+                text-align: center;
+                outline: none;
+            }
+
+        .arrow-up {
+            margin-left: 10px;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid black;
+        }
+
+        .arrow-down {
+            margin-left: 10px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 8px solid black;
+        }
+
+        #sievesTotal {
+            width: 100%;
+            font-size: 110%;
+            margin-top: 3px;
+            text-align: center;
+            color: green;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
     <div id="container" class="container app bg">
@@ -19,7 +74,7 @@
             <div class="linearLayout colorSelection">
                 <div class="RadioGroup">
                     <div class="marb10"><b>Color</b> </div>
-                    <div onclick="LoadProduct('Round White',236)" class="radioColor">
+                    <div id="deafultColor" onclick="LoadProduct('Round White',236)" class="radioColor">
                         <img src="img/radio_unchkecked.png" /><span>White</span>
                     </div>
                     <div onclick="LoadProduct('Round',117)" class="radioColor">
@@ -63,12 +118,25 @@
                         <img src="img/radio_unchkecked.png" /><span>25 Pts</span>
                     </div>
 
-                    <div id="sizeNote" style="display:none; width:100%;display:table" class="marb10">
-                        <span style="font-size:12px; font-weight:400" class="colordarkgray"></span>
-                    </div>
                 </div>
                 <div class="clearfix"></div>
             </div>
+
+            <div id="sizeNote" style="display:none;" class="linearLayout">
+                <span id="sizeNoteSpan" style="font-size:12px; font-weight:600" class="colordarkgray"></span>
+                <div id="custom_seives_ratio" style="display:block; margin-top:10px;margin-left:-6px;">
+                    <div style="width:100%;display:table">
+                        <button onclick="CreateCustomSieves()" class="png" style="background-image:url(img/btnsignup.png);background-repeat: no-repeat; background-size: 100% 100%; width:70%; height:34px; float:left">
+                            Customize your own sieves ratio
+                        </button>
+                        <div style="width:100%; padding-top:5px; display:table;padding-left:5px;">
+                            <span style="font-size:90%; font-weight:600; color:grey">Note: </span>
+                            <span id="extraCharge" style="font-size:80%; font-weight:600; color:red">0.00% extra charge on custom sieves</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="clearfix"></div>
             <div class="linearLayout">
                 <div class="RadioGroup claritySelection">
@@ -129,7 +197,7 @@
             </div>
             <div class="linearLayout" style="min-height:135px;padding:0px;">
                 <div id="disCalc" style="height:20px;padding:0px;text-align:center;display:none; margin-top:5px;">
-                    <img style="width:15px; height:15px; margin-right:5px;" src="img/prog.gif" /><span>CALCULATING DISCOUNT</span> 
+                    <img style="width:15px; height:15px; margin-right:5px;" src="img/prog.gif" /><span>CALCULATING DISCOUNT</span>
                 </div>
                 <div id="disPercent" style="height:20px;padding:0px;text-align:center;display:none;" class="grdHeader">
                     <span style="font-size:90%"></span>
@@ -151,10 +219,39 @@
     </div>
 
     <div id="openModalProgress" class="modalDialog">
-        <div style="width:90%; margin:0 auto; margin-top:120px; color:white; border:solid 1px white; border-radius:5px; padding:10px; text-align:center; background-color:rgba(0, 0, 0, 0.53)">
+        <div style="width:90%; margin:0 auto; margin-top:120px; color:white; border:solid 1px white; border-radius:5px; text-align:center; background-color:rgba(0, 0, 0, 0.53)">
             <p class="title-hero">Your request is being processing...</p>
             <div style="width:140px; margin:0 auto">
                 <img src="./img/loader-light.gif" />
+            </div>
+        </div>
+    </div>
+    <div id="openModalCustomSieves" class="modalDialog">
+        <div id="sievesRangTemp" style="display:none;" class="sievesRang">
+            <div style="width:100%;display:table">
+                <span>+000-0</span>
+                <b style="float:right; margin-left:5px; color:gray;padding-top:3px;font-size:90%;font-weight:600;">%</b>
+                <input onkeyup="ShievesChanges(this)" type="number" />
+            </div>
+        </div>
+        <div style="width:100%; margin:0 auto; margin-top:30%; color:white; border:none; border-radius:5px; padding:0px; text-align:center; background-color:rgba(0, 0, 0, 0.53)">
+            <div class="linearLayout" style="margin:0 auto; min-height:90px;display:table;width:90%;">
+                <div id="sievesRang" style="display:table;width:100%"></div>
+                <div id="sievesTotal">
+                    100.00%
+                </div>
+                <div class="clearfix" style="height:10px;display:table;color:black; width:100%"></div>
+                <div id="sievesAlert" style="width:100%;font-weight:600;text-align:left;font-size:90%;display:none;margin-bottom:10px;text-align:center;">
+                    <span style="color:red;">Sieves ratio must be equal to 100%</span>
+                </div>
+                <div style="width:90%;margin:0 auto; margin-top:0px">
+                    <button onclick="SaveCsutomSives()" class="png" style="background-image:url(img/btnsignup.png);background-repeat: no-repeat; background-size: 100% 100%; width:120px; height:34px; float:left">
+                        Save
+                    </button>
+                    <button onclick="CloseCsutomSives()" class="png" style="background-image:url(img/btnsignup.png);background-repeat: no-repeat; background-size: 100% 100%; width:120px; height:34px; float:right">
+                        Cancel
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -167,8 +264,72 @@
 
     <script type="text/javascript">
         var custom_seives_ratio;
+        var allow_user_custom_value = false;
+        var deafualtSivesRatio = '';
         Common.GetSieves();
         Common.GetCustomer();
+        function CloseCsutomSives() {
+            $('#openModalCustomSieves').removeClass('showModal');
+        }
+        function SaveCsutomSives() {
+            if (validUserSieves == true && useSievesArray != '') {
+                custom_seives_ratio = useSievesArray;
+                $("#sizeNote").find('#sizeNoteSpan').html("Custom Sieves Ratio: " + custom_seives_ratio);
+                $('#openModalCustomSieves').removeClass('showModal');
+                GetPrice();
+            }
+        }
+        function CreateCustomSieves() {
+            $('#sievesRang').html('');
+            validUserSieves = true;
+            var avlSieves = custom_seives_ratio.trim().split('|');
+            for (i in avlSieves) {
+                var sievesRangTemp = $('#sievesRangTemp').clone();
+                $(sievesRangTemp).attr('style', 'display:table;');
+                var v = avlSieves[i].trim().split(' ');
+                $(sievesRangTemp).find('span').html(v[1].trim() + '');
+                $(sievesRangTemp).find('input').val(v[0].trim().replace('%', ''));
+
+                $('#sievesRang').append(sievesRangTemp);
+
+            }
+            //$('#sievesRang').attr('style', 'display:table;margin:0 auto; width:' + document.getElementById('sievesRang').clientWidth + 'px');
+
+
+            $('#openModalCustomSieves').addClass('showModal');
+        }
+        var useSievesArray = '';
+        var validUserSieves = true;
+        function ShievesChanges(elem) {
+            var total = 0.0;
+            useSievesArray = '';
+            validUserSieves = true;
+            var sievesRang = $(elem).parent().parent().parent().find('.sievesRang');
+            for (i = 0; i < sievesRang.length; i++) {
+                var sievesRangTemp = sievesRang[i];
+                var v = parseFloat($(sievesRangTemp).find('input').val());
+                if (isNaN(v)) {
+                    v = 0.0;
+                }
+                total += v;
+                useSievesArray += v + '% ' + $(sievesRangTemp).find('span').html().trim() + '';
+                if (i < sievesRang.length - 1) {
+                    useSievesArray += ' | ';
+                }
+            }
+            total = parseFloat(total).toFixed(2);
+            $("#sievesTotal").html(total + '%');
+            if (total != 100) {
+                $("#sievesTotal").attr('style', 'color:red;');
+                $('#sievesAlert').show();
+                validUserSieves = false;
+            }
+            else if (total == 100) {
+                $("#sievesTotal").attr('style', 'color:green;');
+                $('#sievesAlert').hide();
+            }
+        }
+
         Common.LoadPage("header.html", function (s, r) {
             //Commom.showError(s);
             $("#dataas").html(r);
@@ -179,8 +340,11 @@
             document.getElementById('MenumodalDialog').style.width = mDocument.clientWidth + 'px';
             document.getElementById('MenumodalDialog').style.left = mDocument.offsetLeft + 'px';
 
+            document.getElementById('openModalCustomSieves').style.width = mDocument.clientWidth + 'px';
+            document.getElementById('openModalCustomSieves').style.left = mDocument.offsetLeft + 'px';
+
             Common.Get("customers/get_user_image?id=" + login.logData.Id + "&thumbOnly=true", function (s, r) {
-                $('.hexagon').attr('style', 'background-image:url(data:image/png;base64,' + r.replace(/"/g, "")+')');
+                $('.hexagon').attr('style', 'background-image:url(data:image/png;base64,' + r.replace(/"/g, "") + ')');
             }, false);
 
             $("#topTitle").html("NEW ORDER");
@@ -189,7 +353,10 @@
             $('.sizeWhiteOnly').hide();
             $("#colorNote").hide();
             $("#clarityNote").hide();
-            
+
+            $('#deafultColor').click();
+            //custom_seives_ratio = '10% -000 | 50% +000-0 | 40% 0-2';
+            //CreateCustomSieves();
         });
         ////////////////////////////////////////////////////
 
@@ -284,20 +451,27 @@
 
             $("#clarityNote").show();
         }
-        var customVariationPriceIncrement=0;
+        var customVariationPriceIncrement = 0;
         function GetAttrVal(nm) {
             var rtn = 0;
             var selectedAttrr = [];
+            $("#custom_seives_ratio").hide();
             var attrs = currentProduct.attributes;
             for (i in attrs) {
                 var vals = attrs[i].attribute_values;
                 for (j in vals) {
                     if (nm.toLowerCase() == vals[j].name.toLowerCase()) {
+                        allow_user_custom_value = vals[j].allow_user_custom_value;
                         rtn = vals[j].id;
-                        $("#sizeNote").find('span').html("Approx Sieves Ratio: " + vals[j].default_value);
+                        $("#sizeNote").find('#sizeNoteSpan').html("Approx Sieves Ratio: " + vals[j].default_value);
                         $("#sizeNote").show();
                         customVariationPriceIncrement = parseFloat(vals[j].price_adjust_on_default_value);
+                        $('#extraCharge').html(parseFloat(customVariationPriceIncrement).toFixed(2) + '% extra charge on custom sieves');
                         custom_seives_ratio = vals[j].default_value;
+                        deafualtSivesRatio = custom_seives_ratio;
+                        if (allow_user_custom_value == true) {
+                            $("#custom_seives_ratio").show();
+                        }
                     }
                 }
             }
@@ -344,14 +518,20 @@
             if (price == 0) {
                 price = currentProduct.price;
             }
-            $("#pricePercarat").find('span').html('Price per carat is $' + parseFloat(price).toFixed(2) + ' as per above selection');
+            if (deafualtSivesRatio != custom_seives_ratio) {
+                price = (price) + ((price * customVariationPriceIncrement) / 100);
+                $("#pricePercarat").find('span').html('Price per carat is $' + parseFloat(price).toFixed(2) + ' as per above selection');
+            }
+            else {
+                $("#pricePercarat").find('span').html('Price per carat is $' + parseFloat(price).toFixed(2) + ' as per above selection');
+            }
             $("#pricePercarat").show();
-            total = parseFloat(carat * price).toFixed(2);
-           
+            total = parseFloat(carat * price);
+
             if (carat > 0) {
-                var dataToPost = { productdiscount: { productId: dataCart.shopping_cart_item.product_id, qty: carat, customerId: login.logData.Id, attributes: dataCart.shopping_cart_item.product_attributes } };
+                var dataToPost = { productdiscount: { productId: dataCart.shopping_cart_item.product_id, qty: carat, customerId: login.logData.Id, attributes: dataCart.shopping_cart_item.product_attributes, custom_seives_ratio: custom_seives_ratio } };
                 $("#disCalc").show();
-                $("#pricePercarat").hide();
+                //$("#pricePercarat").hide();
                 Common.Post(dataToPost, "products/get_product_discount_by_customerId", function (s, resul) {
                     if (s == true) {
                         if (resul != 0) {
@@ -359,8 +539,7 @@
                             $('.total').html("$" + parseFloat(dis).toFixed(2));
                             $("#disPercent").show();
                             $("#disPercent").find("span").html(parseFloat(resul).toFixed(2) + "% dicount has been applied");
-                            if (carat <= 0)
-                            {
+                            if (carat <= 0) {
                                 $("#disPercent").hide();
                             }
                         }
@@ -372,7 +551,7 @@
             else {
                 isReadyAddCart = false;
             }
-            $('.total').html("$" + total);
+            $('.total').html("$" + parseFloat(total).toFixed(2));
             if (currentProduct.product_attribute_combination.length == 0) {
                 var selectedAttrr = [];
                 var attrs = currentProduct.attributes;
@@ -397,7 +576,7 @@
 
             if (text.match(phoneno) && text.length <= 10) {
                 if (text.indexOf(".") > -1 && (text.substr(text.indexOf(".") + 1)).length > 2) {
-                    $(this).val(text.substr(0,text.indexOf(".") + 3));
+                    $(this).val(text.substr(0, text.indexOf(".") + 3));
                     console.log($(this).val());
                 }
                 GetPrice();
@@ -432,12 +611,10 @@
 
             }
             else {
-                if (color == 0)
-                {
+                if (color == 0) {
                     Common.showError("Please select color");
                 }
-                else if (size == 0)
-                {
+                else if (size == 0) {
                     Common.showError("Please select size");
                 }
                 else if (clarity == 0) {
