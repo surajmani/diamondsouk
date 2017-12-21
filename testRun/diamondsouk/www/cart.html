@@ -6,6 +6,17 @@
     <title>Chorus</title>
     <link href="css/index.css" rel="stylesheet" />
     <link href="css/mAlert.css" rel="stylesheet" />
+    <style type="text/css">
+         .remModal {
+            position: relative !important;
+            top: auto !important;
+            background: transparent;
+        }
+
+            .remModal #addr50 {
+                padding-top: 10px !important;
+            }
+    </style>
 </head>
 <body>
     <div id="container" class="container app bg">
@@ -260,13 +271,16 @@
         </div>
 
 
+        <div id="addressModal" class="modalDialog">
+
+        </div>
         <div id="cartMain2" style="height:100vh;display:none">
             <div class="linearLayout" style="height:100px; margin-top:10%; margin-left:10px; margin-right:10px;text-align:center">
                 <span class="colorgray" style="text-align:center; line-height:2px;"><strong>Your shopping cart is empty</strong> </span>
             </div>
         </div>
     </div>
-    <div id="listAddressDiv" style="width:100%;display:none" class="grdHeader">
+    <div id="listAddressDiv" style="width:100%;display:none;padding-left: 0;" class="grdHeader">
         <select onchange="addSelect(this)" id="listAddress" style="color:white; background:transparent; border:none; width:100%; font-size:105%">
             <option style="background:#034d63;" value="-1">Change address</option>
             <option style="background:#034d63;" value="0">Add address</option>
@@ -279,9 +293,6 @@
                 <img src="./img/loader-light.gif" />
             </div>
         </div>
-    </div>
-    <div id="addressModal" class="modalDialog">
-
     </div>
 
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
@@ -647,12 +658,14 @@
                 addrOld.phone_number = customer.addresses[0].phone_number;
                 Common.LoadPage("addressView.html", function (s, r) {
                     $("#addressModal").html(r);
+                    $('#addressModal').removeClass('showModal');
+                    $('#addressModal').addClass('remModal');
+                    $('#cartMain').hide();
                     ShowAddressEditor(false, function (d) {
                         if (d.Error != "") {
                             Common.showError(d.Error);
                         }
                         else {
-                            $('#addressModal').removeClass('showModal');
 
                             if (step == 1) {
                                 billing_address = d.data;
@@ -662,6 +675,8 @@
                                 shipping_address = d.data;
                             }
                             printAddress(d.data, step);
+                            $('#addressModal').removeClass('showModal');
+                            $('#cartMain').show();
                         }
                     });
                 }, false);

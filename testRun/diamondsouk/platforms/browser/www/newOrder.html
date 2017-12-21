@@ -8,7 +8,7 @@
     <link href="css/mAlert.css" rel="stylesheet" />
     <style>
         #sievesRang div {
-            padding: 2px;
+            /*padding: 2px;*/
         }
 
 
@@ -26,9 +26,11 @@
             }
 
             .sievesRang input {
-                font-size: 90%;
-                width: 75%;
-                float: right;
+                width:80px;
+                font-size: 100%;
+                font-weight:600;
+                color:gray;
+                margin:auto auto;
                 text-align: center;
                 outline: none;
             }
@@ -126,7 +128,7 @@
                 <span id="sizeNoteSpan" style="font-size:12px; font-weight:600" class="colordarkgray"></span>
                 <div id="custom_seives_ratio" style="display:block; margin-top:10px;margin-left:-6px;">
                     <div style="width:100%;display:table">
-                        <button onclick="CreateCustomSieves()" class="png" style="background-image:url(img/btnsignup.png);background-repeat: no-repeat; background-size: 100% 100%; width:70%; height:34px; float:left">
+                        <button onclick="CreateCustomSieves()" class="png" style="background-image:url(img/btnsignup.png);background-repeat: no-repeat; background-size: 100% 100%; width:98%; height:45px; font-weight:600; font-size:98%; text-transform:uppercase; float:left">
                             Customize your own sieves ratio
                         </button>
                         <div style="width:100%; padding-top:5px; display:table;padding-left:5px;">
@@ -228,15 +230,23 @@
     </div>
     <div id="openModalCustomSieves" class="modalDialog">
         <div id="sievesRangTemp" style="display:none;" class="sievesRang">
-            <div style="width:100%;display:table">
-                <span>+000-0</span>
-                <b style="float:right; margin-left:5px; color:gray;padding-top:3px;font-size:90%;font-weight:600;">%</b>
-                <input onkeyup="ShievesChanges(this)" type="number" />
+            <div style="width:100%;display:table; margin-bottom:10px; margin-top:10px;">
+                <div style="width:90%; float:left;">
+                    <div style="width:100%;">
+                        <span style="font-size:110%;text-align:center; color:#313131" class="colordarkgray">+000-0</span>
+                    </div>
+                    <input onkeyup="ShievesChanges(this)" type="number" />
+                    <!--<b style="float:right; margin-left:5px; color:gray;padding-top:3px;font-size:90%;font-weight:600;">%</b>-->
+                </div>
+                <div style="width:1%;float:right; margin-right:4%; border-right:solid 1px #e8e8e8;margin-top: 15px;height: 30px;">&nbsp;</div>
             </div>
         </div>
         <div style="width:100%; margin:0 auto; margin-top:30%; color:white; border:none; border-radius:5px; padding:0px; text-align:center; background-color:rgba(0, 0, 0, 0.53)">
-            <div class="linearLayout" style="margin:0 auto; min-height:90px;display:table;width:90%;">
-                <div id="sievesRang" style="display:table;width:100%"></div>
+            <div class="linearLayout" style="margin:0 auto; min-height:90px;display:table;padding:0; width:100%;">
+                <div id="defaultSize" style="display:table;width:100%;color: #313131;font-size: 115%;font-weight: 600; margin-top:15px;text-transform:uppercase;"></div>
+                <div id="txtCurrentSives" style="display:table;width:100%;color: gray;font-size: 85%;font-weight: 600; margin-top:15px;"></div>
+                <div id="sievesRang" class="boxShadow" style="display:table;width:100%; margin-top:15px;border-top: solid 2px #ececec;"></div>
+                <div class="clearfix" style="height:10px;display:table;color:black; width:100%"></div>
                 <div id="sievesTotal">
                     100.00%
                 </div>
@@ -244,7 +254,7 @@
                 <div id="sievesAlert" style="width:100%;font-weight:600;text-align:left;font-size:90%;display:none;margin-bottom:10px;text-align:center;">
                     <span style="color:red;">Sieves ratio must be equal to 100%</span>
                 </div>
-                <div style="width:90%;margin:0 auto; margin-top:0px">
+                <div style="width:90%;margin:0 auto; margin-top:0px;">
                     <button onclick="SaveCsutomSives()" class="png" style="background-image:url(img/btnsignup.png);background-repeat: no-repeat; background-size: 100% 100%; width:120px; height:34px; float:left">
                         Save
                     </button>
@@ -252,6 +262,8 @@
                         Cancel
                     </button>
                 </div>
+
+                <div class="clearfix" style="height:10px;display:table;color:black; width:100%"></div>
             </div>
         </div>
     </div>
@@ -263,7 +275,7 @@
     <script type="text/javascript" src="js/login.js"></script>
 
     <script type="text/javascript">
-        var custom_seives_ratio;
+        var custom_seives_ratio = '';
         var allow_user_custom_value = false;
         var deafualtSivesRatio = '';
         Common.GetSieves();
@@ -280,20 +292,26 @@
             }
         }
         function CreateCustomSieves() {
+            $('#sievesAlert').hide();
+            $("#sievesTotal").attr('style', 'color:green;');
+            $("#sievesTotal").html('100.00%');
             $('#sievesRang').html('');
-            validUserSieves = true;
+            validUserSieves = true; 
+            $("#defaultSize").html('Size: ' + defaultSize);
+            $("#txtCurrentSives").html('Sieves size: ' + custom_seives_ratio);
             var avlSieves = custom_seives_ratio.trim().split('|');
             for (i in avlSieves) {
                 var sievesRangTemp = $('#sievesRangTemp').clone();
-                $(sievesRangTemp).attr('style', 'display:table;');
+                var style = 'width:' + (avlSieves.length == 2 ? '49' : '33.33') + '%;display:table; float:left;';
+
+                $(sievesRangTemp).attr('style', style);
                 var v = avlSieves[i].trim().split(' ');
                 $(sievesRangTemp).find('span').html(v[1].trim() + '');
                 $(sievesRangTemp).find('input').val(v[0].trim().replace('%', ''));
 
                 $('#sievesRang').append(sievesRangTemp);
-
+                console.log(avlSieves[i]);
             }
-            //$('#sievesRang').attr('style', 'display:table;margin:0 auto; width:' + document.getElementById('sievesRang').clientWidth + 'px');
 
 
             $('#openModalCustomSieves').addClass('showModal');
@@ -304,7 +322,7 @@
             var total = 0.0;
             useSievesArray = '';
             validUserSieves = true;
-            var sievesRang = $(elem).parent().parent().parent().find('.sievesRang');
+            var sievesRang = $("#sievesRang").find('.sievesRang');
             for (i = 0; i < sievesRang.length; i++) {
                 var sievesRangTemp = sievesRang[i];
                 var v = parseFloat($(sievesRangTemp).find('input').val());
@@ -432,8 +450,10 @@
 
 
         var size = 0;
+        var defaultSize = '-2';
         function sizeSelected(s) {
-            size = GetAttrVal($(s).text().trim());
+            defaultSize = $(s).text().trim();
+            size = GetAttrVal(defaultSize);
             //var s1 = Common.GetSieves();
             //for (i in s1) {
             //    if (s1[i].size == $(s).text().trim()) {

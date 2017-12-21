@@ -8,14 +8,26 @@
     <link href="css/mAlert.css" rel="stylesheet" />
     <style type="text/css">
         .descitption {
-            padding:5px 0px 5px 2px;
+            padding: 5px 0px 5px 2px;
         }
-        .descitption span {
-            /*font-size:110%;*/
+
+            .descitption span {
+                /*font-size:110%;*/
+            }
+
+                .descitption span b {
+                    font-size: 111%;
+                }
+
+        .remModal {
+            position: relative !important;
+            top: auto !important;
+            background: transparent;
         }
-        .descitption span b {
-            font-size:111%;
-        }
+
+            .remModal #addr50 {
+                padding-top: 10px !important;
+            }
     </style>
 </head>
 <body>
@@ -57,122 +69,126 @@
                     </div>
                 </div>
             </div>
-            <div onclick="ShowAddressEditor(true,saveAddress)" style="margin-top: -30px; height:50px;" class="button buttonBlue">
+            <div onclick="EditAddr()" style="margin-top: -36px; height:50px;" class="button buttonBlue">
                 <button id="proceed" style="color: white;">EDIT</button>
             </div>
         </div>
-    </div>
-    <div id="addressModal" class="modalDialog">
+        <div id="addressModal" class="modalDialog">
 
-    </div>   
-        <div id="openModalProgress" class="modalDialog">
-            <div style="width:90%; margin:0 auto; margin-top:120px; color:white; border:solid 1px white; border-radius:5px; padding:10px; text-align:center; background-color:rgba(0, 0, 0, 0.53)">
-                <p class="title-hero">Your request is being processing...</p>
-                <div style="width:140px; margin:0 auto">
-                    <img src="./img/loader-light.gif" />
-                </div>
+        </div>
+    </div>
+    <div id="openModalProgress" class="modalDialog">
+        <div style="width:90%; margin:0 auto; margin-top:120px; color:white; border:solid 1px white; border-radius:5px; padding:10px; text-align:center; background-color:rgba(0, 0, 0, 0.53)">
+            <p class="title-hero">Your request is being processing...</p>
+            <div style="width:140px; margin:0 auto">
+                <img src="./img/loader-light.gif" />
             </div>
         </div>
+    </div>
 
-        <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/site.js"></script>
-        <script src="js/mAlert.js"></script>
-        <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/site.js"></script>
+    <script src="js/mAlert.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
 
-        <script type="text/javascript">
-            var addrOld;
-            var data;
-            function saveAddress(a)
-            {
-                if (a.Error == "")
-                {
-                    var Csutomer = { customer: null };
-                    Csutomer.customer = data.customers[0];
-                    //Csutomer.customer.billing_address=null;
-                    //Csutomer.customer.shipping_address=null;
+    <script type="text/javascript">
+        var addrOld;
+        var data;
+        function EditAddr() {
+            ShowAddressEditor(true, saveAddress);
+            $('#addressModal').addClass('remModal');
+            $('#cartMain').hide();
+        }
+        function saveAddress(a) {
+            if (a.Error == "") {
+                var Csutomer = { customer: null };
+                Csutomer.customer = data.customers[0];
+                //Csutomer.customer.billing_address=null;
+                //Csutomer.customer.shipping_address=null;
 
-                    Csutomer.customer.addresses = null;
-                    Csutomer.customer.addresses = [a.data];
-                    Csutomer.customer.role_ids = [3];
+                Csutomer.customer.addresses = null;
+                Csutomer.customer.addresses = [a.data];
+                Csutomer.customer.role_ids = [3];
 
-                    Csutomer.customer.first_name = a.data.first_name;
-                    Csutomer.customer.email = a.data.email;
-                    Csutomer.customer.last_name = a.data.last_name;
-                    if (Csutomer.customer.billing_address.id == 0) {
-                        Csutomer.customer.billing_address = JSON.parse(JSON.stringify(Csutomer.customer.addresses[0]));
-                        Csutomer.customer.billing_address.id = '0';
-                    }
-                    if (Csutomer.customer.billing_address.id == 0) {
-                        Csutomer.customer.shipping_address = JSON.parse(JSON.stringify(Csutomer.customer.addresses[0]));
-                        Csutomer.customer.shipping_address.id = '0';
-                    }
-                    Common.Post(Csutomer, "customers/update_customer", function (s,r) {
-                        if (s == true) {
-                            data = r;
-                            printAddress(r.customers[0].addresses[0], 9);
-                            addrOld = JSON.parse(JSON.stringify(r.customers[0].addresses[0]));
-
-                            login.logData.Name = r.customers[0].addresses[0].first_name + " " + r.customers[0].addresses[0].last_name;
-                            Common.SetJsonToLocal('ChorusUserDetail', JSON.stringify(login.logData));
-                            Common.PrintInnerHtml($('#headerName'), 'HELLO ' + login.logData.Name)
-                            $('#addressModal').removeClass('showModal');
-                            Common.showInfo("Your account detail updated successfully");
-                        }
-                    })
+                Csutomer.customer.first_name = a.data.first_name;
+                Csutomer.customer.email = a.data.email;
+                Csutomer.customer.last_name = a.data.last_name;
+                if (Csutomer.customer.billing_address.id == 0) {
+                    Csutomer.customer.billing_address = JSON.parse(JSON.stringify(Csutomer.customer.addresses[0]));
+                    Csutomer.customer.billing_address.id = '0';
                 }
-                else {
-                    Common.showError(a.Error);
+                if (Csutomer.customer.billing_address.id == 0) {
+                    Csutomer.customer.shipping_address = JSON.parse(JSON.stringify(Csutomer.customer.addresses[0]));
+                    Csutomer.customer.shipping_address.id = '0';
                 }
-            }
-            Common.GetCustomer();
-            Common.LoadPage("addressView.html", function (s, r) {
-                $("#addressModal").html(r);
-            }, false);
-            Common.LoadPage("header.html", function (s, r) {
-                //Commom.showError(s);
-                $("#dataas").html(r);
-
-                var mDocument = document.getElementsByClassName('bg')[0];
-                document.getElementById('headerTop').style.width = mDocument.clientWidth + 'px';
-                document.getElementById('headerTop').style.left = mDocument.offsetLeft + 'px';
-                document.getElementById('MenumodalDialog').style.width = mDocument.clientWidth + 'px';
-                document.getElementById('MenumodalDialog').style.left = mDocument.offsetLeft + 'px';
-
-                Common.Get("customers/get_user_image?id=" + login.logData.Id + "&thumbOnly=true", function (s, r) {
-                    $('.hexagon').attr('style', 'background-image:url(data:image/png;base64,' + r.replace(/"/g, "") + ')');
-                }, false);
-
-                $("#topTitle").html("ACCOUNT DETAIL");
-
-                Common.Get("customers/" + login.logData.Id, function (s, r) {
+                Common.Post(Csutomer, "customers/update_customer", function (s, r) {
                     if (s == true) {
                         data = r;
                         printAddress(r.customers[0].addresses[0], 9);
                         addrOld = JSON.parse(JSON.stringify(r.customers[0].addresses[0]));
+
+                        login.logData.Name = r.customers[0].addresses[0].first_name + " " + r.customers[0].addresses[0].last_name;
+                        Common.SetJsonToLocal('ChorusUserDetail', JSON.stringify(login.logData));
+                        Common.PrintInnerHtml($('#headerName'), 'HELLO ' + login.logData.Name)
+                        $('#addressModal').removeClass('showModal');
+                        $('#cartMain').show();
+                        Common.showInfo("Your account detail updated successfully");
                     }
-                }, true);
+                })
+            }
+            else {
+                Common.showError(a.Error);
+            }
+        }
+        Common.GetCustomer();
+        Common.LoadPage("addressView.html", function (s, r) {
+            $("#addressModal").html(r);
+        }, false);
+        Common.LoadPage("header.html", function (s, r) {
+            //Commom.showError(s);
+            $("#dataas").html(r);
 
-            });
-            ////////////////////////////////////////////////////
+            var mDocument = document.getElementsByClassName('bg')[0];
+            document.getElementById('headerTop').style.width = mDocument.clientWidth + 'px';
+            document.getElementById('headerTop').style.left = mDocument.offsetLeft + 'px';
+            document.getElementById('MenumodalDialog').style.width = mDocument.clientWidth + 'px';
+            document.getElementById('MenumodalDialog').style.left = mDocument.offsetLeft + 'px';
+
+            Common.Get("customers/get_user_image?id=" + login.logData.Id + "&thumbOnly=true", function (s, r) {
+                $('.hexagon').attr('style', 'background-image:url(data:image/png;base64,' + r.replace(/"/g, "") + ')');
+            }, false);
+
+            $("#topTitle").html("ACCOUNT DETAIL");
+
+            Common.Get("customers/" + login.logData.Id, function (s, r) {
+                if (s == true) {
+                    data = r;
+                    printAddress(r.customers[0].addresses[0], 9);
+                    addrOld = JSON.parse(JSON.stringify(r.customers[0].addresses[0]));
+                }
+            }, true);
+
+        });
+        ////////////////////////////////////////////////////
 
 
-            function printAddress(a, s) {
-                var elem = $("#step" + s);
-                elem = elem.find("span");
-                for (i = 0; i < elem.length; i++) {
-                    if ($(elem[i]).attr('data-nm') != undefined) {
-                        if ($(elem[i]).attr('data-nm') == "first_name") {
-                            $(elem[i]).html(Common.GetValueFromObject(a, $(elem[i]).attr('data-nm')) + " " + Common.GetValueFromObject(a, "last_name"));
-                        }
-                        else {
-                            $(elem[i]).html(Common.GetValueFromObject(a, $(elem[i]).attr('data-nm')));
+        function printAddress(a, s) {
+            var elem = $("#step" + s);
+            elem = elem.find("span");
+            for (i = 0; i < elem.length; i++) {
+                if ($(elem[i]).attr('data-nm') != undefined) {
+                    if ($(elem[i]).attr('data-nm') == "first_name") {
+                        $(elem[i]).html(Common.GetValueFromObject(a, $(elem[i]).attr('data-nm')) + " " + Common.GetValueFromObject(a, "last_name"));
+                    }
+                    else {
+                        $(elem[i]).html(Common.GetValueFromObject(a, $(elem[i]).attr('data-nm')));
 
-                        }
                     }
                 }
             }
-        </script>
+        }
+    </script>
 
 </body>
 </html>

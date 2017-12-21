@@ -1,10 +1,30 @@
 ﻿<style type="text/css">
     .addr50 .colordarkgray {
         font-size: 105%;
-        font-weight:600;
+        font-weight: 600;
+        color: #6c6c6c;
     }
+
     .addr50 .colorgray {
-        font-size: 95%;
+        font-size: 100%;
+        color: #232323 !important;
+        font-weight: 600;
+        text-transform:capitalize;
+    }
+
+    .addr50 .marb20 {
+        margin-bottom: 5px;
+    }
+
+    .marb20 div {
+        margin-bottom: 10px;
+    }
+
+    .autoPop div {
+        margin-bottom: 0px;
+    }
+    #addressModal {
+        z-index:9;
     }
 </style>
 <div id="addr50" class="addr50" style="">
@@ -172,6 +192,7 @@
         }, true);
     }
     function Cancel() {
+        $('#cartMain').show();
         $('#addressModal').removeClass('showModal');
     }
     function Save() {
