@@ -286,6 +286,7 @@
         function SaveCsutomSives() {
             if (validUserSieves == true && useSievesArray != '') {
                 custom_seives_ratio = useSievesArray;
+                useSievesArray = '';
                 $("#sizeNote").find('#sizeNoteSpan').html("Custom Sieves Ratio: " + custom_seives_ratio);
                 $('#openModalCustomSieves').removeClass('showModal');
                 GetPrice();
