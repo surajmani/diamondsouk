@@ -45,42 +45,43 @@
 
 <body onload="Common.initializeSite()">
      <div id="container" class="container app bg">
-        <div class="clearfix" style="height:15px;"></div>
-        <div class="row" style="margin:0px;">
-            <div class="logo"></div>
-        </div>
-        <div class="row">
-            <div style="margin-top:30px; font-weight:bold; text-align:center;font-size: 140%;color:white">SIGN IN</div>
-        </div>
-        <div style="margin-top:40px;">
-            <div class="editText">
-                <input id="unm" type="text" value="" placeholder="email ID" />
-            </div>
-        </div>
-        <div style="margin-top:20px;">
-            <div class="editText">
-                <input id="pwd" value="" type="password" placeholder="password" />
-            </div>
-        </div>
-        <div style="margin-top:10px;">
-            <div id="rem" onclick="login.rememberMe(this)" style="width:40%; margin-left:20px;" class="radioColor">
-                <img style="width:23px;float:left;" src="" /><div style="font-size: 120%; color:white">remember me</div>
-            </div>
-            <button onclick="window.location.href='resetpwd.html'" id="forgotpwd" style="float:right; margin-right:16px; background-color:transparent;font-size: 120%;">forgot password?</button>
-        </div>
-        <div class="clearfix"></div>
-        <div style="margin-top:10px;">
-            <div class="button">
-                <button onclick="login.DoLogin()" id="btnlogin" style="font-size: 120%;">LOGIN</button>
-            </div>
-        </div>
+         <div class="container2">
+             <div class="clearfix" style="height:15px;"></div>
+             <div class="row" style="margin:0px;">
+                 <div class="logo"></div>
+             </div>
+             <div class="row">
+                 <div style="margin-top:30px; font-weight:bold; text-align:center;font-size: 140%;color:white">SIGN IN</div>
+             </div>
+             <div style="margin-top:40px;">
+                 <div class="editText">
+                     <input id="unm" type="text" value="" placeholder="email ID" />
+                 </div>
+             </div>
+             <div style="margin-top:20px;">
+                 <div class="editText">
+                     <input id="pwd" value="" type="password" placeholder="password" />
+                 </div>
+             </div>
+             <div style="margin-top:10px;">
+                 <div id="rem" onclick="login.rememberMe(this)" style="width:40%; margin-left:20px;" class="radioColor">
+                     <img style="width:23px;float:left;" src="" /><div style="font-size: 120%; color:white">remember me</div>
+                 </div>
+                 <button onclick="window.location.href='resetpwd.html'" id="forgotpwd" style="float:right; margin-right:16px; background-color:transparent;font-size: 120%;">forgot password?</button>
+             </div>
+             <div class="clearfix"></div>
+             <div style="margin-top:10px;">
+                 <div class="button">
+                     <button onclick="login.DoLogin()" id="btnlogin" style="font-size: 120%;">LOGIN</button>
+                 </div>
+             </div>
 
-
-        <div style="margin-top:20px;">
-            <div onclick="window.location.href='create.html'" id="sgnup" style="cursor:pointer" class="editText">
-                <input  style="font-weight:bold;font-size: 120%;" disabled type="text" value="SIGN UP" />
-            </div>
-        </div>
+             <div style="margin-top:20px;">
+                 <div onclick="window.location.href='create.html'" id="sgnup" style="cursor:pointer" class="editText">
+                     <input style="font-weight:bold;font-size: 120%;" disabled type="text" value="SIGN UP" />
+                 </div>
+             </div>
+         </div>
     </div>
 
     <div id="openModalProgress" class="modalDialog">

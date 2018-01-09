@@ -32,49 +32,51 @@
 </head>
 <body>
     <div id="container" class="container app bg">
-        <div id="dataas"></div>
-        <div id="cartMain">
-            <div class="linearLayout" style="padding:0px;">
-                <div id="step9" style="margin-top:10px;">
-                    <div>
-                        <div class="row">
-                            <div class='descitption'><div style="width:30%;float:left"><span><b>Name</b></span></div><span data-nm="first_name">Name</span></div>
-                        </div>
-                        <div class="row">
-                            <div class='descitption'><div style="width:30%;float:left"><span><b>Email</b></span></div><span data-nm="email">Email</span></div>
-                        </div>
-                        <div class="row">
+        <div class="container2">
+            <div id="dataas"></div>
+            <div id="cartMain">
+                <div class="linearLayout" style="padding:0px;">
+                    <div id="step9" style="margin-top:10px;">
+                        <div>
+                            <div class="row">
+                                <div class='descitption'><div style="width:30%;float:left"><span><b>Name</b></span></div><span data-nm="first_name">Name</span></div>
+                            </div>
+                            <div class="row">
+                                <div class='descitption'><div style="width:30%;float:left"><span><b>Email</b></span></div><span data-nm="email">Email</span></div>
+                            </div>
+                            <div class="row">
 
-                            <div class='descitption'><div style="width:30%;float:left"><span><b>Company</b></span></div><span data-nm="company">Company</span></div>
+                                <div class='descitption'><div style="width:30%;float:left"><span><b>Company</b></span></div><span data-nm="company">Company</span></div>
+                            </div>
+                            <div class="row">
+                                <div class='descitption'><div style="width:30%;float:left"><span><b>Country</b></span></div><span data-nm="country">Country</span></div>
+                            </div>
+                            <div class="row">
+                                <div class='descitption'><div style="width:30%;float:left"><span><b>State</b></span></div><span data-nm="province">State</span></div>
+                            </div>
+                            <div class="row">
+                                <div class='descitption'><div style="width:30%;float:left"><span><b>City</b></span></div><span data-nm="city">City</span></div>
+                            </div>
+                            <div class="row">
+                                <div class='descitption'><div style="width:30%;float:left"><span><b>Address</b></span></div><span data-nm="address1">Address</span></div>
+                            </div>
+                            <div class="row">
+                                <div class='descitption'><div style="width:30%;float:left"><span><b>Zip Code</b></span></div><span data-nm="zip_postal_code">Zip/Postal code</span></div>
+                            </div>
+                            <div class="row">
+                                <div class='descitption'><div style="width:30%;float:left"><span><b>Phone no</b></span></div><span data-nm="phone_number">Phone</span></div>
+                            </div>
+                            <div class="clearfix" style="height:40px"></div>
                         </div>
-                        <div class="row">
-                            <div class='descitption'><div style="width:30%;float:left"><span><b>Country</b></span></div><span data-nm="country">Country</span></div>
-                        </div>
-                        <div class="row">
-                            <div class='descitption'><div style="width:30%;float:left"><span><b>State</b></span></div><span data-nm="province">State</span></div>
-                        </div>
-                        <div class="row">
-                            <div class='descitption'><div style="width:30%;float:left"><span><b>City</b></span></div><span data-nm="city">City</span></div>
-                        </div>
-                        <div class="row">
-                            <div class='descitption'><div style="width:30%;float:left"><span><b>Address</b></span></div><span data-nm="address1">Address</span></div>
-                        </div>
-                        <div class="row">
-                            <div class='descitption'><div style="width:30%;float:left"><span><b>Zip Code</b></span></div><span data-nm="zip_postal_code">Zip/Postal code</span></div>
-                        </div>
-                        <div class="row">
-                            <div class='descitption'><div style="width:30%;float:left"><span><b>Phone no</b></span></div><span data-nm="phone_number">Phone</span></div>
-                        </div>
-                        <div class="clearfix" style="height:40px"></div>
                     </div>
                 </div>
+                <div onclick="EditAddr()" style="margin-top: -36px; height:50px;" class="button buttonBlue">
+                    <button id="proceed" style="color: white;">EDIT</button>
+                </div>
             </div>
-            <div onclick="EditAddr()" style="margin-top: -36px; height:50px;" class="button buttonBlue">
-                <button id="proceed" style="color: white;">EDIT</button>
-            </div>
-        </div>
-        <div id="addressModal" class="modalDialog">
+            <div id="addressModal" class="modalDialog">
 
+            </div>
         </div>
     </div>
     <div id="openModalProgress" class="modalDialog">

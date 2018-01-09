@@ -19,6 +19,10 @@ body {
     min-height: 100vh;
     background-image: url(../img/bg.png);
 }
+.container2 {
+    margin:0 auto;
+    max-width:520px;
+}
 /* #### Mobile Phones Portrait #### */
 @media screen and (max-device-width: 480px) and (orientation: portrait) {
 
@@ -228,7 +232,9 @@ textarea {
     color: #464646;
     background: white;
     height: 100vh;
+    overflow-y:scroll;
     width: 90% !important;
+    max-width:420px;
     float: left;
 }
 

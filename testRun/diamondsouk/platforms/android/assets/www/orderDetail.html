@@ -19,260 +19,262 @@
 </head>
 <body>
     <div id="container" class="container app bg">
-        <div id="dataas"></div>
-        <div id="cartMain">
-            <div class="linearLayout" style="min-height:400px; padding-left: 0px;
+        <div class="container2">
+            <div id="dataas"></div>
+            <div id="cartMain">
+                <div class="linearLayout" style="min-height:400px; padding-left: 0px;
     padding-right: 0px;">
-                <table class="stats" style="width:95%; margin:10px;">
-                    <tr>
-                        <td class="colorPrimary">Order No</td>
-                        <td class="colordarkgray"></td>
-                        <td class="colorPrimary">Order Date</td>
-                        <td class="colordarkgray" style="text-align:right"></td>
-                    </tr>
-                    <tr>
-                        <td class="colorPrimary">Status</td>
-                        <td class="colordarkgray"></td>
-                        <td class="colorPrimary">Shipping</td>
-                        <td class="colordarkgray" style="text-align:right"></td>
-                    </tr>
-                    <tr>
-                        <td class="colorPrimary">Payment</td>
-                        <td class="colordarkgray"></td>
-                        <td class="colorPrimary">Subtotal</td>
-                        <td class="colordarkgray" style="text-align:right"></td>
-                    </tr>
-                    <tr>
-                        <td class="colorPrimary"></td>
-                        <td class="colordarkgray"></td>
-                        <td class="colorPrimary borderBottom">Discount</td>
-                        <td class="colordarkgray borderBottom" style="text-align:right">$10</td>
-                    </tr>
-                    <tr>
-                        <td class="colorPrimary"></td>
-                        <td class="colordarkgray"></td>
-                        <td class="colorPrimary borderBottom">Total</td>
-                        <td class="colordarkgray borderBottom" style="text-align:right">$100</td>
-                    </tr>
-                </table>
-                <div class="clearfix" style="height:10px;"></div>
-                <div class="grdHeader" style="color:white; text-align:center"><p style="margin:0;"> <strong>ITEMS DETAIL</strong></p></div>
-                <div id="itemWr">
-
-                </div>
-                <div class="items" style="width:100%; margin:0 auto; margin-top:15px; display:none; border-bottom:solid 1px #bfbfbf; padding-bottom:15px;">
-                    <div style="height:25px;text-transform:uppercase;border-color: #bfbfbf;" class="colordarkgray marb10 borderBottom"><b style="margin-left:10px">~Name</b> </div>
-                    <div style="width:100%; margin:0 auto; margin-right:10px; margin-left:10px; margin-top:10px;display:table">
-                        <div style="width:25%; float:left">
-                            <div style="width:50%; float:left" class="colorPrimary">
-                                Carat
-                            </div>
-                            <div style="width:50%; float:left" class="colordarkgray">
-                                <sapn style="font-size:90%"> ~Carat</sapn>
-                            </div>
-                        </div>
-                        <div style="width:33%; float:left">
-                            <div style="width:40%; float:left" class="colorPrimary">
-                                Price
-                            </div>
-                            <div style="width:60%; float:left" class="colordarkgray">
-                                <sapn style="font-size:90%">  ~Price </sapn>
-                            </div>
-                        </div>
-                        <div style="width:42%; float:left;">
-                            <div style="width:40%; float:left" class="colorPrimary">
-                                Total
-                            </div>
-                            <div style="width:60%; float:left;" class="colordarkgray">
-                                <sapn style="font-size:90%">  ~Total </sapn>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="margin-top:10px;font-size: 90%;margin-left:10px" class="colordarkgray">
-                        <sapn style="font-size:90%">  ~attribute_description </sapn>
-                    </div>
-                    <div style="margin-top:2px;font-size: 90%;margin-left:10px" class="colordarkgray">
-                        <sapn style="font-size:90%">  ~sieve </sapn>
-                    </div>
-                </div>
-
-
-                <div class="clearfix" style="height:10px;"></div>
-                <div class="marb10">
-                    <div class="grdHeader" style="color:white; text-align:center"><p style="margin:0;"> <strong>BILLING ADDRESS</strong></p></div>
-                    <table id="confitmAddr1" style="width:100%; margin:10px">
+                    <table class="stats" style="width:95%; margin:10px;">
                         <tr>
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                Name
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
-                        </tr>
-                        <tr style="display:none">
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                Email
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
+                            <td class="colorPrimary">Order No</td>
+                            <td class="colordarkgray"></td>
+                            <td class="colorPrimary">Order Date</td>
+                            <td class="colordarkgray" style="text-align:right"></td>
                         </tr>
                         <tr>
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                Email
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
+                            <td class="colorPrimary">Status</td>
+                            <td class="colordarkgray"></td>
+                            <td class="colorPrimary">Shipping</td>
+                            <td class="colordarkgray" style="text-align:right"></td>
                         </tr>
                         <tr>
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                Company
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
+                            <td class="colorPrimary">Payment</td>
+                            <td class="colordarkgray"></td>
+                            <td class="colorPrimary">Subtotal</td>
+                            <td class="colordarkgray" style="text-align:right"></td>
                         </tr>
                         <tr>
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                Country
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
+                            <td class="colorPrimary"></td>
+                            <td class="colordarkgray"></td>
+                            <td class="colorPrimary borderBottom">Discount</td>
+                            <td class="colordarkgray borderBottom" style="text-align:right">$10</td>
                         </tr>
                         <tr>
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                State
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                City
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                Address
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                Zip/Postal code
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                Phone no
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
+                            <td class="colorPrimary"></td>
+                            <td class="colordarkgray"></td>
+                            <td class="colorPrimary borderBottom">Total</td>
+                            <td class="colordarkgray borderBottom" style="text-align:right">$100</td>
                         </tr>
                     </table>
+                    <div class="clearfix" style="height:10px;"></div>
+                    <div class="grdHeader" style="color:white; text-align:center"><p style="margin:0;"> <strong>ITEMS DETAIL</strong></p></div>
+                    <div id="itemWr">
+
+                    </div>
+                    <div class="items" style="width:100%; margin:0 auto; margin-top:15px; display:none; border-bottom:solid 1px #bfbfbf; padding-bottom:15px;">
+                        <div style="height:25px;text-transform:uppercase;border-color: #bfbfbf;" class="colordarkgray marb10 borderBottom"><b style="margin-left:10px">~Name</b> </div>
+                        <div style="width:100%; margin:0 auto; margin-right:10px; margin-left:10px; margin-top:10px;display:table">
+                            <div style="width:25%; float:left">
+                                <div style="width:50%; float:left" class="colorPrimary">
+                                    Carat
+                                </div>
+                                <div style="width:50%; float:left" class="colordarkgray">
+                                    <sapn style="font-size:90%"> ~Carat</sapn>
+                                </div>
+                            </div>
+                            <div style="width:33%; float:left">
+                                <div style="width:40%; float:left" class="colorPrimary">
+                                    Price
+                                </div>
+                                <div style="width:60%; float:left" class="colordarkgray">
+                                    <sapn style="font-size:90%">  ~Price </sapn>
+                                </div>
+                            </div>
+                            <div style="width:42%; float:left;">
+                                <div style="width:40%; float:left" class="colorPrimary">
+                                    Total
+                                </div>
+                                <div style="width:60%; float:left;" class="colordarkgray">
+                                    <sapn style="font-size:90%">  ~Total </sapn>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top:10px;font-size: 90%;margin-left:10px" class="colordarkgray">
+                            <sapn style="font-size:90%">  ~attribute_description </sapn>
+                        </div>
+                        <div style="margin-top:2px;font-size: 90%;margin-left:10px" class="colordarkgray">
+                            <sapn style="font-size:90%">  ~sieve </sapn>
+                        </div>
+                    </div>
 
 
-                    <div class="grdHeader" style="color:white; text-align:center"><p style="margin:0;"> <strong>SHIPPING ADDRESS</strong></p></div>
-                    <table id="confitmAddr2" style="width:100%; margin:10px">
-                        <tr>
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                Name
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
-                        </tr>
-                        <tr style="display:none">
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                Email
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                Email
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                Company
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                Country
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                State
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                City
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                Address
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                Zip/Postal code
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width:40%; font-weight:600" class="colorPrimary">
-                                Phone no
-                            </td>
-                            <td style="width:60%; font-weight:600;text-align:right">
-                                <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
-                            </td>
-                        </tr>
-                    </table>
+                    <div class="clearfix" style="height:10px;"></div>
+                    <div class="marb10">
+                        <div class="grdHeader" style="color:white; text-align:center"><p style="margin:0;"> <strong>BILLING ADDRESS</strong></p></div>
+                        <table id="confitmAddr1" style="width:100%; margin:10px">
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Name
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr style="display:none">
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Email
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Email
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Company
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Country
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    State
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    City
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Address
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Zip/Postal code
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Phone no
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                        </table>
 
-                    <div class="clearfix" style="height:20px"></div>
-                    <div id="cloneTotal"></div>
+
+                        <div class="grdHeader" style="color:white; text-align:center"><p style="margin:0;"> <strong>SHIPPING ADDRESS</strong></p></div>
+                        <table id="confitmAddr2" style="width:100%; margin:10px">
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Name
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr style="display:none">
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Email
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Email
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Company
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Country
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    State
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    City
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Address
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Zip/Postal code
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Phone no
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div class="clearfix" style="height:20px"></div>
+                        <div id="cloneTotal"></div>
+                    </div>
                 </div>
+                <div class="clearfix" style="height:15px;"></div>
             </div>
-            <div class="clearfix" style="height:15px;"></div>
         </div>
     </div>
 
