@@ -1,5 +1,14 @@
 var baseUrl = 'https://www.diamondsouk.ae/api/';
 var Common = {
+    backBottom: function () {
+        var div = document.createElement('div');
+        div.onclick = function () {
+            window.history.back();
+        };
+       div.className = "backBottom";
+       div.innerHTML = '<i class="arrow left"></i><span> Back</span>';
+        $('.container2').append(div);
+    },
     beforeSend: function () {
         var header = {};
         header.Authorization = 'Bearer ' + login.logData.ClientSecret;

@@ -253,6 +253,7 @@
 
     <script>
         $(document).ready(function () {
+            Common.backBottom();
             window.onscroll = function () {
                 //console.log();
                 //var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -415,9 +416,9 @@
                     Common.Post(data, "customers", function (s, r) {
                         if (s == true) {
                             created = true;
-                            Common.showConfirmDialog("Your account created successfully.<br/>Please verify your email before login<br/> Do you want to go to loging screen?", function () {
+                            Common.showInfo("Your account created successfully.<br/>Please verify your email before login<br/> Do you want to go to loging screen?", function () {
                                 window.location.href = 'index.html';
-                            })
+                            });
                         }
                     }, true);
                 }
