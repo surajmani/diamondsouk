@@ -329,6 +329,9 @@
                 if (s == false) {
                     $("#cartMain2").show();
                     $("#cartMain").hide();
+                    login.logData.CartCount = 0;
+                    Common.SetJsonToLocal('ChorusUserDetail', JSON.stringify(login.logData));
+                    Common.PrintInnerHtml($('#cartCount'), '' + login.logData.CartCount + "")
                     return;
                 }
                 if (s == true) {
