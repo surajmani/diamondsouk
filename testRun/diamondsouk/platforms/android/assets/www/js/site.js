@@ -135,8 +135,8 @@ var Common = {
         mAlert.Ini(mAlert.Type.ERROR, 300, 150, 'INFO', str, callback);
     },
 
-    showConfirmDialog: function (str, callBack) {
-        mAlert.Ini(mAlert.Type.YESNO, 300, 150, 'INFO', str, callBack);
+    showConfirmDialog: function (str, callBack, noCallBack) {
+        mAlert.Ini(mAlert.Type.YESNO, 300, 150, 'INFO', str, callBack, noCallBack);
     }
     ,
     escapeRegExp: function (tr) {

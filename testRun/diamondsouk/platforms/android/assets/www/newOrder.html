@@ -257,10 +257,15 @@
                     <span style="color:red;">Sieves ratio must be equal to 100%</span>
                 </div>
                 <div style="width:90%;margin:0 auto; margin-top:0px;">
-                    <button onclick="SaveCsutomSives()" class="png" style="background-image:url(img/btnsignup.png);background-repeat: no-repeat; background-size: 100% 100%; width:120px; height:34px; float:left">
+                    <button onclick="SaveCsutomSives()" class="png" style="background-image:url(img/btnsignup.png);background-repeat: no-repeat; background-size: 100% 100%; width:25%; height:34px; float:left">
                         Save
                     </button>
-                    <button onclick="CloseCsutomSives()" class="png" style="background-image:url(img/btnsignup.png);background-repeat: no-repeat; background-size: 100% 100%; width:120px; height:34px; float:right">
+                    <div style="width:12.5%;float:left;height: 20px"></div>
+                    <button onclick="ResetCsutomSives()" class="png" style="background-image:url(img/btnsignup.png);background-repeat: no-repeat; background-size: 100% 100%; width:25%; height:34px; float:left">
+                        Reset
+                    </button>
+                    <div style="width:12.5%;float:left;height: 20px"></div>
+                    <button onclick="CloseCsutomSives()" class="png" style="background-image:url(img/btnsignup.png);background-repeat: no-repeat; background-size: 100% 100%; width:25%; height:34px; float:right">
                         Cancel
                     </button>
                 </div>
@@ -293,6 +298,14 @@
                 $('#openModalCustomSieves').removeClass('showModal');
                 GetPrice();
             }
+        }
+        function ResetCsutomSives()
+        {
+            custom_seives_ratio = deafualtSivesRatio;
+            useSievesArray = '';
+            $("#sizeNote").find('#sizeNoteSpan').html("Custom Sieves Ratio: " + custom_seives_ratio);
+            $('#openModalCustomSieves').removeClass('showModal');
+            GetPrice();
         }
         function CreateCustomSieves() {
             $('#sievesAlert').hide();
@@ -628,6 +641,8 @@
                         Common.PrintInnerHtml($('#cartCount'), '' + login.logData.CartCount + "")
                         Common.showConfirmDialog("Diamond purchase added to cart.<br/>Do you want to go to cart?", function () {
                             window.location.href = 'cart.html';
+                        }, function () {
+                            window.location.href = window.location.href;
                         });
                     }
                 })

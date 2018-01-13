@@ -3,7 +3,7 @@
 var mAlert = {
     Type: new Enum('INFO', 'WARNING', 'ERROR', 'YESNO'),
     ////////type = Diailog type
-    Ini: function (type, width, height, title, message, yesCallBack) {
+    Ini: function (type, width, height, title, message, yesCallBack, noCallBack) {
         var mDocument = document.getElementsByClassName('bg')[0];
         var mAlertDialog = document.createElement('div');
         mAlertDialog.className = 'mAlertDialog';
@@ -56,6 +56,10 @@ var mAlert = {
                 mAlertFooterNo.textContent = 'Nope';
                 mAlertFooterNo.onclick = function () {
                     mAlert.RemoveDiaLog(mAlertDialog);
+                    if (noCallBack != null)
+                    {
+                        noCallBack();
+                    }
                 }
                 mAlertFooter.appendChild(mAlertFooterNo);
 
