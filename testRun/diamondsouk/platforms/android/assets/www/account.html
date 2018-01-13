@@ -135,7 +135,7 @@
                         Common.PrintInnerHtml($('#headerName'), 'HELLO ' + login.logData.Name)
                         $('#addressModal').removeClass('showModal');
                         $('#cartMain').show();
-                        Common.showInfo("Your account detail updated successfully");
+                        Common.showInfoOkOnly("Your account detail updated successfully");
                     }
                 })
             }
@@ -168,6 +168,7 @@
                     data = r;
                     printAddress(r.customers[0].addresses[0], 9);
                     addrOld = JSON.parse(JSON.stringify(r.customers[0].addresses[0]));
+
                 }
             }, true);
 
