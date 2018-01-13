@@ -5,8 +5,8 @@ var Common = {
         div.onclick = function () {
             window.history.back();
         };
-       div.className = "backBottom";
-       div.innerHTML = '<i class="arrow left"></i><span> Back</span>';
+        div.className = "backBottom";
+        div.innerHTML = '<i class="arrow left"></i><span> Back</span>';
         $('.container2').append(div);
     },
     beforeSend: function () {
@@ -125,11 +125,14 @@ var Common = {
         $('#openModalProgress').removeClass('showModal');
     },
     showError: function (str) {
-        mAlert.Ini(mAlert.Type.ERROR, 300, 150, 'ERROR', str);
+        showInfoOkOnly(str);
 
     },
     showInfo: function (str, callback) {
         mAlert.Ini(mAlert.Type.INFO, 300, 150, 'INFO', str, callback);
+    },
+    showInfoOkOnly: function (str, callback) {
+        mAlert.Ini(mAlert.Type.ERROR, 300, 150, 'INFO', str, callback);
     },
 
     showConfirmDialog: function (str, callBack) {
@@ -196,7 +199,7 @@ var Common = {
         elem.setAttribute("autoPopID", id);
         div.className = "autoPop";
         //div.style.top = elem.top  + "px";
-       
+
         div.style.width = elem.offsetWidth + "px";
         elem.parentNode.appendChild(div);
         elem.onkeyup = (function () {
@@ -302,7 +305,7 @@ var app = {
 
 $(document).ready(function () {
     $('input').on('focus', function () {
-        document.body.scrollTop = $(this).offset().top-30;
+        document.body.scrollTop = $(this).offset().top - 30;
     });
 });
 
