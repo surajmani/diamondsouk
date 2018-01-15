@@ -96,7 +96,7 @@
             $("#profileModal").removeClass("showModal");
         }
         var imageBase = null;
-       
+
         function UploadImage() {
             if (imageBase == null) {
                 Common.showError("Please select image first");
@@ -104,11 +104,10 @@
             else {
                 var imageData = { userImage: { id: login.logData.Id, base64String: imageBase.split("data:image/png;base64,")[1] } }
                 Common.Post(imageData, "/customers/upload_user_image", function (s, r) {
-                    if (s)
-                    {
+                    if (s) {
                         Common.Get("customers/get_user_image?id=" + login.logData.Id + "&thumbOnly=true", function (s, r) {
                             $('.hexagon').attr('style', 'background-image:url(data:image/png;base64,' + r.replace(/"/g, "") + ')');
-                            }, false)
+                        }, false)
                     }
                 }, true);
             }
@@ -116,5 +115,8 @@
 
     </script>
 
+    <script type="text/javascript">
+        var $zoho = $zoho || {}; $zoho.salesiq = $zoho.salesiq || { widgetcode: "b0cca45a5b976cef9da56bee0646a6e6bb323313bf999bf5402a554f1d6ecb1f5d5fe629768af6d9a03793700d9418c2", values: {}, ready: function () { } }; var d = document; s = d.createElement("script"); s.type = "text/javascript"; s.id = "zsiqscript"; s.defer = true; s.src = "https://salesiq.zoho.com/widget"; t = d.getElementsByTagName("script")[0]; t.parentNode.insertBefore(s, t); d.write("<div id='zsiqwidget'></div>");
+    </script>
 </body>
 </html>
