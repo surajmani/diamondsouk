@@ -14,12 +14,12 @@
 </head>
 <body>
     <div id="container" class="container app bg">
-        <div class="container2">
+        <div class="container2" style="background:white; height:90vh;">
             <div id="dataas"></div>
             <div id="cartMain">
-                <div class="linearLayout" style="padding:0px;">
+                <!--<div class="linearLayout" style="padding:0px;">
                     <iframe id="mapFrame" style="height:70vh; width:100%; border:none"></iframe>
-                </div>
+                </div>-->
                 <!--<div style="margin-top: -37px; height:50px;position:relative" class="button button">
                     <button id="proceed" style="color: black;">
                         <img class="icon icons8-Call" width="24" height="24" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABKElEQVRIS7WVgU0CQRBFHxVAB0gHdoBWgHSAFWgHQgVKBWgF0AFQgdqBLViB5pPhMtnswexebhJyyWXmv9k/c8uAnmPQsz5dASNgCtwBt/bTuzmwU/O1AAk+AQ8tDqyAZQ1Awi/W8SV3qwBv1nVkbEUAebo3fyPiygkDNDiJC3KOow3w9QItBLgBPhPxNfBswhrwOzBM4F/2Xs/WLcrZ8miFvnGdUCCt5EkwjbY1VcHMJefEQ/PIAdTR1lV7W0KiPikH+AHGlvRduD1XLVoAG5d1DxyK23YF6Ql890rTlsj/6vAAbYTWMo1OEA/Q5aR7JhfN7Vh6FA+Q17p6czEBZF9xeMBfS3WnTYoAPgBtV1VEAM3FVUO4NoNf+9Cq/FdDtX+Z4cP0DvgHw94xGXzUur8AAAAASUVORK5CYII=">
@@ -46,7 +46,7 @@
     <script type="text/javascript" src="js/login.js"></script>
 
     <script type="text/javascript">
-        document.getElementById('mapFrame').setAttribute('src', baseUrl + '/Map')
+        //document.getElementById('mapFrame').setAttribute('src', baseUrl + '/Map')
         Common.GetCustomer();
         Common.LoadPage("header.html", function (s, r) {
             //Commom.showError(s);
@@ -78,5 +78,9 @@
     </script>
 
 
+    <script type="text/javascript">
+var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode:"b0cca45a5b976cef9da56bee0646a6e6bb323313bf999bf5402a554f1d6ecb1f5d5fe629768af6d9a03793700d9418c2", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);d.write("<div id='zsiqwidget'></div>");
+$zoho.salesiq.floatwindow.visible("4");
+    </script>
 </body>
 </html>
