@@ -35,7 +35,6 @@ var app = {
     onDeviceReady: function() {
         console.log('Received Device Ready Event');
         console.log('calling setup push');
-        Appsee.start("95fc5db47c9e49f4811e41ef658a6309");
         app.setupPush();
     },
     setupPush: function() {

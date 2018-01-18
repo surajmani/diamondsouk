@@ -9,7 +9,7 @@
         font-size: 100%;
         color: #232323 !important;
         font-weight: 600;
-        text-transform:capitalize;
+        text-transform: capitalize;
     }
 
     .addr50 .marb20 {
@@ -23,8 +23,9 @@
     .autoPop div {
         margin-bottom: 0px;
     }
+
     #addressModal {
-        z-index:9;
+        z-index: 9;
     }
 </style>
 <div id="addr50" class="addr50" style="">
@@ -132,7 +133,7 @@
     var listCity = null;
     var callBackFunc = null;
     var addr = null;
-    var state = {};
+    var state = { value: 106, text: "Others" };
     var country = {};
     function ShowAddressEditor(render, callBack) {
         callBackFunc = callBack;
@@ -161,6 +162,7 @@
                     newData.push({ id: 106, Name: "Others" });
                     document.getElementById("states").value = 'Others';
                     document.getElementById("states").setAttribute('readonly', "readonly");
+                    state = { value: 106, text: "Others" };
                 }
                 else {
                     document.getElementById("states").removeAttribute('readonly');

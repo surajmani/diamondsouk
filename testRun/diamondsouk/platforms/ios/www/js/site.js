@@ -125,7 +125,7 @@ var Common = {
         $('#openModalProgress').removeClass('showModal');
     },
     showError: function (str) {
-        showInfoOkOnly(str);
+      this.showInfoOkOnly(str);
 
     },
     showInfo: function (str, callback) {
