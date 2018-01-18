@@ -17,13 +17,13 @@ var login = {
                     rem = false;
                 }
                 if (rem == false) {
-                    Common.SetJsonToLocal("unm", "");
+                    //Common.SetJsonToLocal("unm", "");
                     Common.SetJsonToLocal("pwd", "");
                 }
                 else {
-                    Common.SetJsonToLocal("unm", $("#unm").val());
                     Common.SetJsonToLocal("pwd", $("#pwd").val());
                 }
+                Common.SetJsonToLocal("unm", $("#unm").val());
                 login.logData = result;
                 Common.SetJsonToLocal('ChorusUserDetail', JSON.stringify(result));
                 window.location.href = "newOrder.html";
@@ -57,5 +57,5 @@ var login = {
         Common.SetJsonToLocal("ChorusUserDetail", null);
         window.location.href = "index.html";
     },
-    logData: { Name: "", Id: "", ClientId: "", ClientSecret: "", CallbackUrl: "", IsActive: "", AuthenticationCode: "", UserImageName: "", CartCount: "" }
+    logData: { Name: "", Id: "", ClientId: "", ClientSecret: "", CallbackUrl: "", IsActive: "", AuthenticationCode: "", UserImageName: "", CartCount: "", ph_no:"" }
 }

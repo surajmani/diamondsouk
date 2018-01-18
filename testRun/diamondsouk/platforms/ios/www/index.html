@@ -111,7 +111,7 @@
         }
         var unm = Common.GetJsonFromLocal('unm');
         var pwd = Common.GetJsonFromLocal('pwd');
-        $("#unm").val(unm == null ? "" : unm);
+        $("#unm").val((unm == null||rem==false) ? "" : unm);
         $("#pwd").val(pwd == null ? "" : pwd);
     </script>
     <script type="text/javascript">
