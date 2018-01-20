@@ -723,10 +723,10 @@ button {
 .backBottom {
     top: 0px;
     position: absolute;
-    left:0;
+    left: 0;
     padding: 10px;
-    color:white;
-    font-weight:bold;
+    color: white;
+    font-weight: bold;
     font-size: 105%;
 }
 
@@ -741,3 +741,7 @@ button {
         transform: rotate(135deg);
         -webkit-transform: rotate(135deg);
     }
+
+#titlediv, .zsiq_cnt {
+    display: none;
+}
