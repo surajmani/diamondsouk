@@ -7,6 +7,15 @@
     <link href="css/index.css" rel="stylesheet" />
     <link href="css/mAlert.css" rel="stylesheet" />
     <style type="text/css">
+        .container {
+            /*background: white;*/
+
+        }
+
+        .linearLayout {
+            border: none;
+        }
+
         .colordarkgray {
             font-size: 110%;
             font-weight: 600;
@@ -14,216 +23,265 @@
 
         .editText {
             margin-top: 5px;
+            display: table;
+            width: 100%;
         }
 
         #dialCode {
-             margin-top: 0px !important; 
+            margin-top: 0px !important;
             font-size: 120%;
         }
+
         .editText input[type=text] {
-            font-size:98%;
+            font-size: 98%;
             font-weight: 600;
-            color:#7a7a7a !important;
-            text-transform:capitalize;
+            color: #4f4f4f !important;
+            text-transform: capitalize;
+            /*padding:5px !important;*/
+            padding: 10px 5px 10px 5px !important;
+            height: 30px;
         }
+
         .marb20 {
-            margin-bottom:20px;
+            margin-bottom: 12px;
+        }
+
+        .normal {
+            border: solid 1px #e1e4e5;
+        }
+
+        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: #819AA0;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #819AA0;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        :-ms-input-placeholder { /* IE 10+ */
+            color: #819AA0;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: #819AA0;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        .backBottom, .left {
+            /*border-color: #016583 !important;
+            color: #016583 !important;*/
+        }
+
+        .hexagon {
+            background: url(img/logopng.png);
         }
     </style>
 </head>
 <body id="ids" onload="Common.initializeSite()">
     <div id="container" class="container app bg">
         <div class="container2">
-            <div class="clearfix" style="height:15px;"></div>
+            <!--<div class="clearfix" style="height:15px;"></div>-->
 
-            <div class="row" style="margin:0px;">
-                <div class="">
-                    <p><div style="margin-top:30px; font-weight:bold; text-align:center;font-size: 140%;color:white;text-transform:uppercase;">Create an Account</div></p>
-                </div>
-            </div>
-            <div class="clearfix" style="height:50px;"></div>
-            <div style="margin:10px !important;">
+
+            <div style="">
                 <input onchange="Common.LoadUserImage(this)" id="PostFile" accept="image/*" type="file" style="display:none;" />
-                <div class="linearLayout" style="width:100%; margin:0; padding:0; display:table; background:white;min-height: 255px">
-                    <div onclick="LoadImage()" class="hexagonOuter" style="margin-top: -48px;">
+                <div class="linearLayout" style="width:100%; margin:0; padding:0; background:transparent; display:table;min-height: 255px">
+                    <!--<div class="hexagonOuter" style="margin-top: -48px;">
                         <div class="hexagon">
                             <div class="hexTop"></div>
                             <div class="hexBottom"></div>
                         </div>
-                    </div>
-                    <div style="margin-top:20px; display:block; padding:10px" id="addr1">
-                        <div class="marb20" style="width:50%; float:left">
-                            <div>
-                                <span class="colordarkgray">First Name</span>
-                            </div>
-                            <div class="editText normal">
-                                <input class="colorgray" type="text" style="width:100%" />
-                            </div>
+                    </div>-->
+                    <div style="display:table; width:100%;">
+                        <div style="width:120px; height:120px;border-radius:50%; margin:0 auto;">
+                            <img style="width:120px; margin-left:7px;margin-top:5px;" src="img/logopng.png" />
                         </div>
-                        <div class="marb20" style="width:49.5%; float:right">
-                            <div>
-                                <span class="colordarkgray">Last Name</span>
-                            </div>
-                            <div class="editText normal">
-                                <input class="colorgray" type="text" style="width:100%" />
-                            </div>
-                        </div>
-
-
-                        <div class="marb20" style="width:100%; float:right">
-                            <div>
-                                <span class="colordarkgray">Country</span>
-                            </div>
-                            <div class="editText normal">
-                                <input class="colorgray" id="country" type="text" style="width:100%" />
-                            </div>
-                        </div>
-                        <div class="marb20" style="width:100%; float:right">
-                            <div>
-                                <span class="colordarkgray">State/Province</span>
-                            </div>
-                            <div class="editText normal">
-                                <input id="states" class="colorgray" type="text" style="width:100%" />
-                            </div>
-                        </div>
-                        <div class="marb20" style="width:100%; float:right">
-                            <div>
-                                <span class="colordarkgray">City</span>
-                            </div>
-                            <div class="editText normal">
-                                <input class="colorgray" type="text" style="width:100%" />
-                            </div>
-                        </div>
-                        <div class="marb20" style="width:100%; float:right">
-                            <div>
-                                <span class="colordarkgray">Address</span>
-                            </div>
-                            <div class="editText normal">
-                                <input class="colorgray" type="text" style="width:100%" />
-                            </div>
-                        </div>
-                        <div class="marb20" style="width:100%; float:right">
-                            <div>
-                                <span class="colordarkgray">Zip/Postal code</span>
-                            </div>
-                            <div class="editText normal">
-                                <input class="colorgray" type="text" style="width:100%" />
-                            </div>
-                        </div>
-                        <div class="marb20" style="width:100%; float:right">
-                            <div>
-                                <span class="colordarkgray">Phone Number</span>
-                            </div>
-                            <div class="editText normal" style="min-height:25px;">
-                                <label id="dialCode" class="colorgray numOnly" style="float:left; margin-top:4px;"></label>
-                                <input id="mo" class="colorgray numOnly" value="" type="text" style="margin-left:5px !important;float:left;width: auto !important;" />
-                            </div>
-                        </div>
-                        <div class="marb20" style="width:100%; float:right">
-                            <div>
-                                <span class="colordarkgray">Company</span>
-                            </div>
-                            <div class="editText normal">
-                                <input class="colorgray" type="text" style="width:100%" />
-                            </div>
-                        </div>
-
-                        <div class="clearfix" style="height:15px;"></div>
-                        <div style="width:150px;float:right; bottom:0;" onclick="NextStep(1)">
-                            <span style="font-weight: 800;" class="colorPrimary">Next Step</span> <img src="img/prev.png" style="transform: rotate(180deg);" class="prev">
+                        <div style="margin-bottom:15px; margin-top:15px;">
+                            <div style="text-align:center;font-size: 120%;color:white;">Create an account</div>
                         </div>
                     </div>
-                    <div style="display:none;margin-top:20px; padding:10px" id="addr2">
-
-                        <div class="clearfix" style="height:15px;"></div>
-                        <div id="sendVerifiaction">
-                            <div class="marb20" style="width:100%; text-align:justify">
-                                <span class="colordarkgray">
-                                    Chorusdiamond will send an SMS message to verify your number
-                                </span>
+                    <div style="background:white;display:table">
+                        <div style="margin-top:20px; display:block; padding:10px" id="addr1">
+                            <div class="marb20" style="width:100%; float:left">
+                                <div>
+                                    <!--<span class="colordarkgray">First Name</span>-->
+                                </div>
+                                <div class="editText normal">
+                                    <input placeholder="First Name" class="colorgray" type="text" style="width:100%" />
+                                </div>
                             </div>
-                            <div class="marb20" style="margin-top:20px">
-
-                                <div class="editText normal" style="min-height:25px;display: table;width: 100%;">
-
-                                    <label id="modialCode" class="colorgray numOnly" style="float:left;margin-top:4px;"></label>
-                                    <input id="moring" class="colorgray numOnly" type="text" style="margin-left:5px !important;float:left;width:220px !important;" />
+                            <div class="marb20" style="width:100%; float:right">
+                                <div>
+                                    <!--<span class="colordarkgray">Last Name</span>-->
+                                </div>
+                                <div class="editText normal">
+                                    <input placeholder="Last Name" class="colorgray" type="text" style="width:100%" />
                                 </div>
                             </div>
 
-                            <div class="marb20" style="width:80%; display:table; margin-top:20px">
-                                <div style="width:100px; margin:0 auto">
-                                    <button onclick="SendCode()" class="png" style="background-image:url(img/press.png);background-repeat: no-repeat;
-    background-size: 100% 100%; width:100%; width:100px;height:32px; font-size:110%; margin:0 auto">
-                                        Next
-                                    </button>
+                            <div class="marb20" style="width:100%; float:right">
+                                <div>
+                                    <!--<span class="colordarkgray">Company</span>-->
+                                </div>
+                                <div class="editText normal">
+                                    <input placeholder="Company" class="colorgray" type="text" style="width:100%" />
                                 </div>
                             </div>
-                        </div>
-
-                        <div id="enterCode" style="display:none;min-width:100%;">
-                            <div class="clearfix" style="height:15px; width:100%"></div>
-                            <div class="marb20" style="width:100%; text-align:justify">
-                                <span class="colordarkgray">
-                                    Waiting to automatically detect an SMS
-                                </span>
+                            <div class="marb20" style="width:100%; float:right">
+                                <div>
+                                    <!--<span class="colordarkgray">Address</span>-->
+                                </div>
+                                <div class="editText normal">
+                                    <input placeholder="Address" class="colorgray" type="text" style="width:100%" />
+                                </div>
+                            </div>
+                            <div class="marb20" style="width:100%; float:right">
+                                <div>
+                                    <!--<span class="colordarkgray">City</span>-->
+                                </div>
+                                <div class="editText normal">
+                                    <input placeholder="City" class="colorgray" type="text" style="width:100%" />
+                                </div>
+                            </div>
+                            <div class="marb20" style="width:100%; float:right">
+                                <div>
+                                    <!--<span class="colordarkgray">State/Province</span>-->
+                                </div>
+                                <div class="editText normal">
+                                    <input placeholder="State/Province" id="states" class="colorgray" type="text" style="width:100%" />
+                                </div>
                             </div>
 
-                            <div class="marb20" style="width:80%;margin-top:20px">
-
+                            <div class="marb20" style="width:100%; float:right">
+                                <div>
+                                    <!--<span class="colordarkgray">Country</span>-->
+                                </div>
+                                <div class="editText normal">
+                                    <input placeholder="Country" class="colorgray" id="country" type="text" style="width:100%" />
+                                </div>
+                            </div>
+                            <div class="marb20" style="width:100%; float:right">
+                                <div>
+                                    <!--<span class="colordarkgray">Zip/Postal code</span>-->
+                                </div>
+                                <div class="editText normal">
+                                    <input placeholder="Zip/Postal code" class="colorgray" type="text" style="width:100%" />
+                                </div>
+                            </div>
+                            <div class="marb20" style="width:100%; float:right">
+                                <div>
+                                    <!--<span class="colordarkgray">Phone Number</span>-->
+                                </div>
                                 <div class="editText normal" style="min-height:25px;">
-                                    <input id="moCode" placeholder="enter code" class="colorgray numOnly" type="text" style="width:100% !important;float:left;width: auto !important;" />
+                                    <label id="dialCode" class="colorgray numOnly" style="float:left; margin-top:16px !important;"></label>
+                                    <input placeholder="Phone Number" id="mo" class="colorgray numOnly" value="" type="text" style="margin-left:5px !important;float:left;width: auto !important;" />
                                 </div>
                             </div>
 
-                            <div class="marb20" style="width:80%; display:table; margin-top:20px">
-                                <div style="width:100px; margin:0 auto">
-                                    <button onclick="VerifyCode()" class="png" style="background-image:url(img/press.png);background-repeat: no-repeat;
-    background-size: 100% 100%; width:100%; width:100px;height:32px; font-size:110%; margin:0 auto">
-                                        Verify
-                                    </button>
-                                </div>
+                            <div class="clearfix" style="height:15px;"></div>
+                            <div style="width:150px;float:right; bottom:0; margin-bottom:20px;" onclick="NextStep(1)">
+                                <span style="font-weight: 800;" class="colorPrimary">Next Step</span> <img src="img/prev.png" style="transform: rotate(180deg);" class="prev">
                             </div>
                         </div>
+                        <div style="display:none;margin-top:20px; padding:10px" id="addr2">
+
+                            <div class="clearfix" style="height:15px;"></div>
+                            <div id="sendVerifiaction">
+                                <div class="marb20" style="width:100%; text-align:justify">
+                                    <span class="colordarkgray">
+                                        Chorusdiamond will send an SMS message to verify your number
+                                    </span>
+                                </div>
+                                <div class="marb20" style="margin-top:20px">
+
+                                    <div class="editText normal" style="min-height:25px;display: table;width: 100%;">
+
+                                        <label id="modialCode" class="colorgray numOnly" style="float:left;    margin-top: 16px;"></label>
+                                        <input id="moring" class="colorgray numOnly" type="text" style="margin-left:5px !important;float:left;width:220px !important;" />
+                                    </div>
+                                </div>
+
+                                <div class="marb20" style="display:table; margin-top:20px">
+                                    <div style="width:100px; margin:0 auto">
+                                        <button onclick="SendCode()" class="png" style="background-image:url(img/press.png);background-repeat: no-repeat;
+    background-size: 100% 100%; width:100%; width:100px;height:32px; font-size:110%; margin:0 auto">
+                                            Next
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="enterCode" style="display:none;min-width:100%;">
+                                <div class="clearfix" style="height:15px; width:100%"></div>
+                                <div class="marb20" style="width:100%; text-align:justify">
+                                    <span class="colordarkgray">
+                                        Waiting to automatically detect an SMS
+                                    </span>
+                                </div>
+
+                                <div class="marb20" style="width:80%;margin-top:20px">
+
+                                    <div class="editText normal" style="min-height:25px;">
+                                        <input id="moCode" placeholder="enter code" class="colorgray numOnly" type="text" style="width:100% !important;float:left;width: auto !important;" />
+                                    </div>
+                                </div>
+
+                                <div class="marb20" style="width:80%; display:table; margin-top:20px">
+                                    <div style="width:100px; margin:0 auto">
+                                        <button onclick="VerifyCode()" class="png" style="background-image:url(img/press.png);background-repeat: no-repeat;
+    background-size: 100% 100%; width:100%; width:100px;height:32px; font-size:110%; margin:0 auto">
+                                            Verify
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
 
 
 
-                        <div class="marb20">
+                            <div class="marb20">
+                                <div style="float:right; bottom:0;" onclick="PrevStep(1)">
+                                    <img src="img/prev.png" class="prev"> <span style="font-weight: 800;" class="colorPrimary">Previous Step</span>
+                                </div>
+                                <div class="clearfix" style="height:15px;"></div>
+                            </div>
+                        </div>
+                        <div style="margin-top:20px; display:none; padding:10px" id="addr3">
+                            <div class="marb20" style="width:100%; float:right">
+                                <div>
+                                    <span class="colordarkgray">Email</span>
+                                </div>
+                                <div class="editText normal">
+                                    <input class="colorgray" type="email" style="width:100%" />
+                                </div>
+                            </div>
+                            <div class="marb20" style="width:100%; float:right">
+                                <div>
+                                    <span class="colordarkgray">Password</span>
+                                </div>
+                                <div class="editText normal">
+                                    <input class="colorgray" type="password" style="width:100%" />
+                                </div>
+                            </div>
+                            <div class="marb20" style="width:100%; float:right">
+                                <div>
+                                    <span class="colordarkgray">Confirm Password</span>
+                                </div>
+                                <div class="editText normal">
+                                    <input class="colorgray" type="password" style="width:100%" />
+                                </div>
+                            </div>
+
+                            <div class="clearfix" style="height:15px;"></div>
                             <div style="float:left; bottom:0;" onclick="PrevStep(1)">
                                 <img src="img/prev.png" class="prev"> <span style="font-weight: 800;" class="colorPrimary">Previous Step</span>
                             </div>
-                            <div class="clearfix" style="height:15px;"></div>
-                        </div>
-                    </div>
-                    <div style="margin-top:20px; display:none; padding:10px" id="addr3">
-                        <div class="marb20" style="width:100%; float:right">
-                            <div>
-                                <span class="colordarkgray">Email</span>
-                            </div>
-                            <div class="editText normal">
-                                <input class="colorgray" type="email" style="width:100%" />
-                            </div>
-                        </div>
-                        <div class="marb20" style="width:100%; float:right">
-                            <div>
-                                <span class="colordarkgray">Password</span>
-                            </div>
-                            <div class="editText normal">
-                                <input class="colorgray" type="password" style="width:100%" />
-                            </div>
-                        </div>
-                        <div class="marb20" style="width:100%; float:right">
-                            <div>
-                                <span class="colordarkgray">Confirm Password</span>
-                            </div>
-                            <div class="editText normal">
-                                <input class="colorgray" type="password" style="width:100%" />
-                            </div>
-                        </div>
-
-                        <div class="clearfix" style="height:15px;"></div>
-                        <div style="float:left; bottom:0;" onclick="PrevStep(1)">
-                            <img src="img/prev.png" class="prev"> <span style="font-weight: 800;" class="colorPrimary">Previous Step</span>
                         </div>
                     </div>
                     <div class="clearfix" style="height:30px; width:100%; display:table"></div>
@@ -448,6 +506,41 @@
                 if (tempAddr.last_name == "") {
                     return "last name is required";
                 }
+                tempAddr.company = $(inp[cnt++]).val();
+                if (tempAddr.company == "") {
+                    return "Company is required";
+                }
+                tempAddr.address1 = $(inp[cnt++]).val();
+                if (tempAddr.address1 == "") {
+                    return "Address is required";
+                }
+                tempAddr.city = $(inp[cnt++]).val();
+                if (tempAddr.city == "") {
+                    return "City is required";
+                }
+
+
+
+
+
+
+
+
+                ////////////////////////
+               
+
+                tempAddr.province = $(inp[cnt++]).val();
+                if (tempAddr.province == "") {
+                    return "State/Province is required";
+                }
+
+                if (state != null) {
+                    tempAddr.state_province_id = state.value;
+                }
+                else {
+                    tempAddr.state_province_id = 106;
+                }
+
                 tempAddr.country = $(inp[cnt++]).val();
                 if (tempAddr.country == "") {
                     return "Country is required";
@@ -462,27 +555,6 @@
                     }
                 }
 
-                tempAddr.province = $(inp[cnt++]).val();
-                if (tempAddr.province == "") {
-                    return "State/Province is required";
-                }
-
-                if (state != null) {
-                    tempAddr.state_province_id = state.value;
-                }
-                else {
-                    tempAddr.state_province_id = 106;
-                }
-
-                tempAddr.city = $(inp[cnt++]).val();
-                if (tempAddr.city == "") {
-                    return "City is required";
-                }
-                tempAddr.address1 = $(inp[cnt++]).val();
-                if (tempAddr.address1 == "") {
-                    return "Address is required";
-                }
-
                 tempAddr.zip_postal_code = $(inp[cnt++]).val();
                 if (tempAddr.zip_postal_code == "") {
                     return "Zip/Postal is required is required";
@@ -495,10 +567,7 @@
                     return "Phone number is required";
                 }
                 tempAddr.phone_number = $("#dialCode").html() + tempAddr.phone_number;
-                tempAddr.company = $(inp[cnt++]).val();
-                if (tempAddr.company == "") {
-                    return "Company is required";
-                }
+                console.log(tempAddr);
 
                 $("#ringcaptcha_user_phone").val(tempAddr.phone_number);
 

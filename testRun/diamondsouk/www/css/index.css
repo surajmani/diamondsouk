@@ -726,15 +726,15 @@ button {
     left: 0;
     padding: 10px;
     color: white;
-    font-weight: bold;
+    font-weight: normal;
     font-size: 105%;
 }
 
     .backBottom i {
         border: solid white;
-        border-width: 0 4px 4px 0;
+        border-width: 0 2px 2px 0;
         display: inline-block;
-        padding: 4px;
+        padding: 5px;
     }
 
     .backBottom .left {

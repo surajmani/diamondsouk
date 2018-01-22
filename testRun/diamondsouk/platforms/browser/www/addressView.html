@@ -27,82 +27,129 @@
     #addressModal {
         z-index: 9;
     }
+
+    .editText input[type=text] {
+            font-size: 98%;
+            font-weight: 600;
+            color: #4f4f4f !important;
+            text-transform: capitalize;
+            /*padding:5px !important;*/
+            padding: 10px 5px 10px 5px !important;
+            height: 30px;
+        }
+
+        .marb20 {
+            margin-bottom: 12px;
+        }
+
+        .normal {
+            border: solid 1px #e1e4e5;
+        }
+
+        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: #819AA0;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #819AA0;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        :-ms-input-placeholder { /* IE 10+ */
+            color: #819AA0;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: #819AA0;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        .backBottom, .left {
+            /*border-color: #016583 !important;
+            color: #016583 !important;*/
+        }
 </style>
 <div id="addr50" class="addr50" style="">
     <div class="linearLayout" style="width:90%;margin:0 auto;background: white;
     padding: 10px;display:table;">
-        <div class="marb20" style="width:50%; float:left">
+        <div class="marb20" style="width:100%; float:left">
             <div>
-                <span class="colordarkgray">First Name</span>
+                <!--<span class="colordarkgray">First Name</span>-->
             </div>
             <div class="editText normal">
-                <input class="colorgray" type="text" style="width:100%" />
+                <input placeholder="First Name" class="colorgray" type="text" style="width:100%" />
             </div>
         </div>
-        <div class="marb20" style="width:49.5%; float:right">
+        <div class="marb20" style="width:100%; float:right">
             <div>
-                <span class="colordarkgray">Last Name</span>
+                <!--<span class="colordarkgray"></span>-->
             </div>
             <div class="editText normal">
-                <input class="colorgray" type="text" style="width:100%" />
+                <input placeholder="Last Name" class="colorgray" type="text" style="width:100%" />
             </div>
         </div>
 
 
         <div class="marb20" style="width:100%; float:right; display:none">
             <div>
-                <span class="colordarkgray">Email</span>
+                <!--<span class="colordarkgray">Email</span>-->
             </div>
             <div class="editText normal">
-                <input class="colorgray" type="email" style="width:100%" />
+                <input placeholder="Email" class="colorgray" type="email" style="width:100%" />
             </div>
         </div>
         <div class="marb20" style="width:100%; float:right">
             <div>
-                <span class="colordarkgray">Company</span>
+                <!--<span class="colordarkgray">Company</span>-->
             </div>
             <div class="editText normal">
-                <input class="colorgray" type="text" style="width:100%" />
+                <input placeholder="Company" class="colorgray" type="text" style="width:100%" />
             </div>
         </div>
         <div class="marb20" style="width:100%; float:right">
             <div>
-                <span class="colordarkgray">Country</span>
+                <!--<span class="colordarkgray">Country</span>-->
             </div>
             <div class="editText normal">
-                <input class="colorgray" id="country" type="text" style="width:100%" />
+                <input placeholder="Country" class="colorgray" id="country" type="text" style="width:100%" />
             </div>
         </div>
         <div class="marb20" style="width:100%; float:right">
             <div>
-                <span class="colordarkgray">State</span>
+                <!--<span class="colordarkgray">State</span>-->
             </div>
             <div class="editText normal">
-                <input id="states" class="colorgray" type="text" style="width:100%" />
+                <input placeholder="State" id="states" class="colorgray" type="text" style="width:100%" />
             </div>
         </div>
         <div class="marb20" style="width:100%; float:right">
             <div>
-                <span class="colordarkgray">City</span>
+                <!--<span class="colordarkgray">City</span>-->
             </div>
             <div class="editText normal">
-                <input class="colorgray" type="text" style="width:100%" />
+                <input placeholder="City" class="colorgray" type="text" style="width:100%" />
             </div>
         </div>
         <div class="marb20" style="width:100%; float:right">
             <div>
-                <span class="colordarkgray">Address</span>
+                <!--<span class="colordarkgray">Address</span>-->
             </div>
             <div class="editText normal">
-                <input class="colorgray" type="text" style="width:100%" />
+                <input placeholder="Address" class="colorgray" type="text" style="width:100%" />
             </div>
         </div>
         <div class="marb20" style="width:100%; float:right">
             <div>
-                <span class="colordarkgray">Zip/Postal Code</span>
+                <!--<span class="colordarkgray">Zip/Postal Code</span>-->
             </div>
             <div class="editText normal">
-                <input class="colorgray" type="text" style="width:100%" />
+                <input placeholder="Zip/Postal Code" class="colorgray" type="text" style="width:100%" />
             </div>
         </div>
         <div class="marb20" style="width:100%; float:right;display:none">
