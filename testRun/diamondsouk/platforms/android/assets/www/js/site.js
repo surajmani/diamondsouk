@@ -1,3 +1,7 @@
+window.onerror = function (msg, url, line) {
+        alert("ERROR: " + msg + "\n" + url + ":" + line);
+        return true;
+}
 var baseUrl = 'https://www.diamondsouk.ae/api/';
 var Common = {
     backBottom: function () {

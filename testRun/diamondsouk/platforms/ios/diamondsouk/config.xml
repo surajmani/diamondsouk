@@ -94,6 +94,7 @@
     <preference name="PaginationMode" value="unpaginated" />
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarStyle" value="blacktranslucent" />
+    <preference name="UIWebViewBounce" value="false" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="StatusBarBackgroundColor" value="#034d63" />
 </widget>
