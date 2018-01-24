@@ -1,7 +1,4 @@
-window.onerror = function (msg, url, line) {
-        alert("ERROR: " + msg + "\n" + url + ":" + line);
-        return true;
-}
+
 var baseUrl = 'https://www.diamondsouk.ae/api/';
 var Common = {
     backBottom: function () {
@@ -146,17 +143,17 @@ var Common = {
     escapeRegExp: function (tr) {
         return tr.replace(/"/g, '').replace(/{/g, '').replace(/}/g, '').replace(/\[/g, '').replace(/]/g, '').replace(/:/g, ' ');
     },
-    SetJsonToLocal(key, Json) {
+    SetJsonToLocal:function(key, Json) {
         localStorage.setItem(key, JSON.stringify(Json));
     },
-    GetJsonFromLocal(key) {
+    GetJsonFromLocal:function(key) {
         return JSON.parse(localStorage.getItem(key));
     },
     initializeSite: function () {
         localStorage.removeItem("ChorusUserDetail");
         localStorage.removeItem("chorusSives");
     },
-    PrintInnerHtml(ele, data) {
+    PrintInnerHtml:function(ele, data) {
         $(ele).html(data);
     },
     GetCustomer: function () {
@@ -183,7 +180,7 @@ var Common = {
             return JSON.parse(sieves);
         }
     },
-    GetValueFromObject(obj, k) {
+    GetValueFromObject:function(obj, k) {
         var rtn = null;
         Object.keys(obj).forEach(function (key) {
             if (k.toLowerCase() == key.toLowerCase()) {

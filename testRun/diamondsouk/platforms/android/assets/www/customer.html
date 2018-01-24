@@ -17,15 +17,8 @@
         <div class="container2" style="background:white; height:90vh;">
             <div id="dataas"></div>
             <div id="cartMain">
-                <!--<div class="linearLayout" style="padding:0px;">
-                    <iframe id="mapFrame" style="height:70vh; width:100%; border:none"></iframe>
-                </div>-->
-                <!--<div style="margin-top: -37px; height:50px;position:relative" class="button button">
-                    <button id="proceed" style="color: black;">
-                        <img class="icon icons8-Call" width="24" height="24" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABKElEQVRIS7WVgU0CQRBFHxVAB0gHdoBWgHSAFWgHQgVKBWgF0AFQgdqBLViB5pPhMtnswexebhJyyWXmv9k/c8uAnmPQsz5dASNgCtwBt/bTuzmwU/O1AAk+AQ8tDqyAZQ1Awi/W8SV3qwBv1nVkbEUAebo3fyPiygkDNDiJC3KOow3w9QItBLgBPhPxNfBswhrwOzBM4F/2Xs/WLcrZ8miFvnGdUCCt5EkwjbY1VcHMJefEQ/PIAdTR1lV7W0KiPikH+AHGlvRduD1XLVoAG5d1DxyK23YF6Ql890rTlsj/6vAAbYTWMo1OEA/Q5aR7JhfN7Vh6FA+Q17p6czEBZF9xeMBfS3WnTYoAPgBtV1VEAM3FVUO4NoNf+9Cq/FdDtX+Z4cP0DvgHw94xGXzUur8AAAAASUVORK5CYII=">
-                        <strong id="contactno"><a style="text-decoration:none; color:black; font-size:150%" href="tel:+919765770000">+919765770000</a></strong>
-                    </button>
-                </div>-->
+
+                <iframe frameborder="0" style="width: 100%; height: 85vh;" src="http://192.168.43.73/"></iframe>
                 <div class="clearfix" style="height:10vh;"></div>
             </div>
         </div>
@@ -63,7 +56,7 @@
             }, false);
 
             $("#topTitle").html("CUSTOMER SERVICE");
-            Common.ShwoprogressModal();
+            
             //Common.Get("stores", function (s, r) {
             //    if (s == true) {
             //        $('#contactno').html('<a style="text-decoration:none; color:black; font-size:150%" href="tel:' + r.stores[0].company_phone_number + '">' + r.stores[0].company_phone_number + '</a>');
@@ -77,20 +70,21 @@
     </script>
 
 
-    <script type="text/javascript">
-        var $zoho = $zoho || {}; $zoho.salesiq = $zoho.salesiq || {
-            widgetcode: "b0cca45a5b976cef9da56bee0646a6e6bb323313bf999bf5402a554f1d6ecb1f5d5fe629768af6d9a03793700d9418c2", values: {}, ready: function () {
-               // $zoho.salesiq.floatwindow.visible("4");
-                $zoho.salesiq.visitor.name(login.logData.Name);
-                $zoho.salesiq.visitor.email(Common.GetJsonFromLocal('unm'));
-                $zoho.salesiq.visitor.contactnumber(login.logData.ph_no);
-                $zoho.salesiq.visitor.question("Hello");
-                $zoho.salesiq.chat.mode("click");
-                Common.RemoveModal();
-                $zoho.salesiq.chat.systemmessages({ "waiting": " Please wait while we connect you to the support representative" });
-            }
-        }; var d = document; s = d.createElement("script"); s.type = "text/javascript"; s.id = "zsiqscript"; s.defer = true; s.src = "https://salesiq.zoho.com/widget"; t = d.getElementsByTagName("script")[0]; t.parentNode.insertBefore(s, t); d.write("<div id='zsiqwidget'></div>");
+    <!--<script type="text/javascript">
+        try {
+            var $zoho = $zoho || {}; $zoho.salesiq = $zoho.salesiq || {
+                widgetcode: "b0cca45a5b976cef9da56bee0646a6e6bb323313bf999bf5402a554f1d6ecb1f5d5fe629768af6d9a03793700d9418c2", values: {}, ready: function () {
+                    $zoho.salesiq.visitor.name(login.logData.Name);
+                    $zoho.salesiq.visitor.email(Common.GetJsonFromLocal('unm'));
+                    $zoho.salesiq.visitor.contactnumber(login.logData.ph_no);
+                    $zoho.salesiq.chat.mode("click");
+                }
+            }; var d = document; s = d.createElement("script"); s.type = "text/javascript"; s.id = "zsiqscript"; s.defer = true; s.src = "https://salesiq.zoho.com/widget"; t = d.getElementsByTagName("script")[0]; t.parentNode.insertBefore(s, t); d.write("<div id='zsiqwidget'></div>");
+        } catch (e)
+        {
+            alert(e.message);
+        }
 
-    </script>
+    </script>-->
 </body>
 </html>
