@@ -44,8 +44,6 @@
   </author>
     <content src="index.html" />
     <access origin="*" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
@@ -79,6 +77,8 @@
     <splash height="2208" src="res/screens/ios/Default-736h.png" width="1242" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="BackupWebStorage" value="cloud" />
     <preference name="DisallowOverscroll" value="true" />

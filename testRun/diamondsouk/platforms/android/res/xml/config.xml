@@ -26,8 +26,6 @@
   </author>
     <content src="index.html" />
     <access origin="*" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
@@ -45,6 +43,8 @@
     <splash density="port-xxhdpi" src="res/screens/android/splash-port-xxhdpi.png" />
     <splash density="port-xxxhdpi" src="res/screens/android/splash-port-xxxhdpi.png" />
     <allow-intent href="market:*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
     <preference name="loglevel" value="DEBUG" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="UIWebViewBounce" value="false" />
