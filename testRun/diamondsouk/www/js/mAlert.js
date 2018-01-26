@@ -50,10 +50,10 @@ var mAlert = {
             mAlertFooter.appendChild(mAlertFooterOK);
 
             if (type == 3) {
-                mAlertFooterOK.textContent = 'Yep';
+                mAlertFooterOK.textContent = 'Yes';
                 mAlertFooterOK.className = mAlertFooterOK.className + ' mAlertFooterYes';
                 var mAlertFooterNo = document.createElement('button');
-                mAlertFooterNo.textContent = 'Nope';
+                mAlertFooterNo.textContent = 'No';
                 mAlertFooterNo.onclick = function () {
                     mAlert.RemoveDiaLog(mAlertDialog);
                     if (noCallBack != null)

@@ -130,14 +130,14 @@ var Common = {
 
     },
     showInfo: function (str, callback) {
-        mAlert.Ini(mAlert.Type.INFO, 300, 150, 'INFO', str, callback);
+        mAlert.Ini(mAlert.Type.INFO, 300, 180, 'INFO', str, callback);
     },
     showInfoOkOnly: function (str, callback) {
-        mAlert.Ini(mAlert.Type.ERROR, 300, 150, 'INFO', str, callback);
+        mAlert.Ini(mAlert.Type.ERROR, 300, 180, 'INFO', str, callback);
     },
 
     showConfirmDialog: function (str, callBack, noCallBack) {
-        mAlert.Ini(mAlert.Type.YESNO, 300, 150, 'INFO', str, callBack, noCallBack);
+        mAlert.Ini(mAlert.Type.YESNO, 300, 180, 'INFO', str, callBack, noCallBack);
     }
     ,
     escapeRegExp: function (tr) {
@@ -304,11 +304,11 @@ var app = {
 };
 
 
-$(document).ready(function () {
-    $('input').on('focus', function () {
-        document.body.scrollTop = $(this).offset().top - 30;
-    });
-});
+//$(document).ready(function () {
+//    $('input').on('focus', function () {
+//        document.body.scrollTop = $(this).offset().top - 30;
+//    });
+//});
 
 
 

@@ -159,7 +159,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                <td valign="top" style="width:40%; font-weight:600" class="colorPrimary">
                                     Address
                                 </td>
                                 <td style="width:60%; font-weight:600;text-align:right">
@@ -244,7 +244,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                <td valign="top" style="width:40%; font-weight:600" class="colorPrimary">
                                     Address
                                 </td>
                                 <td style="width:60%; font-weight:600;text-align:right">
@@ -360,7 +360,7 @@
                     //    inp = $('#' + id).find('input');
                     //}
                     var cnt = 0;
-                    $(inp[cnt++]).val(address.first_name + " " + address.last_name);
+                    $(inp[cnt++]).val(address.first_name + " " + address.last_name)
                     $(inp[cnt++]).val(address.last_name);
                     $(inp[cnt++]).val(address.email);
                     $(inp[cnt++]).val(address.company);
@@ -368,7 +368,9 @@
 
                     $(inp[cnt++]).val(address.province);
                     $(inp[cnt++]).val(address.city);
-                    $(inp[cnt++]).val(address.address1);
+                    $(inp[cnt++]).val(address.address1).replaceWith(function () {
+                        return '<p class="' + this.className + '" style="margin: 0;text-align: left;border:none">' + this.value + '</p>'
+                    });;
                     $(inp[cnt++]).val(address.zip_postal_code);
                     $(inp[cnt++]).val(address.phone_number);
                 }

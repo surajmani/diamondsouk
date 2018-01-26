@@ -44,6 +44,8 @@
   </author>
     <content src="index.html" />
     <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
@@ -77,8 +79,6 @@
     <splash height="2208" src="res/screens/ios/Default-736h.png" width="1242" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="BackupWebStorage" value="cloud" />
     <preference name="DisallowOverscroll" value="true" />
@@ -94,7 +94,7 @@
     <preference name="PaginationMode" value="unpaginated" />
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarStyle" value="blacktranslucent" />
-    <preference name="UIWebViewBounce" value="false" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="StatusBarBackgroundColor" value="#034d63" />
+    <preference name="UIWebViewBounce" value="false" />
 </widget>
