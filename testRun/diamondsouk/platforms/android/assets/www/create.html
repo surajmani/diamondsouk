@@ -84,7 +84,7 @@
         }
     </style>
 </head>
-<body id="ids" onload="Common.initializeSite()">
+<body  data-scrollbar id="ids" onload="Common.initializeSite()">
     <div id="container" class="container app bg">
         <div class="container2">
             <!--<div class="clearfix" style="height:15px;"></div>-->
@@ -308,6 +308,7 @@
     <script type="text/javascript" src="js/site.js"></script>
     <script src="js/mAlert.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
+    <script src="js/smooth-scrollbar.js"></script>
 
     <script>
         $(document).ready(function () {
@@ -390,6 +391,7 @@
         var state = null;
         var country = null;
         Common.LoadPage("country.txt", function (s, r) {
+            Scrollbar.initAll();
 
             listCountry = JSON.parse(r);
             Common.AutoComplete(document.getElementById("country"), listCountry.states, function (d) {

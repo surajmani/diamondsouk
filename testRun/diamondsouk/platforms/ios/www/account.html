@@ -30,7 +30,7 @@
             }
     </style>
 </head>
-<body>
+<body  data-scrollbar>
     <div id="container" class="container app bg">
         <div class="container2">
             <div id="dataas"></div>
@@ -93,6 +93,7 @@
     <script type="text/javascript" src="js/site.js"></script>
     <script src="js/mAlert.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
+    <script src="js/smooth-scrollbar.js"></script>
 
     <script type="text/javascript">
         var addrOld;
@@ -149,6 +150,7 @@
         }, false);
         Common.LoadPage("header.html", function (s, r) {
             //Commom.showError(s);
+            Scrollbar.initAll();
             $("#dataas").html(r);
 
             var mDocument = document.getElementsByClassName('bg')[0];

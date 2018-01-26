@@ -17,7 +17,7 @@
         }
     </style>
 </head>
-<body>
+<body  data-scrollbar>
     <div id="container" class="container app bg">
         <div class="container2">
             <div id="dataas"></div>
@@ -292,10 +292,12 @@
     <script type="text/javascript" src="js/site.js"></script>
     <script src="js/mAlert.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
+    <script src="js/smooth-scrollbar.js"></script>
 
     <script type="text/javascript">
         Common.GetCustomer();
         Common.LoadPage("header.html", function (s, r) {
+            Scrollbar.initAll();
             //Commom.showError(s);
             $("#dataas").html(r);
 
@@ -369,7 +371,7 @@
                     $(inp[cnt++]).val(address.province);
                     $(inp[cnt++]).val(address.city);
                     $(inp[cnt++]).val(address.address1).replaceWith(function () {
-                        return '<p class="' + this.className + '" style="margin: 0;text-align: left;border:none">' + this.value + '</p>'
+                        return '<p class="' + this.className + '" style="margin: 0;text-align: left;border:none;margin-right: 20px;">' + this.value + '</p>'
                     });;
                     $(inp[cnt++]).val(address.zip_postal_code);
                     $(inp[cnt++]).val(address.phone_number);
