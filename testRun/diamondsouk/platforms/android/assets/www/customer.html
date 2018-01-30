@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <meta http-equiv="Content-Security-Policy" content="img-src 'self' data: https://*;default-src *; style-src 'self' https://* 'unsafe-inline'; script-src 'self' https://* 'unsafe-inline' http://* 'unsafe-inline' 'unsafe-eval'" />
     <title>DiamondSouk</title>
     <link href="css/index.css" rel="stylesheet" />
     <link href="css/mAlert.css" rel="stylesheet" />
@@ -18,7 +20,6 @@
             <div id="dataas"></div>
             <div id="cartMain">
 
-                <iframe frameborder="0" style="width: 100%; height: 85vh;" src="https://diamondsouk.ae/chat/"></iframe>
                 <div class="clearfix" style="height:10vh;"></div>
             </div>
         </div>
@@ -56,7 +57,7 @@
             }, false);
 
             $("#topTitle").html("CUSTOMER SERVICE");
-            
+
             //Common.Get("stores", function (s, r) {
             //    if (s == true) {
             //        $('#contactno').html('<a style="text-decoration:none; color:black; font-size:150%" href="tel:' + r.stores[0].company_phone_number + '">' + r.stores[0].company_phone_number + '</a>');
@@ -80,8 +81,7 @@
                     $zoho.salesiq.chat.mode("click");
                 }
             }; var d = document; s = d.createElement("script"); s.type = "text/javascript"; s.id = "zsiqscript"; s.defer = true; s.src = "http://salesiq.zoho.com/widget"; t = d.getElementsByTagName("script")[0]; t.parentNode.insertBefore(s, t); d.write("<div id='zsiqwidget'></div>");
-        } catch (e)
-        {
+        } catch (e) {
             alert(e.message);
         }
 

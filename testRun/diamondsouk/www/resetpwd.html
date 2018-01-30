@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="img-src 'self' data: https://*;default-src *; style-src 'self' https://* 'unsafe-inline'; script-src 'self' https://* 'unsafe-inline' http://* 'unsafe-inline' 'unsafe-eval'" />
     <title>DiamondSouk</title>
     <link href="css/index.css" rel="stylesheet" />
     <link href="css/mAlert.css" rel="stylesheet" />
@@ -46,9 +47,8 @@
     <script type="text/javascript">
         function resetPwd() {
             Common.Get("customers/PasswordRecoverySend?emal=" + $('#reset').val(), function (s, r) {
-                
-                if(s==true)
-                {
+
+                if (s == true) {
                     Common.showInfoOkOnly(r, function () {
                         window.location.href = 'index.html';
                     });
@@ -57,7 +57,7 @@
         }
         $(document).ready(function () {
             Common.backBottom();
-            
+
         });
     </script>
 </body>

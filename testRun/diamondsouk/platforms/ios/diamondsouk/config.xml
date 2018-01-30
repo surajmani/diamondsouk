@@ -50,6 +50,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <allow-navigation href="*" />
     <icon height="1024" src="res/icons/ios/icon-1024.png" width="1024" />
     <icon height="29" src="res/icons/ios/icon-small.png" width="29" />
     <icon height="58" src="res/icons/ios/icon-small@2x.png" width="58" />

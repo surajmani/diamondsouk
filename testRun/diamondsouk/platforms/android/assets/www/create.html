@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="img-src 'self' data: https://*;default-src *; style-src 'self' https://* 'unsafe-inline'; script-src 'self' https://* 'unsafe-inline' http://* 'unsafe-inline' 'unsafe-eval'" />
     <title>DiamondSouk</title>
     <link href="css/index.css" rel="stylesheet" />
     <link href="css/mAlert.css" rel="stylesheet" />
     <style type="text/css">
         .container {
             /*background: white;*/
-
         }
 
         .linearLayout {
@@ -84,7 +84,7 @@
         }
     </style>
 </head>
-<body  data-scrollbar id="ids" onload="Common.initializeSite()">
+<body data-scrollbar id="ids" onload="Common.initializeSite()">
     <div id="container" class="container app bg">
         <div class="container2">
             <!--<div class="clearfix" style="height:15px;"></div>-->
@@ -529,7 +529,7 @@
 
 
                 ////////////////////////
-               
+
 
                 tempAddr.province = $(inp[cnt++]).val();
                 if (tempAddr.province == "") {

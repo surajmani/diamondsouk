@@ -32,6 +32,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <allow-navigation href="*" />
     <icon density="ldpi" src="res/icons/android/ldpi.png" />
     <icon density="mdpi" src="res/icons/android/mdpi.png" />
     <icon density="hdpi" src="res/icons/android/hdpi.png" />
