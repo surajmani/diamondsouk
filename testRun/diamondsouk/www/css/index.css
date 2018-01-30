@@ -727,7 +727,7 @@ button {
 
 .backBottom {
     top: 0px;
-    position: absolute;
+    position: relative;
     left: 0;
     padding: 10px;
     color: white;

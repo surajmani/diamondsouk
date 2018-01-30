@@ -4,11 +4,11 @@ var Common = {
     backBottom: function () {
         var div = document.createElement('div');
         div.onclick = function () {
-            window.history.back();
+            sendBackScreen();
         };
         div.className = "backBottom";
         div.innerHTML = '<i class="arrow left"></i><span> Back</span>';
-        $('.container2').append(div);
+        $('.bg').prepend(div);
     },
     beforeSend: function () {
         var header = {};
@@ -126,7 +126,7 @@ var Common = {
         $('#openModalProgress').removeClass('showModal');
     },
     showError: function (str) {
-      this.showInfoOkOnly(str);
+        mAlert.Ini(mAlert.Type.ERROR, 300, 180, 'ERROR', str, null);
 
     },
     showInfo: function (str, callback) {
@@ -143,17 +143,17 @@ var Common = {
     escapeRegExp: function (tr) {
         return tr.replace(/"/g, '').replace(/{/g, '').replace(/}/g, '').replace(/\[/g, '').replace(/]/g, '').replace(/:/g, ' ');
     },
-    SetJsonToLocal:function(key, Json) {
+    SetJsonToLocal: function (key, Json) {
         localStorage.setItem(key, JSON.stringify(Json));
     },
-    GetJsonFromLocal:function(key) {
+    GetJsonFromLocal: function (key) {
         return JSON.parse(localStorage.getItem(key));
     },
     initializeSite: function () {
         localStorage.removeItem("ChorusUserDetail");
         localStorage.removeItem("chorusSives");
     },
-    PrintInnerHtml:function(ele, data) {
+    PrintInnerHtml: function (ele, data) {
         $(ele).html(data);
     },
     GetCustomer: function () {
@@ -180,7 +180,7 @@ var Common = {
             return JSON.parse(sieves);
         }
     },
-    GetValueFromObject:function(obj, k) {
+    GetValueFromObject: function (obj, k) {
         var rtn = null;
         Object.keys(obj).forEach(function (key) {
             if (k.toLowerCase() == key.toLowerCase()) {
@@ -201,7 +201,7 @@ var Common = {
         div.className = "autoPop";
         //div.style.top = elem.top  + "px";
 
-        div.style.width = (elem.offsetWidth-10) + "px";
+        div.style.width = (elem.offsetWidth - 10) + "px";
         elem.parentNode.appendChild(div);
         elem.onkeyup = (function () {
             var autoPopID = elem.getAttribute("autoPopID");

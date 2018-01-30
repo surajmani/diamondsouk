@@ -97,6 +97,7 @@ var mAlert = {
                 mAlert.RemoveDiaLog(mAlertDialog);
                 yesCallBack();
             }
+            
         }
         var mTop = (mAlertDialog.clientHeight - height) / 2;
         var mCounter = (-1 * height);
@@ -126,6 +127,11 @@ var mAlert = {
         }, 5);
 
         mAlertHeading.className = mAlertHeading.className + ' mAlert' + this.Type.name(type);
+        mAlertDialogBody.className = 'mAlertDialogBody AlertBodyBg' + this.Type.name(type);
+        if (this.Type.name(type) == "ERROR" && title == "INFO")
+        {
+            mAlertDialogBody.className = 'mAlertDialogBody AlertBodyBgINFO';
+        }
     },
     RemoveDiaLog: function (dialog) {
         var mDocument = document.getElementsByClassName('bg')[0];

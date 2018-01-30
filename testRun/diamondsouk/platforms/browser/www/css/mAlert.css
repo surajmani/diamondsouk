@@ -23,6 +23,15 @@
     background-size: 100% 100%;
 }
 
+.AlertBodyBgINFO {
+    background-image: url(../img/info.png);
+}
+
+.AlertBodyBgYESNO {
+    background-image: url(../img/info.png);
+}
+
+
 .mAlertHeading {
     color: white;
     border-radius: 5px;

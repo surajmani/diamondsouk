@@ -32,11 +32,11 @@
             font-size: 120%;
         }
 
-        .editText input[type=text],.editText input[type=email],.editText input[type=password] {
+        .editText input[type=text], .editText input[type=email], .editText input[type=password] {
             font-size: 98%;
             font-weight: 600;
             color: #4f4f4f !important;
-            text-transform: capitalize;
+            text-transform: none;
             /*padding:5px !important;*/
             padding: 10px 5px 10px 5px !important;
             height: 30px;
@@ -187,7 +187,7 @@
 
                             <div class="clearfix" style="height:15px;"></div>
                             <div style="width:150px;float:right; bottom:0; margin-bottom:20px;" onclick="NextStep(1)">
-                                <span style="font-weight: 800;" class="colorPrimary">Next Step</span> <img src="img/prev.png" style="transform: rotate(180deg);" class="prev">
+                                <span style="font-weight: 800;font-size:120%" class="colorPrimary">Next Step</span> <img src="img/prev.png" style="transform: rotate(180deg); margin-right:0px;" class="prev">
                             </div>
                         </div>
 
@@ -211,8 +211,8 @@
                                     </div>
                                 </div>
 
-                                <div class="marb20" style="display:table; margin-top:20px">
-                                    <div style="width:100px;">
+                                <div class="marb20" style="display:table; margin-top:20px;width:100%;">
+                                    <div style="width:100px; float:right;">
                                         <button onclick="SendCode()" class="png" style="background-image:url(img/press.png);background-repeat: no-repeat;
     background-size: 100% 100%; width:100%; width:100px;height:32px; font-size:110%; margin:0 auto">
                                             Next
@@ -236,8 +236,8 @@
                                     </div>
                                 </div>
 
-                                <div class="marb20" style="display:table; margin-top:20px">
-                                    <div style="width:100px; margin:0 auto">
+                                <div class="marb20" style="display:table; margin-top:20px;width:100%">
+                                    <div style="width:100px; margin:0 auto;float:right;">
                                         <button onclick="VerifyCode()" class="png" style="background-image:url(img/press.png);background-repeat: no-repeat;
     background-size: 100% 100%; width:100%; width:100px;height:32px; font-size:110%; margin:0 auto">
                                             Verify
@@ -248,42 +248,47 @@
 
 
 
-                            <div class="marb20" style="position: inherit;right: 15px;margin-top: -35px;">
-                                <div style="float:right; bottom:0;" onclick="PrevStep(1)">
-                                    <img src="img/prev.png" class="prev"> <span style="font-weight: 800;" class="colorPrimary">Previous Step</span>
-                                </div>
+                            <div class="marb20" style="position: inherit;left: 15px;margin-top: -35px;">
+                                <!--<div style="float:left; bottom:0;" onclick="PrevStep(1)">
+                                    <img src="img/prev.png" class="prev"> <span style="font-weight: 800; font-size:120%" class="colorPrimary">Previous Step</span>
+                                </div>-->
                                 <div class="clearfix" style="height:15px;"></div>
                             </div>
                         </div>
                         <div style="margin-top:20px; display:none; padding:10px" id="addr3">
                             <div class="marb20" style="width:100%; float:right">
                                 <div>
-                                    <span class="colordarkgray">Email</span>
+                                    <!--<span class="colordarkgray">Email</span>-->
                                 </div>
                                 <div class="editText normal">
-                                    <input class="colorgray" type="email" style="width:100%" />
+                                    <input placeholder="Email" class="colorgray" type="email" style="width:100%" />
                                 </div>
                             </div>
                             <div class="marb20" style="width:100%; float:right">
                                 <div>
-                                    <span class="colordarkgray">Password</span>
+                                    <!--<span class="colordarkgray"></span>-->
                                 </div>
                                 <div class="editText normal">
-                                    <input class="colorgray" type="password" style="width:100%" />
+                                    <input class="colorgray" placeholder="Password" type="password" style="width:100%" />
                                 </div>
                             </div>
                             <div class="marb20" style="width:100%; float:right">
                                 <div>
-                                    <span class="colordarkgray">Confirm Password</span>
+                                    <!--<span class="colordarkgray"></span>-->
                                 </div>
                                 <div class="editText normal">
-                                    <input class="colorgray" type="password" style="width:100%" />
+                                    <input class="colorgray" placeholder="Confirm Password" type="password" style="width:100%" />
                                 </div>
                             </div>
 
-                            <div class="clearfix" style="height:15px;"></div>
-                            <div style="float:left; bottom:0;" onclick="PrevStep(1)">
-                                <img src="img/prev.png" class="prev"> <span style="font-weight: 800;" class="colorPrimary">Previous Step</span>
+                            <div class="clearfix" style="height:15px; display:table;width:100%"></div>
+                            <!--<div style="float:left; bottom:0;" onclick="PrevStep(1)">
+                                <img src="img/prev.png" class="prev"> <span style="font-weight: 800; font-size:120%" class="colorPrimary">Previous Step</span>
+                            </div>-->
+
+                            <div class="clearfix" style="height:30px; width:100%; display:table"></div>
+                            <div id="proceed" onclick="NextStep(3)" style="height:50px; display:table; width:100%;margin-left:0px;" class="button buttonBlue">
+                                <button style="color: white;margin-top: 5px;">SIGN UP</button>
                             </div>
                         </div>
 
@@ -292,9 +297,6 @@
                     <div class="clearfix" style="height:30px; width:100%; display:table"></div>
                 </div>
 
-                <div id="proceed" onclick="NextStep(3)" style="margin-top:-22px; height:50px; display:none" class="button buttonBlue">
-                    <button style="color: white;margin-top: 5px;">SIGN UP</button>
-                </div>
             </div>
             <div class="clearfix" style="height:15px;"></div>
         </div>
@@ -390,13 +392,12 @@
             });
         }
     </script>
-    <script type="text/javascript">
+    <script>
 
         var state = null;
         var country = null;
         Common.LoadPage("country.txt", function (s, r) {
             //Scrollbar.initAll();
-
             listCountry = JSON.parse(r);
             Common.AutoComplete(document.getElementById("country"), listCountry.states, function (d) {
                 setDialCode(d.text);
@@ -443,16 +444,16 @@
         }
 
         function PrevStep(stp) {
-            debugger;
-            if (created) {
-                return;
+            if (stp <= 0) {
+
+                window.history.back();
             }
             if (stp == 1) {
                 $("#addr" + stp).show();
-                $('#proceed').hide();
                 $("#addr" + (stp + 1)).hide();
                 $("#addr" + (stp + 2)).hide();
             }
+            nextStp = nextStp - 1;
         }
         function NextStep(stp) {
 
@@ -465,10 +466,9 @@
                 if (stp == 1 || stp == 2) {
                     $("#addr" + stp).hide();
                     $("#addr" + (stp + 1)).show();
-
+                    nextStp = stp;
                 }
                 if (stp == 2) {
-                    $('#proceed').show();
                 }
                 if (stp == 3) {
                     var data = { customer: Customer };
@@ -488,13 +488,15 @@
                     }, true);
                 }
 
-                $(window).scrollTop(0);
+                $(".backBottom").attr("tabindex", -1).focus();
+
             }
             else {
                 Common.showError(er);
             }
         }
-        var stp = 0;
+        var stp = -1;
+        var nextStp = -1;
 
         var tempAddr = { customer_attributes: null, created_on_utc: null, id: 0, first_name: "", last_name: "", email: "", company: "", country_id: 0, country: "", state_province_id: 0, city: "", address1: "", address2: "", zip_postal_code: "", phone_number: "", fax_number: "", created_on_utc: "", province: "" };
         function readAddress(n) {
@@ -628,6 +630,11 @@
 
         function LoadImage() {
             $("#PostFile").trigger("click");
+        }
+        function sendBackScreen() {
+            stp = nextStp;
+            console.log(stp);
+            PrevStep(stp);
         }
 
         var d = new Date();
