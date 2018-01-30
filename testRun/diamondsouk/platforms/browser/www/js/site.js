@@ -201,7 +201,7 @@ var Common = {
         div.className = "autoPop";
         //div.style.top = elem.top  + "px";
 
-        div.style.width = elem.offsetWidth + "px";
+        div.style.width = (elem.offsetWidth-10) + "px";
         elem.parentNode.appendChild(div);
         elem.onkeyup = (function () {
             var autoPopID = elem.getAttribute("autoPopID");

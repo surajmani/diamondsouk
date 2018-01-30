@@ -32,7 +32,7 @@
             font-size: 120%;
         }
 
-        .editText input[type=text] {
+        .editText input[type=text],.editText input[type=email],.editText input[type=password] {
             font-size: 98%;
             font-weight: 600;
             color: #4f4f4f !important;
@@ -107,7 +107,7 @@
                             <div style="text-align:center;font-size: 120%;color:white;">Create an account</div>
                         </div>
                     </div>
-                    <div style="background:white;display:table">
+                    <div style="background:white;display:table;height:100vh; width:100%">
                         <div style="margin-top:20px; display:block; padding:10px" id="addr1">
                             <div class="marb20" style="width:100%; float:left">
                                 <div>
@@ -152,6 +152,14 @@
                             </div>
                             <div class="marb20" style="width:100%; float:right">
                                 <div>
+                                    <!--<span class="colordarkgray">Country</span>-->
+                                </div>
+                                <div class="editText normal">
+                                    <input placeholder="Country" class="colorgray" id="country" type="text" style="width:100%" />
+                                </div>
+                            </div>
+                            <div class="marb20" style="width:100%; float:right">
+                                <div>
                                     <!--<span class="colordarkgray">State/Province</span>-->
                                 </div>
                                 <div class="editText normal">
@@ -159,14 +167,6 @@
                                 </div>
                             </div>
 
-                            <div class="marb20" style="width:100%; float:right">
-                                <div>
-                                    <!--<span class="colordarkgray">Country</span>-->
-                                </div>
-                                <div class="editText normal">
-                                    <input placeholder="Country" class="colorgray" id="country" type="text" style="width:100%" />
-                                </div>
-                            </div>
                             <div class="marb20" style="width:100%; float:right">
                                 <div>
                                     <!--<span class="colordarkgray">Zip/Postal code</span>-->
@@ -190,13 +190,16 @@
                                 <span style="font-weight: 800;" class="colorPrimary">Next Step</span> <img src="img/prev.png" style="transform: rotate(180deg);" class="prev">
                             </div>
                         </div>
-                        <div style="display:none;margin-top:20px; padding:10px" id="addr2">
+
+                        <!--///////////////confirm-->
+                        <div class="clearfix" style="height:5px;display:table;width:100%"></div>
+                        <div style="display:none;margin-top:20px; padding:10px; width:95%" id="addr2">
 
                             <div class="clearfix" style="height:15px;"></div>
                             <div id="sendVerifiaction">
-                                <div class="marb20" style="width:100%; text-align:justify">
+                                <div class="marb20" style="width:100%;">
                                     <span class="colordarkgray">
-                                        Chorusdiamond will send an SMS message to verify your number
+                                        Diamondsouk will send an SMS to verify your number
                                     </span>
                                 </div>
                                 <div class="marb20" style="margin-top:20px">
@@ -209,7 +212,7 @@
                                 </div>
 
                                 <div class="marb20" style="display:table; margin-top:20px">
-                                    <div style="width:100px; margin:0 auto">
+                                    <div style="width:100px;">
                                         <button onclick="SendCode()" class="png" style="background-image:url(img/press.png);background-repeat: no-repeat;
     background-size: 100% 100%; width:100%; width:100px;height:32px; font-size:110%; margin:0 auto">
                                             Next
@@ -226,14 +229,14 @@
                                     </span>
                                 </div>
 
-                                <div class="marb20" style="width:80%;margin-top:20px">
+                                <div class="marb20" style="margin-top:20px">
 
                                     <div class="editText normal" style="min-height:25px;">
                                         <input id="moCode" placeholder="enter code" class="colorgray numOnly" type="text" style="width:100% !important;float:left;width: auto !important;" />
                                     </div>
                                 </div>
 
-                                <div class="marb20" style="width:80%; display:table; margin-top:20px">
+                                <div class="marb20" style="display:table; margin-top:20px">
                                     <div style="width:100px; margin:0 auto">
                                         <button onclick="VerifyCode()" class="png" style="background-image:url(img/press.png);background-repeat: no-repeat;
     background-size: 100% 100%; width:100%; width:100px;height:32px; font-size:110%; margin:0 auto">
@@ -245,7 +248,7 @@
 
 
 
-                            <div class="marb20">
+                            <div class="marb20" style="position: inherit;right: 15px;margin-top: -35px;">
                                 <div style="float:right; bottom:0;" onclick="PrevStep(1)">
                                     <img src="img/prev.png" class="prev"> <span style="font-weight: 800;" class="colorPrimary">Previous Step</span>
                                 </div>
@@ -283,6 +286,8 @@
                                 <img src="img/prev.png" class="prev"> <span style="font-weight: 800;" class="colorPrimary">Previous Step</span>
                             </div>
                         </div>
+
+                        <!--///////////////confirm-->
                     </div>
                     <div class="clearfix" style="height:30px; width:100%; display:table"></div>
                 </div>
@@ -329,7 +334,6 @@
             $("#sendVerifiaction").hide();
             $("#enterCode").show();
             mo = $("#modialCode").html() + "" + $("#moring").val();
-            console.log(mo);
             var data = {};
             res = null;
             Common.ShwoprogressModal();
@@ -391,7 +395,7 @@
         var state = null;
         var country = null;
         Common.LoadPage("country.txt", function (s, r) {
-            Scrollbar.initAll();
+            //Scrollbar.initAll();
 
             listCountry = JSON.parse(r);
             Common.AutoComplete(document.getElementById("country"), listCountry.states, function (d) {
@@ -451,6 +455,7 @@
             }
         }
         function NextStep(stp) {
+
             if (created) {
                 return;
             }
@@ -482,6 +487,8 @@
                         }
                     }, true);
                 }
+
+                $(window).scrollTop(0);
             }
             else {
                 Common.showError(er);
@@ -531,18 +538,6 @@
                 ////////////////////////
 
 
-                tempAddr.province = $(inp[cnt++]).val();
-                if (tempAddr.province == "") {
-                    return "State/Province is required";
-                }
-
-                if (state != null) {
-                    tempAddr.state_province_id = state.value;
-                }
-                else {
-                    tempAddr.state_province_id = 106;
-                }
-
                 tempAddr.country = $(inp[cnt++]).val();
                 if (tempAddr.country == "") {
                     return "Country is required";
@@ -555,6 +550,19 @@
                         $(inp[cnt]).val("");
                         return "Invalid country";
                     }
+                }
+
+
+                tempAddr.province = $(inp[cnt++]).val();
+                if (tempAddr.province == "") {
+                    return "State/Province is required";
+                }
+
+                if (state != null) {
+                    tempAddr.state_province_id = state.value;
+                }
+                else {
+                    tempAddr.state_province_id = 106;
                 }
 
                 tempAddr.zip_postal_code = $(inp[cnt++]).val();
@@ -582,7 +590,6 @@
                     $(inpPhone).val($(this).val());
                     tempAddr.phone_number = inpPhone.val();
                 });
-
                 //else {
                 //    $("#addr" + (stp + 2)).hide();
                 //    $("#addr" + (stp + 1)).show();

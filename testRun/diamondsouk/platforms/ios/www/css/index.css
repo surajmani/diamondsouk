@@ -3,6 +3,7 @@ html,body
 {
   overflow: auto;
   height:100%;
+  overflow-x:hidden !important;
 }
 
 .text-center {
@@ -642,13 +643,14 @@ button {
 .autoPop {
     background: white;
     border-collapse: collapse;
-    border: solid 1px gray;
-    position: absolute;
+    border: solid 1px #e1e4e5;
+    /*position: absolute;*/
 }
 
     .autoPop div {
-        border: solid 1px gray;
-        padding: 5px 2px 5px 2px;
+        border: solid 1px #e1e4e5;
+            padding: 10px 5px 10px 5px;
+                color: #8ca3a8;
     }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
