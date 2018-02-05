@@ -95,4 +95,5 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="UIWebViewBounce" value="false" />
 	  <allow-navigation href="*" /> 
+    <preference name="windows-identity-name" value="45113KshitizJain.DiamondSouk" />
 </widget>
