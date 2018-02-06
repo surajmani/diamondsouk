@@ -35,4 +35,5 @@
     <preference name="windows-identity-name" value="45113KshitizJain.4079272126FCB" />
     <preference name="windows-store-display-name" value="Diamond Souk Team" />
     <preference name="windows-store-publisher-name" value="CN=FC125EBA-E7A0-4411-85C1-513B684EE647" />
+  <preference name='windows-target-version' value='8.1' />
 </widget>
