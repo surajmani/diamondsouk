@@ -96,7 +96,7 @@
   <preference name="UIWebViewBounce" value="false" />
   <allow-navigation href="*" />
   <preference name="windows-identity-name" value="45113KshitizJain.4079272126FCB" />
-  <preference name="WindowsStoreDisplayName" value="kshitiz jain" />
-  <preference name="WindowsStorePublisherName" value="CN=FC125EBA-E7A0-4411-85C1-513B684EE647"/>
+  <preference name="windows-store-display-name" value="Diamond Souk Team" />
+  <preference name="windows-store-publisher-name" value="CN=FC125EBA-E7A0-4411-85C1-513B684EE647"/>
   
 </widget>
