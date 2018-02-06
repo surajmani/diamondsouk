@@ -1,0 +1,407 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="img-src 'self' data: https://*;default-src *; style-src 'self' https://* 'unsafe-inline'; script-src 'self' https://* 'unsafe-inline' http://* 'unsafe-inline' 'unsafe-eval'" />
+    <title>DiamondSouk</title>
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/mAlert.css" rel="stylesheet" />
+    <style type="text/css">
+        td {
+            padding: 0 0 5px 0;
+        }
+
+        .colordarkgray {
+            font-weight: 600;
+            color: #505050;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" class="container app bg">
+        <div class="container2">
+            <div id="dataas"></div>
+            <div id="cartMain">
+                <div class="linearLayout" style="min-height:400px; padding-left: 0px;
+    padding-right: 0px;">
+                    <table class="stats" style="width:95%; margin:10px;">
+                        <tr>
+                            <td class="colorPrimary">Order No</td>
+                            <td class="colordarkgray"></td>
+                            <td class="colorPrimary">Order Date</td>
+                            <td class="colordarkgray" style="text-align:right"></td>
+                        </tr>
+                        <tr>
+                            <td class="colorPrimary">Status</td>
+                            <td class="colordarkgray"></td>
+                            <td class="colorPrimary">Shipping</td>
+                            <td class="colordarkgray" style="text-align:right"></td>
+                        </tr>
+                        <tr>
+                            <td class="colorPrimary">Payment</td>
+                            <td class="colordarkgray"></td>
+                            <td class="colorPrimary">Subtotal</td>
+                            <td class="colordarkgray" style="text-align:right"></td>
+                        </tr>
+                        <tr>
+                            <td class="colorPrimary"></td>
+                            <td class="colordarkgray"></td>
+                            <td class="colorPrimary borderBottom">Discount</td>
+                            <td class="colordarkgray borderBottom" style="text-align:right">$10</td>
+                        </tr>
+                        <tr>
+                            <td class="colorPrimary"></td>
+                            <td class="colordarkgray"></td>
+                            <td class="colorPrimary borderBottom">Total</td>
+                            <td class="colordarkgray borderBottom" style="text-align:right">$100</td>
+                        </tr>
+                    </table>
+                    <div class="clearfix" style="height:10px;"></div>
+                    <div class="grdHeader" style="color:white; text-align:center"><p style="margin:0;"> <strong>ITEMS DETAIL</strong></p></div>
+                    <div id="itemWr">
+
+                    </div>
+                    <div class="items" style="width:100%; margin:0 auto; margin-top:15px; display:none; border-bottom:solid 1px #bfbfbf; padding-bottom:15px;">
+                        <div style="height:25px;text-transform:uppercase;border-color: #bfbfbf;" class="colordarkgray marb10 borderBottom"><b style="margin-left:10px">~Name</b> </div>
+                        <div style="width:100%; margin:0 auto; margin-right:10px; margin-left:10px; margin-top:10px;display:table">
+                            <div style="width:25%; float:left">
+                                <div style="width:50%; float:left" class="colorPrimary">
+                                    Carat
+                                </div>
+                                <div style="width:50%; float:left" class="colordarkgray">
+                                    <sapn style="font-size:90%"> ~Carat</sapn>
+                                </div>
+                            </div>
+                            <div style="width:33%; float:left">
+                                <div style="width:40%; float:left" class="colorPrimary">
+                                    Price
+                                </div>
+                                <div style="width:60%; float:left" class="colordarkgray">
+                                    <sapn style="font-size:90%">  ~Price </sapn>
+                                </div>
+                            </div>
+                            <div style="width:42%; float:left;">
+                                <div style="width:40%; float:left" class="colorPrimary">
+                                    Total
+                                </div>
+                                <div style="width:60%; float:left;" class="colordarkgray">
+                                    <sapn style="font-size:90%">  ~Total </sapn>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top:10px;font-size: 90%;margin-left:10px" class="colordarkgray">
+                            <sapn style="font-size:90%">  ~attribute_description </sapn>
+                        </div>
+                        <div style="margin-top:2px;font-size: 90%;margin-left:10px" class="colordarkgray">
+                            <sapn style="font-size:90%">  ~sieve </sapn>
+                        </div>
+                    </div>
+
+
+                    <div class="clearfix" style="height:10px;"></div>
+                    <div class="marb10">
+                        <div class="grdHeader" style="color:white; text-align:center"><p style="margin:0;"> <strong>BILLING ADDRESS</strong></p></div>
+                        <table id="confitmAddr1" style="width:100%; margin:10px">
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Name
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr style="display:none">
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Email
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Email
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Company
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Country
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    State
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    City
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" style="width:40%; font-weight:600" class="colorPrimary">
+                                    Address
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Zip/Postal code
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Phone no
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                        </table>
+
+
+                        <div class="grdHeader" style="color:white; text-align:center"><p style="margin:0;"> <strong>SHIPPING ADDRESS</strong></p></div>
+                        <table id="confitmAddr2" style="width:100%; margin:10px">
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Name
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr style="display:none">
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Email
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Email
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Company
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Country
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    State
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    City
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" style="width:40%; font-weight:600" class="colorPrimary">
+                                    Address
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Zip/Postal code
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%; font-weight:600" class="colorPrimary">
+                                    Phone no
+                                </td>
+                                <td style="width:60%; font-weight:600;text-align:right">
+                                    <input readonly="readonly" style="width:100%;border: none;" class="colordarkgray editText normal" />
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div class="clearfix" style="height:20px"></div>
+                        <div id="cloneTotal"></div>
+                    </div>
+                </div>
+                <div class="clearfix" style="height:15px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="openModalProgress" class="modalDialog">
+        <div style="width:90%; margin:0 auto; margin-top:120px; color:white; border:solid 1px white; border-radius:5px; padding:10px; text-align:center; background-color:rgba(0, 0, 0, 0.53)">
+            <p class="title-hero">Please wait your request is being processed</p>
+            <div style="width:140px; margin:0 auto">
+                <img src="./img/loader-light.gif" />
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <!--<script type="text/javascript" src="cordova.js"></script>-->
+    <script type="text/javascript" src="js/site.js"></script>
+    <script src="js/mAlert.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script src="js/smooth-scrollbar.js"></script>
+
+    <script type="text/javascript">
+        Common.GetCustomer();
+        Common.LoadPage("header.html", function (s, r) {
+            //Scrollbar.initAll();
+            //Commom.showError(s);
+            $("#dataas").html(r);
+
+            var mDocument = document.getElementsByClassName('bg')[0];
+            document.getElementById('headerTop').style.width = mDocument.clientWidth + 'px';
+            document.getElementById('headerTop').style.left = mDocument.offsetLeft + 'px';
+            document.getElementById('MenumodalDialog').style.width = mDocument.clientWidth + 'px';
+            document.getElementById('MenumodalDialog').style.left = mDocument.offsetLeft + 'px';
+
+            Common.Get("customers/get_user_image?id=" + login.logData.Id + "&thumbOnly=true", function (s, r) {
+                $('.hexagon').attr('style', 'background-image:url(data:image/png;base64,' + r.replace(/"/g, "") + ')');
+            }, false);
+
+            $("#topTitle").html("ORDER DETAIL");
+            Common.Get("orders/" + getParameterByName("id", window.location.href), function (s, data) {
+                //console.log(data);
+                //sieve = Common.GetSieves();
+                var td = $('.stats').find('td');
+                var d = new Date(data.orders[0].created_on_utc);
+                $(td[1]).html(data.orders[0].id);
+                $(td[3]).html(d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear().toString());
+                $(td[5]).html(data.orders[0].order_status);
+                $(td[7]).html(data.orders[0].shipping_status == 'NotYetShipped' ? 'Pending' : data.orders[0].shipping_status);
+                $(td[9]).html(data.orders[0].payment_status);
+                $(td[11]).html('$' + parseFloat(data.orders[0].order_subtotal_incl_tax).toFixed(2));
+                $(td[15]).html('$' + parseFloat(data.orders[0].order_discount).toFixed(2));
+                $(td[19]).html('$' + parseFloat(data.orders[0].order_total).toFixed(2));
+
+                for (i in data.orders[0].order_items) {
+                    var items = $('.items').clone();
+
+                    items.html(items.html().replace('~Name', data.orders[0].order_items[i].product.name));
+                    items.html(items.html().replace('~Carat', parseFloat(data.orders[0].order_items[i].quantity).toFixed(2)));
+                    items.html(items.html().replace('~Price', "$" + parseFloat(data.orders[0].order_items[i].unit_price_incl_tax).toFixed(2)));
+                    items.html(items.html().replace('~Total', "$" + parseFloat((data.orders[0].order_items[i].quantity * data.orders[0].order_items[i].unit_price_incl_tax).toFixed(2))));
+                    var a = data.orders[0].order_items[i].attribute_description.trim()
+                        .replace(/<br/g, ' ').replace(/>/g, ' ').replace('/', '  ').replace('/', '  ').replace('/', '  ').replace('Code', '').replace('Clarity White', 'Clarity');
+
+
+                    var s = data.orders[0].order_items[i].attribute_description.trim().split('Size:')[1].split('<')[0].trim();
+                    //console.log(s);
+                    //for (j in sieve) {
+                    //    if (sieve[j].size == s) {
+                    //        items.html(items.html().replace('~sieve', '<span class="colorPrimary" style="font-size:105%;">Sieves Ratio: </span>' + sieve[j].ratio));
+                    //    }
+                    //}
+                    items.html(items.html().replace('~sieve', '<span class="colorPrimary" style="font-size:105%;">Sieves Ratio: </span>' + data.orders[0].order_items[i].custom_seives_ratio))
+                    items.html(items.html().replace('~attribute_description', a.replace("Size:", "<span class='colorPrimary'  style='font-size:110%;'>Size: </span>")
+                        .replace("Clarity:", "<span class='colorPrimary'  style='font-size:105%;'>Clarity: </span>").replace("Color :", "<span  style='font-size:105%;' class='colorPrimary'>Color: </span>")
+                        ));
+                    $(items).show();
+                    $(items).removeClass('items');
+                    $('#itemWr').append(items);
+                }
+                renderAddress(data.orders[0].billing_address, 1, 1);
+                renderAddress(data.orders[0].shipping_address, 2, 2);
+
+                var step = 3;
+                function renderAddress(address, stp, id) {
+                    var inp = $("#confitmAddr" + stp).find('input');
+                    //if (step == 3 && id != "") {
+                    //    inp = $('#' + id).find('input');
+                    //}
+                    var cnt = 0;
+                    $(inp[cnt++]).val(address.first_name + " " + address.last_name)
+                    $(inp[cnt++]).val(address.last_name);
+                    $(inp[cnt++]).val(address.email);
+                    $(inp[cnt++]).val(address.company);
+                    $(inp[cnt++]).val(address.country);
+
+                    $(inp[cnt++]).val(address.province);
+                    $(inp[cnt++]).val(address.city);
+                    $(inp[cnt++]).val(address.address1).replaceWith(function () {
+                        return '<p class="' + this.className + '" style="margin: 0;text-align: left;border:none;margin-right: 20px;">' + this.value + '</p>'
+                    });;
+                    $(inp[cnt++]).val(address.zip_postal_code);
+                    $(inp[cnt++]).val(address.phone_number);
+                }
+            }, true);
+
+        });
+        ////////////////////////////////////////////////////
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+    </script>
+    <script type="text/javascript">
+        var $zoho = $zoho || {}; $zoho.salesiq = $zoho.salesiq || {
+            widgetcode: "b0cca45a5b976cef9da56bee0646a6e6bb323313bf999bf5402a554f1d6ecb1f5d5fe629768af6d9a03793700d9418c2", values: {}, ready: function () {
+                $zoho.salesiq.visitor.name(login.logData.Name);
+                $zoho.salesiq.visitor.email(Common.GetJsonFromLocal('unm'));
+                $zoho.salesiq.visitor.contactnumber(login.logData.ph_no);
+            }
+        }; var d = document; s = d.createElement("script"); s.type = "text/javascript"; s.id = "zsiqscript"; s.defer = true; s.src = "https://salesiq.zoho.com/widget"; t = d.getElementsByTagName("script")[0]; t.parentNode.insertBefore(s, t); d.write("<div id='zsiqwidget'></div>");
+    </script>
+
+</body>
+</html>
