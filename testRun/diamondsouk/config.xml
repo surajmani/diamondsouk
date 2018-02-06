@@ -81,6 +81,7 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <platform name="winphone" />
+    <preference name='windows-target-version' value='8.1' />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="UIWebViewBounce" value="false" />
     <allow-navigation href="*" />
