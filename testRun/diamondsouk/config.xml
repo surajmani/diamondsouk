@@ -95,9 +95,7 @@
   <preference name="DisallowOverscroll" value="true" />
   <preference name="UIWebViewBounce" value="false" />
   <allow-navigation href="*" />
-  <preference name="windows-identity-name" value="45113KshitizJain.DiamondSouk" />
+  <preference name="windows-identity-name" value="45113KshitizJain.4079272126FCB" />
   <preference name="WindowsStoreDisplayName" value="Diamond Souk Team" />
-  <vs:platformSpecificValues>
-    <vs:platformSpecificWidget platformName="windows" id="45113KshitizJain.4079272126FCB" />
-  </vs:platformSpecificValues>
+  
 </widget>
