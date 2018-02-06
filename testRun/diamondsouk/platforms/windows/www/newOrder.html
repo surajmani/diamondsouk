@@ -1,0 +1,696 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="img-src 'self' data: https://*;default-src *; style-src 'self' https://* 'unsafe-inline'; script-src 'self' https://* 'unsafe-inline' http://* 'unsafe-inline' 'unsafe-eval'" />
+    <title>DiamondSouk</title>
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/mAlert.css" rel="stylesheet" />
+    <style>
+        #sievesRang div {
+            /*padding: 2px;*/
+        }
+
+
+        .sievesRang {
+            width: 100%;
+            height: 30px;
+        }
+
+            .sievesRang span {
+                line-height: 2;
+                font-size: 85%;
+                font-weight: 600;
+                color: gray;
+                padding-right: 2px;
+            }
+
+            .sievesRang input {
+                width: 80px;
+                font-size: 100%;
+                font-weight: 600;
+                color: gray;
+                margin: auto auto;
+                text-align: center;
+                outline: none;
+            }
+
+        .arrow-up {
+            margin-left: 10px;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid black;
+        }
+
+        .arrow-down {
+            margin-left: 10px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 8px solid black;
+        }
+
+        #sievesTotal {
+            width: 100%;
+            font-size: 110%;
+            margin-top: 3px;
+            text-align: center;
+            color: green;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" class="container app bg">
+        <div class="container2">
+            <div class="clearfix" style="height:5px;"></div>
+            <div id="dataas"></div>
+            <div id="cartMain">
+                <div style="margin:10px; color:white; font-size:110%;font-weight:500;">
+                    <b>Shape: </b> <span>Round Diamond</span>
+                </div>
+                <div class="clearfix"></div>
+                <div class="linearLayout colorSelection">
+                    <div class="RadioGroup">
+                        <div class="marb10"><b>Color</b> </div>
+                        <div id="deafultColor" onclick="LoadProduct('Round White',236)" class="radioColor">
+                            <img src="img/radio_unchkecked.png" /><span>White</span>
+                        </div>
+                        <div onclick="LoadProduct('Round',117)" class="radioColor">
+                            <img src="img/radio_unchkecked.png" /><span>Brown</span>
+                        </div>
+                        <div onclick="LoadProduct('Round',118)" class="radioColor">
+                            <img src="img/radio_unchkecked.png" /><span>Yellow</span>
+                        </div>
+                        <div id="colorNote" style="display:none" class="marb10">
+                            <span style="font-size:12px; font-weight:400" class="colordarkgray">Note: Our parcels for the white color will have an average grading of FGH color</span>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="linearLayout">
+                    <div class="RadioGroup sizeSelection">
+                        <div class="marb10"><b>Size</b> </div>
+                        <div onclick="sizeSelected(this)" class="radioColor">
+                            <img src="img/radio_unchkecked.png" /><span>-2</span>
+                        </div>
+                        <div onclick="sizeSelected(this)" class="radioColor">
+                            <img src="img/radio_unchkecked.png" /><span>+2-6.5</span>
+                        </div>
+                        <div onclick="sizeSelected(this)" class="radioColor">
+                            <img src="img/radio_unchkecked.png" /><span>+6.5-11</span>
+                        </div>
+
+
+
+                        <div onclick="sizeSelected(this)" class="radioColor sizeWhiteOnly">
+                            <img src="img/radio_unchkecked.png" /><span>+11-14</span>
+                        </div>
+                        <div onclick="sizeSelected(this)" class="radioColor sizeWhiteOnly">
+                            <img src="img/radio_unchkecked.png" /><span>+14</span>
+                        </div>
+                        <div onclick="sizeSelected(this)" class="radioColor sizeWhiteOnly">
+                            <img src="img/radio_unchkecked.png" /><span>20 Pts</span>
+                        </div>
+                        <div onclick="sizeSelected(this)" class="radioColor sizeWhiteOnly">
+                            <img src="img/radio_unchkecked.png" /><span>25 Pts</span>
+                        </div>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div id="sizeNote" style="display:none;" class="linearLayout">
+                    <span id="sizeNoteSpan" style="font-size:12px; font-weight:600" class="colordarkgray"></span>
+                    <div id="custom_seives_ratio" style="display:block; margin-top:10px;margin-left:-6px;">
+                        <div style="width:100%;display:table">
+                            <button onclick="CreateCustomSieves()" class="png" style="background-image:url(img/btnsignup.png);background-repeat: no-repeat; background-size: 100% 100%; width:98%; height:45px; font-weight:600; font-size:98%; text-transform:uppercase; float:left">
+                                Customize your own sieves ratio
+                            </button>
+                            <div style="width:100%; padding-top:5px; display:table;padding-left:5px;">
+                                <span style="font-size:90%; font-weight:600; color:grey">Note: </span>
+                                <span id="extraCharge" style="font-size:80%; font-weight:600; color:red">0.00% extra charge on custom sieves</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="linearLayout">
+                    <div class="RadioGroup claritySelection">
+                        <div class="marb10"><b>Clarity</b> </div>
+                        <div onclick="claritySelected(228)" class="radioclearity cls236">
+                            <img src="img/radio_unchkecked.png" /><span>VVS</span>
+                        </div>
+                        <div onclick="claritySelected(229)" class="radioclearity cls236">
+                            <img src="img/radio_unchkecked.png" /><span>VS</span>
+                        </div>
+                        <div onclick="claritySelected(230)" class="radioclearity cls236">
+                            <img src="img/radio_unchkecked.png" /><span>SI1</span>
+                        </div>
+                        <div onclick="claritySelected(231)" class="radioclearity cls236">
+                            <img src="img/radio_unchkecked.png" /><span>SI2</span>
+                        </div>
+                        <div onclick="claritySelected(232)" class="radioclearity cls236">
+                            <img src="img/radio_unchkecked.png" /><span>SI3</span>
+                        </div>
+                        <div onclick="claritySelected(233)" class="radioclearity cls236">
+                            <img src="img/radio_unchkecked.png" /><span>I1</span>
+                        </div>
+                        <div onclick="claritySelected(234)" class="radioclearity cls236">
+                            <img src="img/radio_unchkecked.png" /><span>I1</span>
+                        </div>
+                        <div onclick="claritySelected(235)" class="radioclearity cls236">
+                            <img src="img/radio_unchkecked.png" /><span>I2</span>
+                        </div>
+
+
+                        <div style="width:33.33%" onclick="claritySelected(114)" class="radioclearity cls237">
+                            <img src="img/radio_unchkecked.png" /><span>VVS/VS</span>
+                        </div>
+                        <div style="width:33.33%" onclick="claritySelected(115)" class="radioclearity cls237">
+                            <img src="img/radio_unchkecked.png" /><span>SI1/2</span>
+                        </div>
+                        <div style="width:33.33%" onclick="claritySelected(116)" class="radioclearity cls237">
+                            <img src="img/radio_unchkecked.png" /><span>SI3/I1</span>
+                        </div>
+                        <div id="clarityNote" style="display:none; width:100%;display:table" class="marb10">
+                            <span style="font-size:12px; font-weight:400" class="colordarkgray">Note: We assort our diamonds as per international standard. Maximum 10% of variation.</span>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="linearLayout">
+                    <div class="RadioGroup">
+                        <div class=""><b>Carat</b> </div>
+                    </div>
+                    <div style="margin-top:5px;" class="editText normal">
+                        <input class="carat" type="number" maxlength="10" style="width:100%;font-size: 102%;font-weight: 600;" />
+                    </div>
+                </div>
+                <div class="linearLayout" id="pricePercarat" style="display:none;padding:5px;">
+                    <div id="pricePercarat" style="width:100%;display:table" class="marb10">
+                        <span style="font-size:12px; font-weight:400" class="colordarkgray">Note: We assort our diamonds as per international standard. Maximum 10% of variation.</span>
+                    </div>
+                </div>
+                <div class="linearLayout" style="min-height:135px;padding:0px;">
+                    <div id="disCalc" style="height:20px;padding:0px;text-align:center;display:none; margin-top:5px;">
+                        <img style="width:15px; height:15px; margin-right:5px;" src="img/prog.gif" /><span>CALCULATING DISCOUNT</span>
+                    </div>
+                    <div id="disPercent" style="height:20px;padding:0px;text-align:center;display:none;" class="grdHeader">
+                        <span style="font-size:90%"></span>
+                    </div>
+                    <div class="priceTab" style="margin-top:5px;">
+                        <div class="text-center">
+                            <strong><b style="font-weight: bolder; font-size:170%">PRICE</b></strong>
+                        </div>
+                        <div style="margin-top:10px;" class="text-center">
+                            <span style="font-weight: bolder;font-size:140%;" class="total">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div onclick="AddToCart()" style="margin-top: -37px; height:50px; margin-left:5px; margin-right:5px;" class="button buttonBlue">
+                    <button style="color: white;">ADD TO CART</button>
+                </div>
+                <div style="height:20px;" class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="openModalProgress" class="modalDialog">
+        <div style="width:90%; margin:0 auto; margin-top:120px; color:white; border:solid 1px white; border-radius:5px; text-align:center; background-color:rgba(0, 0, 0, 0.53)">
+            <p class="title-hero">Please wait your request is being processed</p>
+            <div style="width:140px; margin:0 auto">
+                <img src="./img/loader-light.gif" />
+            </div>
+        </div>
+    </div>
+    <div id="openModalCustomSieves" class="modalDialog">
+        <div id="sievesRangTemp" style="display:none;" class="sievesRang">
+            <div style="width:100%;display:table; margin-bottom:10px; margin-top:10px;">
+                <div style="width:90%; float:left;">
+                    <div style="width:100%;">
+                        <span style="font-size:110%;text-align:center; color:#313131" class="colordarkgray">+000-0</span>
+                    </div>
+                    <input onkeyup="ShievesChanges(this)" type="number" />
+                    <!--<b style="float:right; margin-left:5px; color:gray;padding-top:3px;font-size:90%;font-weight:600;">%</b>-->
+                </div>
+                <div style="width:1%;float:right; margin-right:4%; border-right:solid 1px #e8e8e8;margin-top: 15px;height: 30px;">&nbsp;</div>
+            </div>
+        </div>
+        <div style="width:100%; margin:0 auto; margin-top:30%; color:white; border:none; border-radius:5px; padding:0px; text-align:center; background-color:rgba(0, 0, 0, 0.53)">
+            <div class="linearLayout" style="margin:0 auto; min-height:90px;display:table;padding:0; width:100%;">
+                <div id="defaultSize" style="display:table;width:100%;color: #313131;font-size: 115%;font-weight: 600; margin-top:15px;text-transform:uppercase;"></div>
+                <div id="txtCurrentSives" style="display:table;width:100%;color: gray;font-size: 85%;font-weight: 600; margin-top:15px;"></div>
+                <div id="sievesRang" class="boxShadow" style="display:table;width:100%; margin-top:15px;border-top: solid 2px #ececec;"></div>
+                <div class="clearfix" style="height:10px;display:table;color:black; width:100%"></div>
+                <div id="sievesTotal">
+                    100.00%
+                </div>
+                <div class="clearfix" style="height:10px;display:table;color:black; width:100%"></div>
+                <div id="sievesAlert" style="width:100%;font-weight:600;text-align:left;font-size:90%;display:none;margin-bottom:10px;text-align:center;">
+                    <span style="color:red;">Sieves ratio must be equal to 100%</span>
+                </div>
+                <div style="width:90%;margin:0 auto; margin-top:0px;">
+                    <button onclick="SaveCsutomSives()" class="png" style="background-image:url(img/btnsignup.png);background-repeat: no-repeat; background-size: 100% 100%; width:25%; height:34px; float:left">
+                        Save
+                    </button>
+                    <div style="width:12.5%;float:left;height: 20px"></div>
+                    <button onclick="ResetCsutomSives()" class="png" style="background-image:url(img/btnsignup.png);background-repeat: no-repeat; background-size: 100% 100%; width:25%; height:34px; float:left">
+                        Reset
+                    </button>
+                    <div style="width:12.5%;float:left;height: 20px"></div>
+                    <button onclick="CloseCsutomSives()" class="png" style="background-image:url(img/btnsignup.png);background-repeat: no-repeat; background-size: 100% 100%; width:25%; height:34px; float:right">
+                        Cancel
+                    </button>
+                </div>
+
+                <div class="clearfix" style="height:10px;display:table;color:black; width:100%"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <!-- <script type="text/javascript" src="cordova.js"></script>-->
+    <script type="text/javascript" src="js/site.js"></script>
+    <script src="js/mAlert.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script src="js/ZhohoClient.js"></script>
+
+    <script type="text/javascript">
+        var custom_seives_ratio = '';
+        var allow_user_custom_value = false;
+        var deafualtSivesRatio = '';
+        Common.GetSieves();
+        Common.GetCustomer();
+        function CloseCsutomSives() {
+            $('#openModalCustomSieves').removeClass('showModal');
+        }
+        function SaveCsutomSives() {
+            if (validUserSieves == true && useSievesArray != '') {
+                custom_seives_ratio = useSievesArray;
+                useSievesArray = '';
+                $("#sizeNote").find('#sizeNoteSpan').html("Custom Sieves Ratio: " + custom_seives_ratio);
+                $('#openModalCustomSieves').removeClass('showModal');
+                GetPrice();
+            }
+        }
+        function ResetCsutomSives() {
+            custom_seives_ratio = deafualtSivesRatio;
+            useSievesArray = '';
+            $("#sizeNote").find('#sizeNoteSpan').html("Custom Sieves Ratio: " + custom_seives_ratio);
+            $('#openModalCustomSieves').removeClass('showModal');
+            GetPrice();
+        }
+        function CreateCustomSieves() {
+            $('#sievesAlert').hide();
+            $("#sievesTotal").attr('style', 'color:green;');
+            $("#sievesTotal").html('100.00%');
+            $('#sievesRang').html('');
+            validUserSieves = true;
+            $("#defaultSize").html('Size: ' + defaultSize);
+            $("#txtCurrentSives").html('Sieves size: ' + custom_seives_ratio);
+            var avlSieves = custom_seives_ratio.trim().split('|');
+            for (i in avlSieves) {
+                var sievesRangTemp = $('#sievesRangTemp').clone();
+                var style = 'width:' + (avlSieves.length == 2 ? '49' : '33.33') + '%;display:table; float:left;';
+
+                $(sievesRangTemp).attr('style', style);
+                var v = avlSieves[i].trim().split(' ');
+                $(sievesRangTemp).find('span').html(v[1].trim() + '');
+                $(sievesRangTemp).find('input').val(v[0].trim().replace('%', ''));
+
+                $('#sievesRang').append(sievesRangTemp);
+                console.log(avlSieves[i]);
+            }
+
+
+            $('#openModalCustomSieves').addClass('showModal');
+        }
+        var useSievesArray = '';
+        var validUserSieves = true;
+        function ShievesChanges(elem) {
+            var total = 0.0;
+            useSievesArray = '';
+            validUserSieves = true;
+            var sievesRang = $("#sievesRang").find('.sievesRang');
+            for (i = 0; i < sievesRang.length; i++) {
+                var sievesRangTemp = sievesRang[i];
+                var v = parseFloat($(sievesRangTemp).find('input').val());
+                if (isNaN(v)) {
+                    v = 0.0;
+                }
+                total += v;
+                useSievesArray += v + '% ' + $(sievesRangTemp).find('span').html().trim() + '';
+                if (i < sievesRang.length - 1) {
+                    useSievesArray += ' | ';
+                }
+            }
+            total = parseFloat(total).toFixed(2);
+            $("#sievesTotal").html(total + '%');
+            if (total != 100) {
+                $("#sievesTotal").attr('style', 'color:red;');
+                $('#sievesAlert').show();
+                validUserSieves = false;
+            }
+            else if (total == 100) {
+                $("#sievesTotal").attr('style', 'color:green;');
+                $('#sievesAlert').hide();
+            }
+        }
+
+        Common.LoadPage("header.html", function (s, r) {
+            //Commom.showError(s);
+            $("#dataas").html(r);
+
+            var mDocument = document.getElementsByClassName('bg')[0];
+            document.getElementById('headerTop').style.width = mDocument.clientWidth + 'px';
+            document.getElementById('headerTop').style.left = mDocument.offsetLeft + 'px';
+            document.getElementById('MenumodalDialog').style.width = mDocument.clientWidth + 'px';
+            document.getElementById('MenumodalDialog').style.left = mDocument.offsetLeft + 'px';
+
+            document.getElementById('openModalCustomSieves').style.width = mDocument.clientWidth + 'px';
+            document.getElementById('openModalCustomSieves').style.left = mDocument.offsetLeft + 'px';
+
+            Common.Get("customers/get_user_image?id=" + login.logData.Id + "&thumbOnly=true", function (s, r) {
+                $('.hexagon').attr('style', 'background-image:url(data:image/png;base64,' + r.replace(/"/g, "") + ')');
+            }, false);
+
+            $("#topTitle").html("NEW ORDER");
+
+            $('.cls237').hide();
+            $('.sizeWhiteOnly').hide();
+            $("#colorNote").hide();
+            $("#clarityNote").hide();
+
+            $('#deafultColor').click();
+            //custom_seives_ratio = '10% -000 | 50% +000-0 | 40% 0-2';
+            //CreateCustomSieves();
+        });
+        ////////////////////////////////////////////////////
+
+        var currentProduct = null;
+        var color = 0;
+        function LoadProduct(product, clr) {
+            currentProduct = null;
+            color = clr;
+            $("#colorNote").hide();
+            $("#sizeNote").hide();
+            $("#clarityNote").hide()
+            if (color == 236) {
+                $('.cls236').show();
+                $('.cls237').hide();
+                $('.sizeWhiteOnly').show();
+                $("#colorNote").show();
+            }
+            else {
+
+                $('.cls237').show();
+                $('.cls236').hide();
+                $('.sizeWhiteOnly').hide();
+            }
+            Common.Get("products?name=" + product, function (s, r) {
+                rdbSelecteted($('.sizeSelection'), null, '.radioColor');
+                rdbSelecteted($('.claritySelection'), null, '.radioclearity');
+                size = 0;
+                clarity = 0;
+                if (s == true) {
+                    currentProduct = r.products[0];
+
+                    GetPrice();
+                }
+                else {
+                    color = 0;
+                    rdbSelecteted($('.colorSelection'), null, '.radioColor');
+                    Common.showError(r);
+                }
+            });
+        }
+
+        $('.radioColor').click(function () {
+            rdbSelecteted($(this).parent(), $(this), '.radioColor');
+        });
+        $('.radioclearity').click(function () {
+            rdbSelecteted($(this).parent(), $(this), '.radioclearity');
+        });
+
+        function rdbSelecteted(parent, ch, seletor) {
+            if ($(parent).find(seletor).length > 1) {
+                $(parent).find(seletor).each(function () {
+                    $(this).children('img').attr('src', "img/radio_unchkecked.png");
+                });
+                $(ch).children('img').attr('src', "img/radio_chkecked.png");
+
+                $(parent).find(seletor).each(function () {
+                    $(this).children('span').attr('style', "color:#464646");
+                });
+                $(ch).children('img').attr('src', "img/radio_chkecked.png");
+                $(ch).children('span').attr('style', "color:#016e8d");
+            }
+            else {
+                if ($(ch).children('img').attr('src').indexOf('radio_unchkecked') > -1) {
+                    $(ch).children('img').attr('src', "img/radio_chkecked.png");
+                    $(ch).children('span').attr('style', "color:#016e8d");
+                }
+                else {
+                    $(ch).children('img').attr('src', "img/radio_unchkecked.png");
+                    $(ch).children('span').attr('style', "color:#464646");
+                }
+            }
+        }
+
+
+        var size = 0;
+        var defaultSize = '-2';
+        function sizeSelected(s) {
+            defaultSize = $(s).text().trim();
+            size = GetAttrVal(defaultSize);
+            //var s1 = Common.GetSieves();
+            //for (i in s1) {
+            //    if (s1[i].size == $(s).text().trim()) {
+            //        $("#sizeNote").find('span').html("Approx Sieves Ratio: " + s1[i].ratio);
+            //        $("#sizeNote").show();
+            //    }
+            //}
+            GetPrice();
+        }
+        clarity = 0;
+        function claritySelected(c) {
+
+            clarity = c;
+            GetPrice();
+
+            $("#clarityNote").show();
+        }
+        var customVariationPriceIncrement = 0;
+        function GetAttrVal(nm) {
+            var rtn = 0;
+            var selectedAttrr = [];
+            $("#custom_seives_ratio").hide();
+            var attrs = currentProduct.attributes;
+            for (i in attrs) {
+                var vals = attrs[i].attribute_values;
+                for (j in vals) {
+                    if (nm.toLowerCase() == vals[j].name.toLowerCase()) {
+                        allow_user_custom_value = vals[j].allow_user_custom_value;
+                        rtn = vals[j].id;
+                        $("#sizeNote").find('#sizeNoteSpan').html("Approx Sieves Ratio: " + vals[j].default_value);
+                        $("#sizeNote").show();
+                        customVariationPriceIncrement = parseFloat(vals[j].price_adjust_on_default_value);
+                        $('#extraCharge').html(parseFloat(customVariationPriceIncrement).toFixed(2) + '% extra charge on custom sieves');
+                        custom_seives_ratio = vals[j].default_value;
+                        deafualtSivesRatio = custom_seives_ratio;
+                        if (allow_user_custom_value == true) {
+                            $("#custom_seives_ratio").show();
+                        }
+                    }
+                }
+            }
+            return rtn;
+        }
+        var isReadyAddCart = false;
+        var dataCart;
+        var carat = 0;
+        function GetPrice() {
+
+            $("#disPercent").hide();
+            $("#pricePercarat").hide();
+            isReadyAddCart = true;
+            dataCart = addTocart;
+            var carat = 0;
+            total = 0;
+            try {
+
+                carat = parseFloat($('.carat').val());
+                if (isNaN(carat)) {
+                    carat = 0;
+                }
+
+            } catch (e) { }
+            if (color == 0 || size == 0 || clarity == 0) {
+                $('.total').html("$" + total);
+                isReadyAddCart = false;
+                return;
+            }
+            var price = 0.0;
+            for (i in currentProduct.product_attribute_combination) {
+                cmb = currentProduct.product_attribute_combination[i];
+                var temp = "" + color + "" + clarity + "" + size + "";
+                for (j in cmb.attributes) {
+                    var a = cmb.attributes[j];
+                    temp = temp.replace(a.value, "");
+                }
+                if (temp == "") {
+
+                    dataCart.shopping_cart_item.product_attributes = currentProduct.product_attribute_combination[i].attributes;
+                    price = currentProduct.product_attribute_combination[i].OverriddenPrice;
+                }
+            }
+            if (price == 0) {
+                price = currentProduct.price;
+            }
+            if (deafualtSivesRatio != custom_seives_ratio) {
+                price = (price) + ((price * customVariationPriceIncrement) / 100);
+                $("#pricePercarat").find('span').html('Price per carat is $' + parseFloat(price).toFixed(2) + ' as per above selection');
+            }
+            else {
+                $("#pricePercarat").find('span').html('Price per carat is $' + parseFloat(price).toFixed(2) + ' as per above selection');
+            }
+            $("#pricePercarat").show();
+            total = parseFloat(carat * price);
+
+            if (carat > 0) {
+                var dataToPost = { productdiscount: { productId: dataCart.shopping_cart_item.product_id, qty: carat, customerId: login.logData.Id, attributes: dataCart.shopping_cart_item.product_attributes, custom_seives_ratio: custom_seives_ratio } };
+                $("#disCalc").show();
+                //$("#pricePercarat").hide();
+                Common.Post(dataToPost, "products/get_product_discount_by_customerId", function (s, resul) {
+                    if (s == true) {
+                        if (resul != 0) {
+                            var dis = total - (total * (resul / 100))
+                            $('.total').html("$" + parseFloat(dis).toFixed(2));
+                            $("#disPercent").show();
+                            $("#disPercent").find("span").html(parseFloat(resul).toFixed(2) + "% dicount has been applied");
+                            if (carat <= 0) {
+                                $("#disPercent").hide();
+                            }
+                        }
+                    }
+                    $("#disCalc").hide();
+                }, false);
+
+            }
+            else {
+                isReadyAddCart = false;
+            }
+            $('.total').html("$" + parseFloat(total).toFixed(2));
+            if (currentProduct.product_attribute_combination.length == 0) {
+                var selectedAttrr = [];
+                var attrs = currentProduct.attributes;
+                for (i in attrs) {
+                    var vals = attrs[i].attribute_values;
+                    for (j in vals) {
+                        if (color == vals[j].id || clarity == vals[j].id || vals[j].id == size) {
+                            selectedAttrr.push({ id: attrs[i].id, value: vals[j].id });
+                            dataCart.shopping_cart_item.product_attributes = selectedAttrr;
+                        }
+                    }
+                }
+            }
+
+            dataCart.shopping_cart_item.product_id = currentProduct.id;
+            dataCart.shopping_cart_item.quantity = carat;
+        }
+
+        $('.carat').keyup(function (event) {
+            var phoneno = /^(?=.?\d)\d*(\.\d{0,9})?$/;
+            var text = $(this).val().replace(/-/g, "");
+
+            if (text.match(phoneno) && text.length <= 10) {
+                if (text.indexOf(".") > -1 && (text.substr(text.indexOf(".") + 1)).length > 2) {
+                    $(this).val(text.substr(0, text.indexOf(".") + 3));
+                    console.log($(this).val());
+                }
+                GetPrice();
+                return true;
+            }
+            else {
+                var str = $(this).val();
+                var pos = str.lastIndexOf(event.key);
+                str = str.substring(0, pos) + '' + str.substring(pos + 1)
+                $(this).val(str);
+                GetPrice();
+                return false;
+            }
+        });
+
+        function AddToCart() {
+            if (isReadyAddCart) {
+                dataCart.shopping_cart_item.customer_id = login.logData.Id
+                dataCart.shopping_cart_item.custom_seives_ratio = custom_seives_ratio;
+                var dataTopost = { json: JSON.stringify(dataCart) };
+
+                Common.Post(dataCart, "shopping_cart_items", function (s, r) {
+                    if (s == true) {
+                        login.logData.CartCount = r.cartCount;
+                        Common.SetJsonToLocal('ChorusUserDetail', JSON.stringify(login.logData));
+                        Common.PrintInnerHtml($('#cartCount'), '' + login.logData.CartCount + "")
+                        Common.showConfirmDialog("Diamond purchase added to cart.<br/>Do you want to go to cart?", function () {
+                            window.location.href = 'cart.html';
+                        }, function () {
+                            window.location.href = window.location.href;
+                        });
+                    }
+                })
+
+            }
+            else {
+                if (color == 0) {
+                    Common.showError("Please select color");
+                }
+                else if (size == 0) {
+                    Common.showError("Please select size");
+                }
+                else if (clarity == 0) {
+                    Common.showError("Please select clarity");
+                }
+                else if (carat == 0) {
+                    Common.showError("Please enter carat");
+                }
+            }
+        }
+
+        ////////////////////////////
+
+        var addTocart = {
+            shopping_cart_item:
+            { quantity: 0, id: 0, product_attributes: null, created_on_utc: new Date(), product_id: 0, shopping_cart_type: 1, customer_id: '@customer_id' }
+        };
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            //ZohoCrmClient.insertRecords("Home", "alex", "hales", "alex@gmail.com", 'Mr', '9897996361');
+            //ZohoCrmClient.getRecords();
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        var $zoho = $zoho || {}; $zoho.salesiq = $zoho.salesiq || {
+            widgetcode: "b0cca45a5b976cef9da56bee0646a6e6bb323313bf999bf5402a554f1d6ecb1f5d5fe629768af6d9a03793700d9418c2", values: {}, ready: function () {
+                $zoho.salesiq.visitor.name(login.logData.Name);
+                $zoho.salesiq.visitor.email(Common.GetJsonFromLocal('unm'));
+                $zoho.salesiq.visitor.contactnumber(login.logData.ph_no);
+            }
+        }; var d = document; s = d.createElement("script"); s.type = "text/javascript"; s.id = "zsiqscript"; s.defer = true; s.src = "http://salesiq.zoho.com/widget"; t = d.getElementsByTagName("script")[0]; t.parentNode.insertBefore(s, t); d.write("<div id='zsiqwidget'></div>");
+    </script>
+
+</body>
+</html>

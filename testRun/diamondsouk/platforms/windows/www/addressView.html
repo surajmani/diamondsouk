@@ -1,0 +1,335 @@
+﻿<style type="text/css">
+    .addr50 .colordarkgray {
+        font-size: 105%;
+        font-weight: 600;
+        color: #6c6c6c;
+    }
+
+    .addr50 .colorgray {
+        font-size: 100%;
+        color: #232323 !important;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+
+    .addr50 .marb20 {
+        margin-bottom: 5px;
+    }
+
+    .marb20 div {
+        margin-bottom: 10px;
+    }
+
+    .autoPop div {
+        margin-bottom: 0px;
+    }
+
+    #addressModal {
+        z-index: 9;
+    }
+
+    .editText input[type=text] {
+            font-size: 98%;
+            font-weight: 600;
+            color: #4f4f4f !important;
+            text-transform: capitalize;
+            /*padding:5px !important;*/
+            padding: 10px 5px 10px 5px !important;
+            height: 30px;
+        }
+
+        .marb20 {
+            margin-bottom: 12px;
+        }
+
+        .normal {
+            border: solid 1px #e1e4e5;
+        }
+
+        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: #819AA0;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            color: #819AA0;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        :-ms-input-placeholder { /* IE 10+ */
+            color: #819AA0;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            color: #819AA0;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        .backBottom, .left {
+            /*border-color: #016583 !important;
+            color: #016583 !important;*/
+        }
+</style>
+<div id="addr50" class="addr50" style="">
+    <div class="linearLayout" style="width:90%;margin:0 auto;background: white;
+    padding: 10px;display:table;">
+        <div class="marb20" style="width:100%; float:left">
+            <div>
+                <!--<span class="colordarkgray">First Name</span>-->
+            </div>
+            <div class="editText normal">
+                <input placeholder="First Name" class="colorgray" type="text" style="width:100%" />
+            </div>
+        </div>
+        <div class="marb20" style="width:100%; float:right">
+            <div>
+                <!--<span class="colordarkgray"></span>-->
+            </div>
+            <div class="editText normal">
+                <input placeholder="Last Name" class="colorgray" type="text" style="width:100%" />
+            </div>
+        </div>
+
+
+        <div class="marb20" style="width:100%; float:right; display:none">
+            <div>
+                <!--<span class="colordarkgray">Email</span>-->
+            </div>
+            <div class="editText normal">
+                <input placeholder="Email" class="colorgray" type="email" style="width:100%" />
+            </div>
+        </div>
+        <div class="marb20" style="width:100%; float:right">
+            <div>
+                <!--<span class="colordarkgray">Company</span>-->
+            </div>
+            <div class="editText normal">
+                <input placeholder="Company" class="colorgray" type="text" style="width:100%" />
+            </div>
+        </div>
+        <div class="marb20" style="width:100%; float:right">
+            <div>
+                <!--<span class="colordarkgray">Country</span>-->
+            </div>
+            <div class="editText normal">
+                <input placeholder="Country" class="colorgray" id="country" type="text" style="width:100%" />
+            </div>
+        </div>
+        <div class="marb20" style="width:100%; float:right">
+            <div>
+                <!--<span class="colordarkgray">State</span>-->
+            </div>
+            <div class="editText normal">
+                <input placeholder="State" id="states" class="colorgray" type="text" style="width:100%" />
+            </div>
+        </div>
+        <div class="marb20" style="width:100%; float:right">
+            <div>
+                <!--<span class="colordarkgray">City</span>-->
+            </div>
+            <div class="editText normal">
+                <input placeholder="City" class="colorgray" type="text" style="width:100%" />
+            </div>
+        </div>
+        <div class="marb20" style="width:100%; float:right">
+            <div>
+                <!--<span class="colordarkgray">Address</span>-->
+            </div>
+            <div class="editText normal">
+                <input placeholder="Address" class="colorgray" type="text" style="width:100%" />
+            </div>
+        </div>
+        <div class="marb20" style="width:100%; float:right">
+            <div>
+                <!--<span class="colordarkgray">Zip/Postal Code</span>-->
+            </div>
+            <div class="editText normal">
+                <input placeholder="Zip/Postal Code" class="colorgray" type="text" style="width:100%" />
+            </div>
+        </div>
+        <div class="marb20" style="width:100%; float:right;display:none">
+            <div>
+                <span class="colordarkgray">Phone Number</span>
+            </div>
+            <div class="editText normal">
+                <input class="colorgray numOnly" type="text" style="width:100%" />
+            </div>
+        </div>
+        <div class="marb20" style="width:calc(50% - 10px); float:left">
+            <button onclick="Save()" class="ViewOrder" style="background-image:url(img/press.png);background-repeat: no-repeat;
+    background-size: 100% 100%; width:72%;height:32px;font-size: 105%;">
+                Save
+            </button>
+        </div>
+        <div class="marb20" style="width:calc(50% - 10px); float:right">
+            <button onclick="Cancel()" class="ViewOrder" style="background-image:url(img/press.png);background-repeat: no-repeat;
+    background-size: 100% 100%; width:72%;height:32px;font-size: 105%; float:right">
+                Cancel
+            </button>
+        </div>
+    </div>
+    <div class="clearfix" style="height:15px;"></div>
+</div>
+<script>
+    var listCountry = null;
+    var listCity = null;
+    var callBackFunc = null;
+    var addr = null;
+    var state = { value: 106, text: "Others" };
+    var country = {};
+    function ShowAddressEditor(render, callBack) {
+        callBackFunc = callBack;
+        var mDocument = document.getElementsByClassName('bg')[0];
+        document.getElementById('addressModal').style.width = mDocument.clientWidth + 'px';
+        document.getElementById('addressModal').style.left = mDocument.offsetLeft + 'px';
+        $('#addressModal').addClass('showModal');
+        Common.LoadPage("country.txt", function (s, r) {
+
+            addr = JSON.parse(JSON.stringify(addrOld));
+            country.value = addr.country_id;
+            state.value = addr.state_province_id;
+            listCountry = JSON.parse(r);
+            Common.AutoComplete(document.getElementById("country"), listCountry.states, function (d) {
+                country = d;
+
+                document.getElementById("states").parentNode.removeChild(document.getElementById(document.getElementById("states").getAttribute("autopopid")));
+                document.getElementById("states").value = "";
+                var newData = [];
+                for (c in listCity.states) {
+                    if (listCity.states[c].countryId == d.value) {
+                        newData.push(listCity.states[c]);
+                    }
+                }
+                if (newData.length == 0) {
+                    newData.push({ id: 106, Name: "Others" });
+                    document.getElementById("states").value = 'Others';
+                    document.getElementById("states").setAttribute('readonly', "readonly");
+                    state = { value: 106, text: "Others" };
+                }
+                else {
+                    document.getElementById("states").removeAttribute('readonly');
+                }
+                Common.AutoComplete(document.getElementById("states"), newData, function (d) {
+                    state = d;
+                });
+            });
+            Common.LoadPage("stateList.txt", function (s1, r1) {
+                listCity = JSON.parse(r1);
+                var newData = [];
+                for (c in listCity.states) {
+                    if (listCity.states[c].countryId == addr.country_id) {
+                        newData.push(listCity.states[c]);
+                    }
+                }
+                if (newData.length == 0) {
+                    newData.push({ id: 106, Name: "Others" });
+                }
+                Common.AutoComplete(document.getElementById("states"), newData, function (d) {
+                    state = d;
+                });
+
+                if (render == true) {
+                    renderAddress(addr, 50);
+                }
+
+            }, true);
+        }, true);
+    }
+    function Cancel() {
+        $('#cartMain').show();
+        $('#addressModal').removeClass('showModal');
+    }
+    function Save() {
+        var rs = readAddress("50");
+        callBackFunc({ Error: rs, data: addr });
+    }
+    function renderAddress(address, stp) {
+        var inp = $("#addr" + stp).find('input');
+
+        var cnt = 0;
+        $(inp[cnt++]).val(address.first_name);
+        $(inp[cnt++]).val(address.last_name);
+        $(inp[cnt++]).val(address.email);
+        $(inp[cnt++]).val(address.company);
+        $(inp[cnt++]).val(address.country);
+
+        $(inp[cnt++]).val(address.province);
+
+        $(inp[cnt++]).val(address.city);
+        $(inp[cnt++]).val(address.address1);
+        $(inp[cnt++]).val(address.zip_postal_code);
+        $(inp[cnt++]).val(address.phone_number);
+    }
+    function readAddress(stp) {
+        var tempAddr = JSON.parse(JSON.stringify(addr));
+        tempAddr.id = addr.id;
+        var inp = $("#addr" + stp).find('input');
+        var cnt = 0;
+        tempAddr.first_name = $(inp[cnt++]).val();
+        if (tempAddr.first_name == "") {
+            return "First name is required";
+        }
+        tempAddr.last_name = $(inp[cnt++]).val();
+        if (tempAddr.last_name == "") {
+            return "last name is required";
+        }
+        tempAddr.email = $(inp[cnt++]).val();
+        tempAddr.email = addr.email;
+        if (tempAddr.email == "") {
+            return "Email is required";
+        }
+        tempAddr.company = $(inp[cnt++]).val();
+        if (tempAddr.company == "") {
+            return "Company is required";
+        }
+        tempAddr.country = $(inp[cnt++]).val();
+        if (tempAddr.country == "") {
+            return "Country is required";
+        }
+        else {
+            if (country != null) {
+                tempAddr.country_id = country.value;
+            }
+            else {
+                $(inp[cnt]).val("");
+                return "Invalid country";
+            }
+        }
+        tempAddr.province = $(inp[cnt++]).val();
+        if (tempAddr.province == "") {
+            return "State is required";
+        }
+        tempAddr.city = $(inp[cnt++]).val();
+        if (tempAddr.city == "") {
+            return "City is required";
+        }
+        tempAddr.address1 = $(inp[cnt++]).val();
+        if (tempAddr.address1 == "") {
+            return "Address is required";
+        }
+        tempAddr.zip_postal_code = $(inp[cnt++]).val();
+        if (tempAddr.zip_postal_code == "") {
+            return "Zip / Postal is required";
+        }
+        tempAddr.phone_number = $(inp[cnt++]).val();
+        tempAddr.phone_number = addr.phone_number;
+        if (tempAddr.phone_number == "") {
+            return "Phone number is required";
+        }
+        if (state != null) {
+            tempAddr.state_province_id = state.value;
+        }
+        else {
+            tempAddr.state_province_id = 106;
+        }
+
+        addr = tempAddr;
+
+        return "";
+    }
+</script>
