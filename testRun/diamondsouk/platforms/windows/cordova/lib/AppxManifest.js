@@ -21,7 +21,7 @@ var fs = require('fs');
 var util = require('util');
 var et = require('elementtree');
 var path = require('path');
-var xml= require('cordova-common').xmlHelpers;
+var xml = require('cordova-common').xmlHelpers;
 
 var UAP_RESTRICTED_CAPS = ['enterpriseAuthentication', 'sharedUserCertificates',
                            'documentsLibrary', 'musicLibrary', 'picturesLibrary',
@@ -29,14 +29,14 @@ var UAP_RESTRICTED_CAPS = ['enterpriseAuthentication', 'sharedUserCertificates',
                            'privateNetworkClientServer'];
 
 // UAP namespace capabilities come from the XSD type ST_Capability_Uap from AppxManifestTypes.xsd
-var CAPS_NEEDING_UAPNS  = ['documentsLibrary', 'picturesLibrary', 'videosLibrary',
+var CAPS_NEEDING_UAPNS = ['documentsLibrary', 'picturesLibrary', 'videosLibrary',
                            'musicLibrary', 'enterpriseAuthentication', 'sharedUserCertificates',
                            'removableStorage', 'appointments', 'contacts', 'userAccountInformation',
                            'phoneCall', 'blockedChatMessages', 'objects3D'];
 
 var KNOWN_ORIENTATIONS = {
-    'default':   ['portrait', 'landscape', 'landscapeFlipped'],
-    'portrait':  ['portrait'],
+    'default': ['portrait', 'landscape', 'landscapeFlipped'],
+    'portrait': ['portrait'],
     'landscape': ['landscape', 'landscapeFlipped']
 };
 
@@ -182,10 +182,10 @@ AppxManifest.prototype.getIdentity = function () {
             return identity.attrib.Version;
         },
         setVersion: function (version) {
-            if (!version) throw new TypeError('Identity.Version attribute must be non-empty in appxmanifest at ' + this.path );
+            if (!version) throw new TypeError('Identity.Version attribute must be non-empty in appxmanifest at ' + this.path);
 
             // Adjust version number as per CB-5337 Windows8 build fails due to invalid app version
-            if(version && version.match(/\.\d/g)) {
+            if (version && version.match(/\.\d/g)) {
                 var numVersionComponents = version.match(/\.\d/g).length + 1;
                 while (numVersionComponents++ < 4) {
                     version += '.0';
@@ -316,8 +316,8 @@ AppxManifest.prototype.getApplication = function () {
             appUriRules = new et.Element('ApplicationContentUriRules');
             application.append(appUriRules);
 
-            rules.forEach(function(rule) {
-                appUriRules.append(new et.Element('Rule', {Match: rule, Type: 'include'}));
+            rules.forEach(function (rule) {
+                appUriRules.append(new et.Element('Rule', { Match: rule, Type: 'include' }));
             });
 
             return this;
@@ -328,7 +328,7 @@ AppxManifest.prototype.getApplication = function () {
 AppxManifest.prototype.getVisualElements = function () {
     var self = this;
     var visualElements = this.doc.getroot().find('./Applications/Application/' +
-        this.prefix  + 'VisualElements');
+        this.prefix + 'VisualElements');
 
     if (!visualElements)
         throw new Error('Failed to find "VisualElements" node. The appxmanifest at ' + this.path + ' is invalid');
@@ -350,7 +350,7 @@ AppxManifest.prototype.getVisualElements = function () {
                 });
         },
         setOrientation: function (orientation) {
-            if (!orientation || orientation === ''){
+            if (!orientation || orientation === '') {
                 orientation = 'default';
             }
 
@@ -363,7 +363,7 @@ AppxManifest.prototype.getVisualElements = function () {
                 return this;
             }
 
-            if(!rotationPreferenceRoot) {
+            if (!rotationPreferenceRoot) {
                 rotationPreferenceRoot = new et.Element(rotationPreferenceRootName);
                 visualElements.append(rotationPreferenceRoot);
             }
@@ -371,8 +371,8 @@ AppxManifest.prototype.getVisualElements = function () {
             rotationPreferenceRoot.clear();
 
             var orientations = KNOWN_ORIENTATIONS[orientation] || orientation.split(',');
-            orientations.forEach(function(orientation) {
-                var el = new et.Element(self.prefix + 'Rotation', {Preference: orientation} );
+            orientations.forEach(function (orientation) {
+                var el = new et.Element(self.prefix + 'Rotation', { Preference: orientation });
                 rotationPreferenceRoot.append(el);
             });
 
@@ -424,7 +424,7 @@ AppxManifest.prototype.getVisualElements = function () {
         setSplashScreenExtension: function (extension) {
             var splashNode = visualElements.find('./' + self.prefix + 'SplashScreen');
             if (splashNode) {
-                var oldPath = splashNode.attrib.Image; 
+                var oldPath = splashNode.attrib.Image;
                 splashNode.attrib.Image = path.dirname(oldPath) + '\\' + path.basename(oldPath, path.extname(oldPath)) + extension;
             }
             return this;
@@ -519,10 +519,10 @@ AppxManifest.prototype.setAppName = function (name) {
  * @param   {String}  [destPath]  File to write manifest to. If omitted,
  *   manifest will be written to file it has been read from.
  */
-AppxManifest.prototype.write = function(destPath) {
+AppxManifest.prototype.write = function (destPath) {
     // sort Capability elements as per CB-5350 Windows8 build fails due to invalid 'Capabilities' definition
     sortCapabilities(this.doc);
-    fs.writeFileSync(destPath || this.path, this.doc.write({indent: 4}), 'utf-8');
+    fs.writeFileSync(destPath || this.path, this.doc.write({ indent: 4 }), 'utf-8');
 };
 
 /**
@@ -541,15 +541,15 @@ function sortCapabilities(manifest) {
     var capabilitiesRoot = manifest.find('.//Capabilities'),
         capabilities = capabilitiesRoot.getchildren() || [];
     // to sort elements we remove them and then add again in the appropriate order
-    capabilities.forEach(function(elem) { // no .clear() method
+    capabilities.forEach(function (elem) { // no .clear() method
         capabilitiesRoot.remove(elem);
         // CB-7601 we need local name w/o namespace prefix to sort capabilities correctly
         elem.localName = extractLocalName(elem.tag);
     });
-    capabilities.sort(function(a, b) {
-        return (a.localName > b.localName) ? 1: -1;
+    capabilities.sort(function (a, b) {
+        return (a.localName > b.localName) ? 1 : -1;
     });
-    capabilities.forEach(function(elem) {
+    capabilities.forEach(function (elem) {
         capabilitiesRoot.append(elem);
     });
 }
@@ -588,7 +588,7 @@ Win10AppxManifest.prototype.getApplication = function () {
         appUriRules = new et.Element('uap:ApplicationContentUriRules');
         application.append(appUriRules);
 
-        rules.forEach(function(rule) {
+        rules.forEach(function (rule) {
             appUriRules.append(new et.Element('uap:Rule', { Match: rule, Type: 'include', WindowsRuntimeAccess: 'all' }));
         });
 
@@ -618,11 +618,11 @@ Win10AppxManifest.prototype.getVisualElements = function () {
 
     // ToastCapable attribute was removed in Windows 10.
     // See https://msdn.microsoft.com/ru-ru/library/windows/apps/dn423310.aspx
-    result.getToastCapable = function () {};
+    result.getToastCapable = function () { };
     result.setToastCapable = function () { return this; };
 
     // ForegroundText was removed in Windows 10 as well
-    result.getForegroundText = function () {};
+    result.getForegroundText = function () { };
     result.setForegroundText = function () { return this; };
 
     return result;
@@ -688,16 +688,16 @@ Win10AppxManifest.prototype.setDependencies = function (dependencies) {
  * @param   {String}  [destPath]  File to write manifest to. If omitted,
  *   manifest will be written to file it has been read from.
  */
-Win10AppxManifest.prototype.write = function(destPath) {
+Win10AppxManifest.prototype.write = function (destPath) {
     fs.writeFileSync(destPath || this.path, this.writeToString(), 'utf-8');
 };
 
-Win10AppxManifest.prototype.writeToString = function() {
+Win10AppxManifest.prototype.writeToString = function () {
     ensureUapPrefixedCapabilities(this.doc.find('.//Capabilities'));
     ensureUniqueCapabilities(this.doc.find('.//Capabilities'));
     // sort Capability elements as per CB-5350 Windows8 build fails due to invalid 'Capabilities' definition
     sortCapabilities(this.doc);
-    return this.doc.write({indent: 4});
+    return this.doc.write({ indent: 4 });
 };
 
 /**
@@ -706,7 +706,7 @@ Win10AppxManifest.prototype.writeToString = function() {
  */
 function ensureUapPrefixedCapabilities(capabilities) {
     capabilities.getchildren()
-    .forEach(function(el) {
+    .forEach(function (el) {
         if (CAPS_NEEDING_UAPNS.indexOf(el.attrib.Name) > -1 && el.tag.indexOf('uap:') !== 0) {
             el.tag = 'uap:' + el.tag;
         }
@@ -720,7 +720,7 @@ function ensureUapPrefixedCapabilities(capabilities) {
 function ensureUniqueCapabilities(capabilities) {
     var uniqueCapabilities = [];
     capabilities.getchildren()
-    .forEach(function(el) {
+    .forEach(function (el) {
         var name = el.attrib.Name;
         if (uniqueCapabilities.indexOf(name) !== -1) {
             capabilities.remove(el);
