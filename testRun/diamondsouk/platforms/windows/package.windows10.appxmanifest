@@ -1,36 +1,37 @@
-<?xml version='1.0' encoding='utf-8'?>
-<Package IgnorableNamespaces="uap mp" xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10">
-    <Identity Name="com.diamondsouk" Publisher="CN=$username$" Version="1.4.1.0" />
-    <mp:PhoneIdentity PhoneProductId="a23fcb40-0b27-11e8-bed1-fde8328dcec5" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
-    <Properties>
-        <DisplayName>Diamondsouk</DisplayName>
-        <PublisherDisplayName>Diamond Souk Team</PublisherDisplayName>
-        <Logo>images\StoreLogo.png</Logo>
-        <Description>Diamond Souk.</Description>
-    </Properties>
-    <Dependencies>
-        <TargetDeviceFamily MaxVersionTested="10.0.10240.0" MinVersion="10.0.10240.0" Name="Windows.Universal" />
-    </Dependencies>
-    <Resources>
-        <Resource Language="x-generate" />
-    </Resources>
-    <Applications>
-        <Application Id="com.diamondsouk" StartPage="ms-appx-web://com.diamondsouk/www/index.html">
-            <uap:VisualElements BackgroundColor="#464646" Description="Diamond Souk." DisplayName="Diamondsouk" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png">
-                <uap:SplashScreen Image="images\splashscreen.png" />
-                <uap:DefaultTile ShortName="Diamondsouk" Square310x310Logo="images\Square310x310Logo.png" Square71x71Logo="images\Square71x71Logo.png" Wide310x150Logo="images\Wide310x150Logo.png" />
-                <uap:InitialRotationPreference>
-                    <uap:Rotation Preference="portrait" />
-                    <uap:Rotation Preference="landscape" />
-                    <uap:Rotation Preference="landscapeFlipped" />
-                </uap:InitialRotationPreference>
-            </uap:VisualElements>
-            <uap:ApplicationContentUriRules>
-                <uap:Rule Match="ms-appx-web:///" Type="include" WindowsRuntimeAccess="all" />
-            </uap:ApplicationContentUriRules>
-        </Application>
-    </Applications>
-    <Capabilities>
-        <Capability Name="internetClient" />
-    </Capabilities>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
+  <Identity Name="45113KshitizJain.4079272126FCB" Publisher="CN=FC125EBA-E7A0-4411-85C1-513B684EE647" Version="1.4.1.0" />
+  <mp:PhoneIdentity PhoneProductId="a23fcb40-0b27-11e8-bed1-fde8328dcec5" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>Diamond Souk Team</DisplayName>
+    <PublisherDisplayName>Diamond Souk Team</PublisherDisplayName>
+    <Logo>images\StoreLogo.png</Logo>
+    <Description>Diamond Souk.</Description>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily MaxVersionTested="10.0.10240.0" MinVersion="10.0.10240.0" Name="Windows.Universal" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="com.diamondsouk" StartPage="ms-appx-web://com.diamondsouk/www/index.html">
+      <uap:VisualElements BackgroundColor="#464646" Description="Diamond Souk." DisplayName="Diamondsouk" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png">
+        <uap:SplashScreen Image="images\splashscreen.png" />
+        <uap:DefaultTile ShortName="Diamondsouk" Square310x310Logo="images\Square310x310Logo.png" Square71x71Logo="images\Square71x71Logo.png" Wide310x150Logo="images\Wide310x150Logo.png">
+        </uap:DefaultTile>
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="portrait" />
+          <uap:Rotation Preference="landscape" />
+          <uap:Rotation Preference="landscapeFlipped" />
+        </uap:InitialRotationPreference>
+      </uap:VisualElements>
+      <uap:ApplicationContentUriRules>
+        <uap:Rule Match="ms-appx-web:///" Type="include" WindowsRuntimeAccess="all" />
+      </uap:ApplicationContentUriRules>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
 </Package>

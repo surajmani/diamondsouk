@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-    <Identity Name="com.diamondsouk" Publisher="CN=FC125EBA-E7A0-4411-85C1-513B684EE647" Version="1.4.1.0" />
-    <mp:PhoneIdentity PhoneProductId="a23fcb40-0b27-11e8-bed1-fde8328dcec5" PhonePublisherId="656b85e3-d1fd-4266-9ba6-35b84c2a09c2" />
+  <Identity Name="45113KshitizJain.4079272126FCB" Publisher="CN=FC125EBA-E7A0-4411-85C1-513B684EE647" Version="1.4.1.0" />
+  <mp:PhoneIdentity PhoneProductId="a23fcb40-0b27-11e8-bed1-fde8328dcec5" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
     <Properties>
-        <DisplayName>Diamondsouk</DisplayName>
+      <DisplayName>Diamond Souk Team</DisplayName>
         <PublisherDisplayName>Diamond Souk Team</PublisherDisplayName>
         <Logo>images\StoreLogo.png</Logo>
         <Description>Diamond Souk.</Description>
