@@ -97,6 +97,6 @@
   <allow-navigation href="*" />
   <preference name="windows-identity-name" value="45113KshitizJain.4079272126FCB" />
   <preference name="WindowsStoreDisplayName" value="Diamond Souk Team" />
-  <preference name="WindowsStoreIdentityName" value="CN=FC125EBA-E7A0-4411-85C1-513B684EE647" />
+  <preference name="WindowsStorePublisherName" value="CN=FC125EBA-E7A0-4411-85C1-513B684EE647"/>
   
 </widget>
