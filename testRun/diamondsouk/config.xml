@@ -61,19 +61,19 @@
     <splash density="port-xxxhdpi" src="res/screens/android/splash-port-xxxhdpi.png" />
   </platform>
   <platform name="windows">
-    <icon src="/res/icons/windows/storelogo.png" target="StoreLogo" />
-    <icon src="/res/icons/windows/smalllogo.png" target="Square30x30Logo" />
-    <icon src="/res/icons/windows/Square44x44Logo.png" target="Square44x44Logo" />
-    <icon src="/res/icons/windows/Square70x70Logo.png" target="Square70x70Logo" />
-    <icon src="/res/icons/windows/Square71x71Logo.png" target="Square71x71Logo" />
-    <icon src="/res/icons/windows/Square150x150Logo.png" target="Square150x150Logo" />
-    <icon src="/res/icons/windows/Square310x310Logo.png" target="Square310x310Logo" />
-    <splash src="/res/screens/windows/splashscreen.png" target="SplashScreen" />
-    <splash src="/res/screens/windows/splashscreenphone.png" target="SplashScreenPhone" />
-    <splash src="/res/icons/windows/StoreLogo.scale-100.png" target="Store100x100Logo" />
-    <splash src="/res/icons/windows/Square150x150Logo.scale-100.png" target="Square150x150Logo" />
-    <splash src="/res/icons/windows/Wide310x150Logo.scale-100.png" target="Wide310x150Logo" />
-    <splash src="/res/icons/windows/Square310x310Logo.scale-100.png" target="Square310x310Logo" />
+    <icon src="res/icons/windows/storelogo.png" target="StoreLogo" />
+    <icon src="res/icons/windows/smalllogo.png" target="Square30x30Logo" />
+    <icon src="res/icons/windows/Square44x44Logo.png" target="Square44x44Logo" />
+    <icon src="res/icons/windows/Square70x70Logo.png" target="Square70x70Logo" />
+    <icon src="res/icons/windows/Square71x71Logo.png" target="Square71x71Logo" />
+    <icon src="res/icons/windows/Square150x150Logo.png" target="Square150x150Logo" />
+    <icon src="res/icons/windows/Square310x310Logo.png" target="Square310x310Logo" />
+    <splash src="res/screens/windows/splashscreen.png" target="SplashScreen" />
+    <splash src="res/screens/windows/splashscreenphone.png" target="SplashScreenPhone" />
+    <splash src="res/icons/windows/StoreLogo.scale-100.png" target="Store100x100Logo" />
+    <splash src="res/icons/windows/Square150x150Logo.scale-100.png" target="Square150x150Logo" />
+    <splash src="res/icons/windows/Wide310x150Logo.scale-100.png" target="Wide310x150Logo" />
+    <splash src="res/icons/windows/Square310x310Logo.scale-100.png" target="Square310x310Logo" />
   </platform>
   <platform name="android">
     <allow-intent href="market:*" />
@@ -83,19 +83,19 @@
     <allow-intent href="itms-apps:*" />
   </platform>
   <platform name="winphone">
-    <icon src="/res/icons/windows/storelogo.png" target="StoreLogo" />
-    <icon src="/res/icons/windows/smalllogo.png" target="Square30x30Logo" />
-    <icon src="/res/icons/windows/Square44x44Logo.png" target="Square44x44Logo" />
-    <icon src="/res/icons/windows/Square70x70Logo.png" target="Square70x70Logo" />
-    <icon src="/res/icons/windows/Square71x71Logo.png" target="Square71x71Logo" />
-    <icon src="/res/icons/windows/Square150x150Logo.png" target="Square150x150Logo" />
-    <icon src="/res/icons/windows/Square310x310Logo.png" target="Square310x310Logo" />
-    <splash src="/res/screens/windows/splashscreen.png" target="SplashScreen" />
-    <splash src="/res/screens/windows/splashscreenphone.png" target="SplashScreenPhone" />
-    <splash src="/res/icons/windows/StoreLogo.scale-100.png" target="Store100x100Logo" />
-    <splash src="/res/icons/windows/Square150x150Logo.scale-100.png" target="Square150x150Logo" />
-    <splash src="/res/icons/windows/Wide310x150Logo.scale-100.png" target="Wide310x150Logo" />
-    <splash src="/res/icons/windows/Square310x310Logo.scale-100.png" target="Square310x310Logo" />
+    <icon src="res/icons/windows/storelogo.png" target="StoreLogo" />
+    <icon src="res/icons/windows/smalllogo.png" target="Square30x30Logo" />
+    <icon src="res/icons/windows/Square44x44Logo.png" target="Square44x44Logo" />
+    <icon src="res/icons/windows/Square70x70Logo.png" target="Square70x70Logo" />
+    <icon src="res/icons/windows/Square71x71Logo.png" target="Square71x71Logo" />
+    <icon src="res/icons/windows/Square150x150Logo.png" target="Square150x150Logo" />
+    <icon src="res/icons/windows/Square310x310Logo.png" target="Square310x310Logo" />
+    <splash src="res/screens/windows/splashscreen.png" target="SplashScreen" />
+    <splash src="res/screens/windows/splashscreenphone.png" target="SplashScreenPhone" />
+    <splash src="res/icons/windows/StoreLogo.scale-100.png" target="Store100x100Logo" />
+    <splash src="res/icons/windows/Square150x150Logo.scale-100.png" target="Square150x150Logo" />
+    <splash src="res/icons/windows/Wide310x150Logo.scale-100.png" target="Wide310x150Logo" />
+    <splash src="res/icons/windows/Square310x310Logo.scale-100.png" target="Square310x310Logo" />
   </platform>
   <preference name='windows-target-version' value='8.1' />
   <preference name="DisallowOverscroll" value="true" />
