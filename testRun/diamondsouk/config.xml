@@ -17,6 +17,7 @@
   <allow-intent href="sms:*" />
   <allow-intent href="mailto:*" />
   <allow-intent href="geo:*" />
+  <preference name="phonegap-version" value="cli-5.4.1" />
   <platform name="ios">
     <icon height="1024" src="res/icons/ios/icon-1024.png" width="1024" />
     <icon height="29" src="res/icons/ios/icon-small.png" width="29" />
