@@ -263,3 +263,4 @@ ModelManifest.xml
 /developer_identity.pem
 /ios sign
 /testRun/testRun.sln
+/testRun/diamondsouk/.cordova/config.json
