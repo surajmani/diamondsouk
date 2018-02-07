@@ -1,9 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.diamondsouk" version="1.4.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
   <name>Diamondsouk</name>
-  <description>
-    Diamond Souk.
-  </description>
+  <description> Diamond Souk.</description>
   <author email="support@diamondsouk.ae" href="">
     Diamond Souk Team
   </author>
