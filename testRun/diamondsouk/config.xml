@@ -61,6 +61,7 @@
     <splash density="port-xxxhdpi" src="res/screens/android/splash-port-xxxhdpi.png" />
   </platform>
   <platform name="windows">
+    <preference name="windows-identity-name" value="PhonegapBuild.PGBDeveloper" />
     <icon src="res/icons/windows/storelogo.png" target="StoreLogo" />
     <icon src="res/icons/windows/smalllogo.png" target="Square30x30Logo" />
     <icon src="res/icons/windows/Square44x44Logo.png" target="Square44x44Logo" />
@@ -83,6 +84,7 @@
     <allow-intent href="itms-apps:*" />
   </platform>
   <platform name="winphone">
+    <preference name="windows-identity-name" value="PhonegapBuild.PGBDeveloper" />
     <icon src="res/icons/windows/storelogo.png" target="StoreLogo" />
     <icon src="res/icons/windows/smalllogo.png" target="Square30x30Logo" />
     <icon src="res/icons/windows/Square44x44Logo.png" target="Square44x44Logo" />
