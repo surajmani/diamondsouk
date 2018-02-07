@@ -1,0 +1,49 @@
+{
+  "_from": "cordova-plugin-appsee",
+  "_id": "cordova-plugin-appsee@2.3.65",
+  "_inBundle": false,
+  "_integrity": "sha512-kwG7KUloNVZBLSXfgGmu9w2q3plhgUVZ0uDNXCdrCB2RgFIl14ixS+S2qnCzsPb+xfQJpb2PYKqHsJNWo+wjBw==",
+  "_location": "/cordova-plugin-appsee",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-appsee",
+    "name": "cordova-plugin-appsee",
+    "escapedName": "cordova-plugin-appsee",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-appsee/-/cordova-plugin-appsee-2.3.65.tgz",
+  "_shasum": "eda957e815d8e0d9276de36620f88df20b3cf615",
+  "_spec": "cordova-plugin-appsee",
+  "_where": "D:\\WORK\\testRun\\diamondsouk",
+  "author": {
+    "name": "Appsee"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-appsee",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "Appsee Mobile Analytics",
+  "keywords": [
+    "analytics",
+    "appsee",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "license": "Commercial",
+  "name": "cordova-plugin-appsee",
+  "version": "2.3.65"
+}
