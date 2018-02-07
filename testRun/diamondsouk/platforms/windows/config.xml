@@ -1,43 +1,43 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.diamondsouk" version="1.4.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Diamondsouk</name>
-    <description>
+  <name>Diamondsouk</name>
+  <description>
     Diamond Souk.
   </description>
-    <author email="support@diamondsouk.ae" href="">
+  <author email="support@diamondsouk.ae" href="">
     Diamond Souk Team
   </author>
-    <content src="index.html" />
-    <access origin="*" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
-    <allow-navigation href="*" />
-    <icon src="res/icons/windows/storelogo.png" target="StoreLogo" />
-    <icon src="res/icons/windows/smalllogo.png" target="Square30x30Logo" />
-    <icon src="res/icons/windows/Square44x44Logo.png" target="Square44x44Logo" />
-    <icon src="res/icons/windows/Square70x70Logo.png" target="Square70x70Logo" />
-    <icon src="res/icons/windows/Square71x71Logo.png" target="Square71x71Logo" />
-    <icon src="res/icons/windows/Square150x150Logo.png" target="Square150x150Logo" />
-    <icon src="res/icons/windows/Square310x310Logo.png" target="Square310x310Logo" />
-    <splash src="res/screens/windows/splashscreen.png" target="SplashScreen" />
-    <splash src="res/screens/windows/splashscreenphone.png" target="SplashScreenPhone" />
-  <splash src="res/screens/windows/StoreLogo.scale-100.png" target="Store100x100Logo" />
-  <splash src="res/screens/windows/Square150x150Logo.scale-100.png" target="Square150x150Logo" />
-  <splash src="res/screens/windows/Wide310x150Logo.scale-100.png" target="Wide310x150Logo" />
-  <splash src="res/screens/windows/Square310x310Logo.scale-100.png" target="Square310x310Logo" />
-    <preference name="WindowsToastCapable" value="true" />
-    <preference name="android-minSdkVersion" value="14" />
-    <preference name="StatusBarOverlaysWebView" value="false" />
-    <preference name="StatusBarBackgroundColor" value="#034d63" />
-    <preference name="StatusBarStyle" value="blacktranslucent" />
-    <preference name="DisallowOverscroll" value="true" />
-    <preference name="UIWebViewBounce" value="false" />
-    <preference name="windows-identity-name" value="45113KshitizJain.4079272126FCB" />
-    <preference name="windows-store-display-name" value="Diamond Souk Team" />
-    <preference name="windows-store-publisher-name" value="CN=FC125EBA-E7A0-4411-85C1-513B684EE647" />
+  <content src="index.html" />
+  <access origin="*" />
+  <allow-intent href="http://*/*" />
+  <allow-intent href="https://*/*" />
+  <allow-intent href="tel:*" />
+  <allow-intent href="sms:*" />
+  <allow-intent href="mailto:*" />
+  <allow-intent href="geo:*" />
+  <allow-navigation href="*" />
+  <icon src="res/icons/windows/storelogo.png" target="StoreLogo" />
+  <icon src="res/icons/windows/smalllogo.png" target="Square30x30Logo" />
+  <icon src="res/icons/windows/Square44x44Logo.png" target="Square44x44Logo" />
+  <icon src="res/icons/windows/Square70x70Logo.png" target="Square70x70Logo" />
+  <icon src="res/icons/windows/Square71x71Logo.png" target="Square71x71Logo" />
+  <icon src="res/icons/windows/Square150x150Logo.png" target="Square150x150Logo" />
+  <icon src="res/icons/windows/Square310x310Logo.png" target="Square310x310Logo" />
+  <splash src="res/screens/windows/splashscreen.png" target="SplashScreen" />
+  <splash src="res/screens/windows/splashscreenphone.png" target="SplashScreenPhone" />
+  <splash src="res/icons/windows/StoreLogo.scale-100.png" target="Store100x100Logo" />
+  <splash src="res/icons/windows/Square150x150Logo.scale-100.png" target="Square150x150Logo" />
+  <splash src="res/icons/windows/Wide310x150Logo.scale-100.png" target="Wide310x150Logo" />
+  <splash src="res/icons/windows/Square310x310Logo.scale-100.png" target="Square310x310Logo" />
+  <preference name="WindowsToastCapable" value="true" />
+  <preference name="android-minSdkVersion" value="14" />
+  <preference name="StatusBarOverlaysWebView" value="false" />
+  <preference name="StatusBarBackgroundColor" value="#034d63" />
+  <preference name="StatusBarStyle" value="blacktranslucent" />
+  <preference name="DisallowOverscroll" value="true" />
+  <preference name="UIWebViewBounce" value="false" />
+  <preference name="windows-identity-name" value="45113KshitizJain.4079272126FCB" />
+  <preference name="windows-store-display-name" value="Diamond Souk Team" />
+  <preference name="windows-store-publisher-name" value="CN=FC125EBA-E7A0-4411-85C1-513B684EE647" />
   <preference name='windows-target-version' value='8.1' />
 </widget>

@@ -72,10 +72,10 @@
     <icon src="res/icons/windows/Square310x310Logo.png" target="Square310x310Logo" />
     <splash src="res/screens/windows/splashscreen.png" target="SplashScreen" />
     <splash src="res/screens/windows/splashscreenphone.png" target="SplashScreenPhone" />
-    <splash src="res/screens/windows/StoreLogo.scale-100.png" target="Store100x100Logo" />
-    <splash src="res/screens/windows/Square150x150Logo.scale-100.png" target="Square150x150Logo" />
-    <splash src="res/screens/windows/Wide310x150Logo.scale-100.png" target="Wide310x150Logo" />
-    <splash src="res/screens/windows/Square310x310Logo.scale-100.png" target="Square310x310Logo" />
+    <splash src="res/icons/windows/StoreLogo.scale-100.png" target="Store100x100Logo" />
+    <splash src="res/icons/windows/Square150x150Logo.scale-100.png" target="Square150x150Logo" />
+    <splash src="res/icons/windows/Wide310x150Logo.scale-100.png" target="Wide310x150Logo" />
+    <splash src="res/icons/windows/Square310x310Logo.scale-100.png" target="Square310x310Logo" />
   </platform>
   <platform name="android">
     <allow-intent href="market:*" />
