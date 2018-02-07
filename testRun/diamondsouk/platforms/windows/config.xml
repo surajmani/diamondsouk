@@ -16,6 +16,8 @@
   <allow-intent href="mailto:*" />
   <allow-intent href="geo:*" />
   <allow-navigation href="*" />
+
+  <preference name="windows-identity-name" value="PhonegapBuild.PGBDeveloper" />
   <icon src="res/icons/windows/storelogo.png" target="StoreLogo" />
   <icon src="res/icons/windows/smalllogo.png" target="Square30x30Logo" />
   <icon src="res/icons/windows/Square44x44Logo.png" target="Square44x44Logo" />
